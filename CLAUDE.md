@@ -17,6 +17,11 @@
 ## 4. 토큰 활용 및 서브에이전트(Subagent) 활용
 - 난이도 높은 본문 주해나 예화 발굴 시, 적극적으로 **Subagent Loop**를 가동하여 독립적 조사를 마친 후 본문으로 합치십시오.
 
+## 4.5 원문 스크립트 콜드 아카이브 (`9_Archive/Raw_Sermon_Scripts/`)
+- 사용자가 기존에 작성했던 설교 스크립트 원문(슬라이드 형식 등 가공되지 않은 원본)은 `9_Archive/Raw_Sermon_Scripts/`에 `type: raw_script`, `status: cold_archive`로 그대로 보존합니다.
+- 이 폴더는 **의도적으로 `scripts/rebuild_index.py`의 자동 스캔 대상에서 제외**되어 있습니다 — 평소 위키 운영/로딩 시 매번 불러오지 않는 콜드 데이터이기 때문입니다. 원문이 필요할 때만 정제된 설교 문서의 frontmatter(`raw_script_archive` 필드)를 통해 링크를 따라가서 열람하십시오.
+- 원문을 정제하여 `1_Bible_Exegesis`(주해)와 `2_Sermon_Outlines`(3대지 설교)로 옮길 때는, 정제 문서 쪽에 `raw_script_archive: "[[원문 파일명]]"`을 반드시 추가해 역참조를 유지하십시오.
+
 ## 5. 지식 그래프 자동 갱신 및 Git 자동화 (Git Automation)
 - 작업 완료 후 다음 명령을 순차 실행하십시오:
   1. `python3 scripts/rebuild_index.py` (Master Index 갱신)
