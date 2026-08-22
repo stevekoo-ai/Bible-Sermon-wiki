@@ -1,0 +1,9 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.log
+Thumbs.db
+
+# Unrelated large media content sharing this workspace root
+2026년 04월 02일 신곡 [MP3]/
+2026년 04월 02일 신곡 \[MP3\].zip
