@@ -7,6 +7,7 @@ Automated index of all research, sermons, and shared assets.
 ## Old Testament Exegesis
 
 - [[시편23편4절_사망의음침한골짜기]]
+- [[역대하6-7장_성전봉헌기도와두언약]]
 - [[열왕기하25장_예루살렘_함락과_바벨론_포로]]
 
 
@@ -20,6 +21,7 @@ Automated index of all research, sermons, and shared assets.
 ## Illustrations
 
 - [[감옥에서_왕의_식탁으로]]
+- [[기둥모형_조건적약속과무조건적약속]]
 - [[다리를지키는아버지_아들을내어주신사랑]]
 - [[돈줍는꿈과_인생의짧음]]
 - [[등굽은여인_아브라함의딸]]
@@ -31,10 +33,13 @@ Automated index of all research, sermons, and shared assets.
 - [[벌받는중에도_또_잘못된_선택]]
 - [[손마른사람_작아도_존귀한존재]]
 - [[야곱과모세_골짜기에서만난하나님]]
+- [[에스겔의환상_다시돌아오는영광]]
 - [[온도가같아야하는사랑_부부의비유]]
 - [[젠가탑과_무너지는_결과]]
+- [[쪼개진짐승과잠든아브람_언약의횃불]]
 - [[채워지지않는욕심_장난감과인기]]
 - [[촛대를옮기신다_참된교회의기준]]
+- [[하늘에서내려온불_솔로몬의기도응답]]
 - [[행복지수와_플렉스문화]]
 
 
@@ -55,6 +60,7 @@ Automated index of all research, sermons, and shared assets.
 
 - [[2025-07-17_Steve_설교_하나님을어디서만날수있나요]]
 - [[2025-07-25_Steve_설교_하나님을어떻게사랑할수있나요]]
+- [[2025-09-21_Steve_설교_하나님왜약속을안지키세요]]
 
 
 ### 2026_Preaching
