@@ -10,7 +10,6 @@ def scan_files():
     categories = {
         "Old Testament Exegesis": ROOT_DIR / "1_Bible_Exegesis" / "1_Old_Testament",
         "New Testament Exegesis": ROOT_DIR / "1_Bible_Exegesis" / "2_New_Testament",
-        "2026 Sermon Outlines": ROOT_DIR / "2_Sermon_Outlines" / "2026_Preaching",
         "Illustrations": ROOT_DIR / "3_Shared_Assets" / "Illustrations",
         "Theology Terms": ROOT_DIR / "3_Shared_Assets" / "Theology_Terms",
     }
@@ -28,6 +27,23 @@ def scan_files():
             else:
                 content.append("- *(No entries found)*")
         content.append("\n")
+
+    # Sermon Outlines: scan every year-folder under 2_Sermon_Outlines dynamically
+    sermon_root = ROOT_DIR / "2_Sermon_Outlines"
+    content.append("## Sermon Outlines\n")
+    if sermon_root.exists():
+        year_dirs = sorted([d for d in sermon_root.iterdir() if d.is_dir()])
+        any_found = False
+        for year_dir in year_dirs:
+            files = sorted(list(year_dir.glob("*.md")))
+            if files:
+                any_found = True
+                content.append(f"### {year_dir.name}\n")
+                for f in files:
+                    content.append(f"- [[{f.stem}]]")
+                content.append("\n")
+        if not any_found:
+            content.append("- *(No entries found)*\n")
 
     MOC_DIR.mkdir(parents=True, exist_ok=True)
     with open(INDEX_FILE, "w", encoding="utf-8") as f:
