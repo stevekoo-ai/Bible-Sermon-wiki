@@ -8,6 +8,7 @@ INDEX_FILE = MOC_DIR / "Master_Index.md"
 
 def scan_files():
     categories = {
+        "Study Notes": ROOT_DIR / "1_Bible_Exegesis" / "0_Study_Notes",
         "Old Testament Exegesis": ROOT_DIR / "1_Bible_Exegesis" / "1_Old_Testament",
         "New Testament Exegesis": ROOT_DIR / "1_Bible_Exegesis" / "2_New_Testament",
         "Illustrations": ROOT_DIR / "3_Shared_Assets" / "Illustrations",

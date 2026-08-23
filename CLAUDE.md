@@ -17,6 +17,25 @@
 ## 4. 토큰 활용 및 서브에이전트(Subagent) 활용
 - 난이도 높은 본문 주해나 예화 발굴 시, 적극적으로 **Subagent Loop**를 가동하여 독립적 조사를 마친 후 본문으로 합치십시오.
 
+## 4.1 성경공부 묵상 노트 (`1_Bible_Exegesis/0_Study_Notes/`)
+- 정식 주해(Fact/Opinion 구분, 원어 분석)로 다듬기 전 단계의 개인적 깨달음/묵상은
+  `1_Bible_Exegesis/0_Study_Notes/`에 `YYYY-MM-DD_제목.md` 형식으로 저장합니다.
+  템플릿: `.claude/templates/study-note-template.md`.
+- 원문(사용자가 말한 그대로의 묵상)은 반드시 전문을 보존하고, 그 위에 `related_passages`,
+  `theological_themes`, 한 줄 요약, 확장 가능성(Follow-up)을 함께 기록합니다.
+- 이후 내용이 충분히 무르익으면 `1_Bible_Exegesis/1_Old_Testament` 또는
+  `2_New_Testament`로 정식 주해 승격이 가능하며, 이때 frontmatter의
+  `promoted_to_exegesis: true`로 갱신합니다.
+- 커밋 메시지: `feat(note): [제목] 묵상 노트 추가`
+
+## 4.6 설교 준비 산출물 — PPT / 구연 스크립트
+- 설교 준비 시 `2_Sermon_Outlines`의 3대지 아웃라인 작성 후, 필요하면 다음 두 산출물을
+  추가로 만듭니다 (기존 설교/예화를 참고하여 작성):
+  - **구연 스크립트**: 아웃라인과 같은 폴더에 `[날짜]_[제목]_script.md`로 저장 —
+    실제 강단에서 말할 문장 단위의 대본.
+  - **PPT**: 동일 폴더 또는 `3_Shared_Assets/Slides/`에 `.pptx` 파일로 생성.
+- 아웃라인 frontmatter에 `script_file`, `slides_file` 필드로 상호 참조를 남깁니다.
+
 ## 4.5 원문 스크립트 콜드 아카이브 (`9_Archive/Raw_Sermon_Scripts/`)
 - 사용자가 기존에 작성했던 설교 스크립트 원문(슬라이드 형식 등 가공되지 않은 원본)은 `9_Archive/Raw_Sermon_Scripts/`에 `type: raw_script`, `status: cold_archive`로 그대로 보존합니다.
 - 이 폴더는 **의도적으로 `scripts/rebuild_index.py`의 자동 스캔 대상에서 제외**되어 있습니다 — 평소 위키 운영/로딩 시 매번 불러오지 않는 콜드 데이터이기 때문입니다. 원문이 필요할 때만 정제된 설교 문서의 frontmatter(`raw_script_archive` 필드)를 통해 링크를 따라가서 열람하십시오.
@@ -29,3 +48,5 @@
      - 주해 작성: `feat(exe): [성경구절] 학술 주해 작성`
      - 설교 작성: `feat(sermon): [날짜] [제목] 3대지 어린이 설교 작성`
      - 예화 추가: `feat(asset): [예화명] 예화 자산 추가`
+     - 묵상 노트: `feat(note): [제목] 묵상 노트 추가`
+     - PPT/스크립트: `feat(media): [날짜] [제목] PPT/스크립트 추가`

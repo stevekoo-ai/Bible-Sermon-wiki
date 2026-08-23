@@ -4,6 +4,11 @@
 Automated index of all research, sermons, and shared assets.
 
 
+## Study Notes
+
+- [[2026-08-23_하나님도답답하시겠다_네삶을살아라]]
+
+
 ## Old Testament Exegesis
 
 - [[시편23편4절_사망의음침한골짜기]]
@@ -54,7 +59,6 @@ Automated index of all research, sermons, and shared assets.
 
 ## Theology Terms
 
-- *(No entries found)*
 
 
 ## Sermon Outlines
