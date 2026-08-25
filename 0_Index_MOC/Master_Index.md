@@ -73,6 +73,11 @@ Automated index of all research, sermons, and shared assets.
 
 
 
+## Reference Research
+
+- [[출애굽기19-20장_시내산결혼언약_외부자료조사]]
+
+
 ## Sermon Outlines
 
 ### 2024_Preaching

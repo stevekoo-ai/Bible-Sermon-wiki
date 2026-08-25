@@ -13,6 +13,7 @@ def scan_files():
         "New Testament Exegesis": ROOT_DIR / "1_Bible_Exegesis" / "2_New_Testament",
         "Illustrations": ROOT_DIR / "3_Shared_Assets" / "Illustrations",
         "Theology Terms": ROOT_DIR / "3_Shared_Assets" / "Theology_Terms",
+        "Reference Research": ROOT_DIR / "4_Reference_Research",
     }
 
     content = ["# 🗺️ Master Index & Knowledge Graph (MOC)\n\n", "Automated index of all research, sermons, and shared assets.\n\n"]

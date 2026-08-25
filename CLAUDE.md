@@ -28,6 +28,40 @@
   `promoted_to_exegesis: true`로 갱신합니다.
 - 커밋 메시지: `feat(note): [제목] 묵상 노트 추가`
 
+## 4.2 외부 자료 조사 (`4_Reference_Research/`)
+
+- 웹 검색·논문·타 설교 등 **외부에서 가져온 자료**는 `4_Reference_Research/`에
+  별도 보관합니다. 내가 직접 쓴 주해(`1_Bible_Exegesis`)·설교(`2_Sermon_Outlines`)와
+  **반드시 분리**하여, 나중에 "내 결론"과 "남의 결론"이 섞이지 않게 합니다.
+- frontmatter 필수 필드: `type: research_note`, `topic`, `date_researched`,
+  `researched_by`, `status`, 그리고 검증 한계가 있으면 `verification_caveat`.
+- **신뢰도 등급을 반드시 표기**합니다:
+  - `★★★` 학술 (단행본 · 피어리뷰 저널 · 학위논문) — 주해에 인용 가능
+  - `★★` 유대교 1차·전통 자료 및 주요 기관 — 인용 가능, 원문 확인 권장
+  - `★` 대중 설교 · 블로그 — 아이디어 참고용, 직접 인용은 지양
+  - `⚠️` 근거가 얇은 대중 문헌 — 인용하지 말 것 (이유를 함께 명시)
+- 조사 문서에는 **"다음 설교 준비 시 할 일" 체크리스트**를 넣어, 다음 작업 때
+  무엇을 반영해야 하는지 바로 보이게 합니다.
+- 관련 주해 문서에는 frontmatter `reference_research` 필드로 역참조를 겁니다.
+- 커밋 메시지: `feat(research): [주제] 외부 자료 조사`
+
+## 4.3 주해 문서의 검토 노트 (`## N. 검토 노트`)
+
+- 기존 주해·설교를 재검토해 문제를 발견하면, 주해 문서 말미에
+  `## N. 검토 노트 (YYYY-MM-DD 재검토)` 섹션을 추가해 기록합니다.
+  원문 스크립트(`9_Archive/`)는 콜드 아카이브 원칙상 **수정하지 않고**,
+  수정 대기 항목만 주해 쪽에 남깁니다.
+- 심각도 표기: `🔴` 논리·신학 골격 / `🟠` 사실 오류 / `🟡` 근거 취약 /
+  `✅` 확인 완료 / `🟢` 보강 기회
+- 각 항목에 **수정 방향**을 함께 적어, 다음 작업자가 판단을 반복하지 않게 합니다.
+- 주해 frontmatter에 `review_status`를 갱신합니다.
+- 커밋 메시지: `docs(review): [본문] 검토 노트 추가`
+
+## 4.5 원문 스크립트 콜드 아카이브 (`9_Archive/Raw_Sermon_Scripts/`)
+- 사용자가 기존에 작성했던 설교 스크립트 원문(슬라이드 형식 등 가공되지 않은 원본)은 `9_Archive/Raw_Sermon_Scripts/`에 `type: raw_script`, `status: cold_archive`로 그대로 보존합니다.
+- 이 폴더는 **의도적으로 `scripts/rebuild_index.py`의 자동 스캔 대상에서 제외**되어 있습니다 — 평소 위키 운영/로딩 시 매번 불러오지 않는 콜드 데이터이기 때문입니다. 원문이 필요할 때만 정제된 설교 문서의 frontmatter(`raw_script_archive` 필드)를 통해 링크를 따라가서 열람하십시오.
+- 원문을 정제하여 `1_Bible_Exegesis`(주해)와 `2_Sermon_Outlines`(3대지 설교)로 옮길 때는, 정제 문서 쪽에 `raw_script_archive: "[[원문 파일명]]"`을 반드시 추가해 역참조를 유지하십시오.
+
 ## 4.6 설교 준비 산출물 — PPT / 구연 스크립트
 - 설교 준비 시 `2_Sermon_Outlines`의 3대지 아웃라인 작성 후, 필요하면 다음 두 산출물을
   추가로 만듭니다 (기존 설교/예화를 참고하여 작성):
@@ -35,11 +69,6 @@
     실제 강단에서 말할 문장 단위의 대본.
   - **PPT**: 동일 폴더 또는 `3_Shared_Assets/Slides/`에 `.pptx` 파일로 생성.
 - 아웃라인 frontmatter에 `script_file`, `slides_file` 필드로 상호 참조를 남깁니다.
-
-## 4.5 원문 스크립트 콜드 아카이브 (`9_Archive/Raw_Sermon_Scripts/`)
-- 사용자가 기존에 작성했던 설교 스크립트 원문(슬라이드 형식 등 가공되지 않은 원본)은 `9_Archive/Raw_Sermon_Scripts/`에 `type: raw_script`, `status: cold_archive`로 그대로 보존합니다.
-- 이 폴더는 **의도적으로 `scripts/rebuild_index.py`의 자동 스캔 대상에서 제외**되어 있습니다 — 평소 위키 운영/로딩 시 매번 불러오지 않는 콜드 데이터이기 때문입니다. 원문이 필요할 때만 정제된 설교 문서의 frontmatter(`raw_script_archive` 필드)를 통해 링크를 따라가서 열람하십시오.
-- 원문을 정제하여 `1_Bible_Exegesis`(주해)와 `2_Sermon_Outlines`(3대지 설교)로 옮길 때는, 정제 문서 쪽에 `raw_script_archive: "[[원문 파일명]]"`을 반드시 추가해 역참조를 유지하십시오.
 
 ## 5. 지식 그래프 자동 갱신 및 Git 자동화 (Git Automation)
 - 작업 완료 후 다음 명령을 순차 실행하십시오:
@@ -50,3 +79,5 @@
      - 예화 추가: `feat(asset): [예화명] 예화 자산 추가`
      - 묵상 노트: `feat(note): [제목] 묵상 노트 추가`
      - PPT/스크립트: `feat(media): [날짜] [제목] PPT/스크립트 추가`
+     - 외부 자료 조사: `feat(research): [주제] 외부 자료 조사`
+     - 검토 노트: `docs(review): [본문] 검토 노트 추가`
