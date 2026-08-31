@@ -7,6 +7,7 @@ Automated index of all research, sermons, and shared assets.
 ## Study Notes
 
 - [[2026-08-23_하나님도답답하시겠다_네삶을살아라]]
+- [[2026-08-25_공의와신실하심의냉기_이혼당한신부와마른뼈]]
 
 
 ## Old Testament Exegesis
