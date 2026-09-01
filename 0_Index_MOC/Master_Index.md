@@ -4,6 +4,9 @@
 Automated index of all research, sermons, and shared assets.
 
 
+**메타데이터로 찾기:** [[Index_by_Theme]] (주제별) · [[Index_by_Book]] (성경책별)
+
+
 ## Study Notes
 
 - [[2026-08-23_하나님도답답하시겠다_네삶을살아라]]
