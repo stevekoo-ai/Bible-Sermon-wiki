@@ -35,6 +35,27 @@
 - 이후 내용이 충분히 무르익으면 `1_Bible_Exegesis/1_Old_Testament` 또는
   `2_New_Testament`로 정식 주해 승격이 가능하며, 이때 frontmatter의
   `promoted_to_exegesis: true`로 갱신합니다.
+
+### 4.1.1 핫/콜드 2계층 구조 (긴 대화 저장 시)
+> [!IMPORTANT] 로그 비대화 방지 원칙 (2026-08-25, 사용자 명시적 지시)
+> "로그"(Master Index, 묵상 노트 목록 등 평소 훑어보는 장소)에는 너무 많은
+> 내용을 담지 않는다. 대화가 길어지면(핵심 인용 5개 이상, 또는 다시 읽기에
+> 부담스러운 분량) 다음 2계층으로 분리한다:
+> - **Hot** (`1_Bible_Exegesis/0_Study_Notes/파일명.md`): 한 줄 요약, 재사용할
+>   핵심 인용(짧게), Follow-up 체크리스트, 관련 문서 링크만 남긴다. 이 파일이
+>   평소 스캔·인덱싱되는 대상이다.
+> - **Cold** (`9_Archive/Study_Conversations/파일명_전문.md`): 질문-응답 대화
+>   전문을 가공 없이 보존한다. `type: raw_conversation`, `status: cold_archive`.
+>   `9_Archive/`는 `scripts/rebuild_index.py`가 스캔하지 않는 폴더이므로
+>   (`Raw_Sermon_Scripts`와 동일한 원리) 자동으로 "무겁게 로딩되지 않는" 데이터가
+>   된다.
+> - 서로 frontmatter로 연결한다: Hot 쪽에 `full_conversation: "[[콜드 파일명]]"`,
+>   Cold 쪽에 `hot_summary: "[[핫 파일명]]"`. **연관성 정보(WikiLink)를 타고
+>   가야만 전문을 볼 수 있게** 하는 것이 핵심 — 평소에는 요약만 보이고, 필요할
+>   때만 링크를 눌러 전문으로 들어간다.
+> - 짧은 대화(핵심 인용 3-4개 이내)는 굳이 분리하지 않고 Hot 파일 하나로 충분하다.
+> - 커밋 메시지: 콜드 아카이브 추가는 `feat(note)` 커밋에 함께 포함(별도 커밋 불필요).
+
 - 커밋 메시지: `feat(note): [제목] 묵상 노트 추가`
 
 ## 4.2 외부 자료 조사 (`4_Reference_Research/`)
@@ -66,10 +87,20 @@
 - 주해 frontmatter에 `review_status`를 갱신합니다.
 - 커밋 메시지: `docs(review): [본문] 검토 노트 추가`
 
-## 4.5 원문 스크립트 콜드 아카이브 (`9_Archive/Raw_Sermon_Scripts/`)
-- 사용자가 기존에 작성했던 설교 스크립트 원문(슬라이드 형식 등 가공되지 않은 원본)은 `9_Archive/Raw_Sermon_Scripts/`에 `type: raw_script`, `status: cold_archive`로 그대로 보존합니다.
-- 이 폴더는 **의도적으로 `scripts/rebuild_index.py`의 자동 스캔 대상에서 제외**되어 있습니다 — 평소 위키 운영/로딩 시 매번 불러오지 않는 콜드 데이터이기 때문입니다. 원문이 필요할 때만 정제된 설교 문서의 frontmatter(`raw_script_archive` 필드)를 통해 링크를 따라가서 열람하십시오.
-- 원문을 정제하여 `1_Bible_Exegesis`(주해)와 `2_Sermon_Outlines`(3대지 설교)로 옮길 때는, 정제 문서 쪽에 `raw_script_archive: "[[원문 파일명]]"`을 반드시 추가해 역참조를 유지하십시오.
+## 4.5 콜드 아카이브 (`9_Archive/`)
+`9_Archive/`는 **의도적으로 `scripts/rebuild_index.py`의 자동 스캔 대상에서
+제외**되어 있습니다 — 평소 위키 운영/로딩 시 매번 불러오지 않는 콜드 데이터이기
+때문입니다. 하위 두 폴더 모두 이 원리를 공유하며, 항상 "요약본 → 링크 → 전문"
+방향으로만 열람합니다.
+
+- **`Raw_Sermon_Scripts/`**: 사용자가 기존에 작성했던 설교 스크립트 원문(슬라이드
+  형식 등 가공되지 않은 원본)을 `type: raw_script`, `status: cold_archive`로
+  그대로 보존합니다. 원문이 필요할 때만 정제된 설교 문서의 frontmatter
+  (`raw_script_archive` 필드)를 통해 링크를 따라가서 열람합니다. 원문을 정제하여
+  `1_Bible_Exegesis`·`2_Sermon_Outlines`로 옮길 때는, 정제 문서 쪽에
+  `raw_script_archive: "[[원문 파일명]]"`을 반드시 추가해 역참조를 유지합니다.
+- **`Study_Conversations/`**: 묵상 노트의 대화 전문을 보존합니다. 4.1.1(핫/콜드
+  2계층 구조)을 참고하십시오.
 
 ## 4.6 설교 준비 산출물 — PPT / 구연 스크립트
 - 설교 준비 시 `2_Sermon_Outlines`의 3대지 아웃라인 작성 후, 필요하면 다음 두 산출물을
