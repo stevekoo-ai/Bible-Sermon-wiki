@@ -79,6 +79,7 @@ Automated index of all research, sermons, and shared assets.
 
 ## Theology Terms
 
+- *(No entries found)*
 
 
 ## Reference Research
