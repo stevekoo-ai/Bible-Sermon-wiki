@@ -15,6 +15,7 @@ META_SCAN_ROOTS = [
     ROOT_DIR / "2_Sermon_Outlines",
     ROOT_DIR / "3_Shared_Assets",
     ROOT_DIR / "4_Reference_Research",
+    ROOT_DIR / "4_Group_Sharing",
 ]
 
 TYPE_ICON = {
@@ -25,6 +26,7 @@ TYPE_ICON = {
     "illustration": "🧱",
     "research_note": "🔎",
     "theology_term": "📚",
+    "nanum": "🙏",
 }
 
 # 66-book canon, Korean standard names. Order matters for matching (longest/most
@@ -148,6 +150,23 @@ def scan_files():
             if files:
                 any_found = True
                 content.append(f"### {year_dir.name}\n")
+                for f in files:
+                    content.append(f"- [[{f.stem}]]")
+                content.append("\n")
+        if not any_found:
+            content.append("- *(No entries found)*\n")
+
+    # Group Sharing (나눔): scan every group-folder under 4_Group_Sharing dynamically
+    sharing_root = ROOT_DIR / "4_Group_Sharing"
+    content.append("## Group Sharing (나눔)\n")
+    if sharing_root.exists():
+        group_dirs = sorted([d for d in sharing_root.iterdir() if d.is_dir()])
+        any_found = False
+        for group_dir in group_dirs:
+            files = sorted(list(group_dir.glob("*.md")))
+            if files:
+                any_found = True
+                content.append(f"### {group_dir.name}\n")
                 for f in files:
                     content.append(f"- [[{f.stem}]]")
                 content.append("\n")

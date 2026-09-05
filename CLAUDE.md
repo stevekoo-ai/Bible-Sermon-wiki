@@ -1,7 +1,7 @@
-# 🧠 성경 연구 및 설교 지식베이스 LLM Wiki 운영 원칙 (v3.1 Kid-Adult Hybrid)
+# 🧠 성경 연구 및 설교 지식베이스 LLM Wiki 운영 원칙 (v3.2 Kid-Adult Hybrid + Group Sharing)
 
 ## 1. 저장소 정체성 및 격리 (Repository Architecture)
-- 이 리포지토리는 **학술적 성경 주해(Bible Exegesis)**, **3대지 구조의 설교 아웃라인(Sermon Outlines)**, **신학 자산(Assets)** 관리를 위한 전용 LLM Wiki입니다.
+- 이 리포지토리는 **학술적 성경 주해(Bible Exegesis)**, **3대지 구조의 설교 아웃라인(Sermon Outlines)**, **신학 자산(Assets)**, 그리고 **목장 나눔(Group Sharing)** 관리를 위한 전용 LLM Wiki입니다.
 - 개발 관련 불필요한 파일이나 스크립트를 섞지 마십시오. (단, `scripts/` 내 자동화 스크립트는 허용)
 
 ## 2. 어린이 설교 작성의 핵심 철학 (Pedagogical & Homiletical Principles)
@@ -144,3 +144,11 @@
      - PPT/스크립트: `feat(media): [날짜] [제목] PPT/스크립트 추가`
      - 외부 자료 조사: `feat(research): [주제] 외부 자료 조사`
      - 검토 노트: `docs(review): [본문] 검토 노트 추가`
+     - 나눔 작성: `feat(nanum): [날짜] [목장명] 나눔 등록`
+
+## 6. 목장 나눔(Group Sharing) 운영 원칙 (`4_Group_Sharing/`)
+- 성인 목장에서 나누는 개인 간증/묵상 나눔은 어린이 설교(2_Sermon_Outlines)나 학술 주해(1_Bible_Exegesis)와 **완전히 다른 장르**입니다 — `.claude/templates/nanum-template.md`를 사용하고, 목장별 하위 폴더(`4_Group_Sharing/[목장명]/`)에 날짜별로 저장하십시오.
+- **구조를 강제하지 마십시오:** 3대지 구조나 Fact/Opinion 구분 같은 다른 카테고리의 엄격한 형식을 나눔에 적용하지 않습니다. 나눔은 나눈 사람의 목소리와 표현을 최대한 그대로 살리는 자유 서술체이며, 편집은 사용자가 명시적으로 요청할 때(오타 교정, 논리 보완 제안 등)만 수행합니다.
+- **문체는 사용자 지정을 따릅니다:** 존댓말/반말 등 문체 선택은 목장·나눈 사람의 스타일을 존중하여 사용자가 지정한 대로 유지하십시오.
+- 관련 설교나 주해가 있으면 `related_passage`/`Linked Sermon/Exegesis` 필드로 상호 연결하되, 나눔이 반드시 특정 설교 문서와 1:1로 연결되어야 하는 것은 아닙니다.
+- `scripts/rebuild_index.py`는 `4_Group_Sharing/` 하위의 각 목장 폴더를 동적으로 스캔하여 Master Index에 반영합니다 (연도별 설교 폴더 스캔과 동일한 방식).

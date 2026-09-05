@@ -112,3 +112,10 @@ Automated index of all research, sermons, and shared assets.
 - [[TBD_Steve_설교_애쓰지않아도돼요이미다왔어요]]
 - [[TBD_Steve_설교_하나님앞에서숨길수없어다윗]]
 
+
+## Group Sharing (나눔)
+
+### 히엘_1-4목장
+
+- [[2026-08-23_얼룩이_마르기_전에]]
+
