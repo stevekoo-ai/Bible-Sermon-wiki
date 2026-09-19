@@ -119,4 +119,5 @@ Automated index of all research, sermons, and shared assets.
 ### 히엘_1-4목장
 
 - [[2026-08-23_얼룩이_마르기_전에]]
+- [[2026-09-19_조금씩_나눠서_해]]
 
