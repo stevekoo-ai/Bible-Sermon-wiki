@@ -93,6 +93,11 @@ Automated index of all research, sermons, and shared assets.
 
 ## Sermon Outlines
 
+### 0_Series
+
+- [[시리즈_하나님왜약속을안지키세요]]
+
+
 ### 2024_Preaching
 
 - [[2024-08-17_Steve_설교_겨자씨비유]]
