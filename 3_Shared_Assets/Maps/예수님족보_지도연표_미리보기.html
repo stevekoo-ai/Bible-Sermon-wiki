@@ -69,7 +69,7 @@ D.paths.forEach(p=>{const g=L.layerGroup([L.polyline(p.pts,{color:p.col,weight:3
   items.push({type:'p',n:p.n,cat:p.cat,layer:g,d:p,ll:p.pts});});
 D.markers.forEach(m=>{const mk=L.marker([m.lat,m.lon],{icon:icon(m,false),zIndexOffset:m.n}).bindPopup(`<b>${m.n}. ${m.title}</b><br>${m.date} · ${m.place}<br>${m.note}`);
   const el=document.createElement('div');el.className='it';el.innerHTML=`<b style="color:${m.col}">${m.n}</b> ${m.date} — ${m.title}`;
-  el.onclick=()=>{if(!map.hasLayer(mk))return;map.flyTo([m.lat,m.lon],8,{duration:.8});mk.openPopup()};list.appendChild(el);
+  el.onclick=()=>startFrom(m.n);list.appendChild(el);
   items.push({type:'m',n:m.n,cat:m.cat,layer:mk,d:m,ll:[[m.lat,m.lon]],el});});
 
 // ---- legend toggles ----
@@ -119,6 +119,9 @@ function manualStep(dir){clearTimeout(timer);timer=null;
   paused=true;const curIdx=si-1;const t=curIdx+dir;
   if(t<0||t>=seq.length){$('st').textContent=`${t<0?'처음':'마지막'} 단계입니다 — ${cur}`;return}
   showAt(t,true);}
+function startFrom(n){clearTimeout(timer);timer=null;$('s0').value=n;if((+$('s1').value||74)<n)$('s1').value=74;
+  initSeq();paused=true;if(!seq.length)return;anims.forEach(a=>map.removeLayer(a));anims=[];showAt(0,true);
+  $('st').textContent=`${n}번부터 시작 — Next ▶ 로 이어가기 (1/${seq.length})`;}
 $('bNext').onclick=()=>manualStep(1);
 $('bPrev').onclick=()=>manualStep(-1);
 document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;
