@@ -29,8 +29,71 @@ P = {  # 장소: (위도, 경도)
     "다바네스": (30.9720, 32.2000), "수산": (32.1890, 48.2580), "힛데겔(티그리스) 강가": (33.3000, 44.4000),
     "바사(파사르가대)": (30.2020, 53.1790), "펠라(마케도니아)": (40.7600, 22.5250),
     "알렉산드리아": (31.2001, 29.9187), "안디옥": (36.2021, 36.1604), "모데인": (31.9300, 34.9600),
-    "로마": (41.8902, 12.4922), "나사렛": (32.6996, 35.3035), "요단강 베다니": (31.8370, 35.5510),
+    "로마": (41.8902, 12.4922), "나사렛": (32.6996, 35.3035), "요단강 베다니": (31.8370, 35.5510), "지중해(요나의 폭풍)": (33.2000, 32.6000),
 }
+
+P_NOTE = {  # 지도 위 점이 무엇을 기준으로 어디를 표시했는지
+    "우르": "텔 엘-무카이야르 유적(이라크 남부) 기준 — 울리 발굴. 튀르키예 우르파설도 있음",
+    "하란": "하란 유적(튀르키예 샨르우르파주) 기준 — 통설",
+    "세겜": "텔 발라타 유적(현 나블루스 동쪽) 기준 — 통설",
+    "벧엘": "베이틴 마을 기준 — 통설(엘-비레설도 있음)",
+    "애굽(멤피스)": "고대 수도 멤피스(현 미트 라히나) — '애굽'을 대표하는 지점으로 선택",
+    "고센(라암셋)": "라암셋(피-라암세스, 콴티르 유적, 나일 삼각주 동부) 기준 — 고센 땅 대표 지점",
+    "헤브론": "현 헤브론 시(마므레 전승지 인근) 기준",
+    "단": "텔 단 유적 기준 — 1993년 '다윗의 집' 비문 출토지",
+    "예루살렘": "성전산(모리아산) 기준 — 같은 곳의 여러 사건은 조금씩 흩어 표시",
+    "술 길 샘": "정확한 위치 불명 — 가나안 남부에서 애굽으로 가는 '술 길' 위 임의 지점",
+    "브엘세바": "텔 베에르 셰바 유적 기준 — 통설",
+    "브니엘(얍복)": "얍복 강(현 자르카 강) 하류 — 정확한 위치 논쟁 중",
+    "아둘람": "텔 아둘람 기준 — 통설",
+    "숙곳": "텔 엘-마스쿠타(와디 투밀랏) 기준 — 애굽 쪽 숙곳, 통설",
+    "홍해": "수에즈만 북단 부근 임의 지점 — 홍해 도하 위치는 논쟁 중(갈대 바다·비터호·수에즈만·아카바만 설)",
+    "시내산(호렙)": "전통적 위치 제벨 무사(성 캐서린 수도원) 기준 — 사우디 제벨 알-라우즈 등 다른 설 다수",
+    "가데스 바네아": "아인 엘-쿠데이라트 기준 — 통설",
+    "느보산": "요르단 느보산(라스 시야가) 전통 위치",
+    "여리고": "텔 에스-술탄 유적 기준",
+    "드빌": "키르벳 라부드(헤브론 남서) 기준 — 통설",
+    "다볼산": "다볼산 정상 기준 — 확실",
+    "오브라": "기드온의 오브라 — 위치 불명, 이스르엘 골짜기 부근으로 표시",
+    "모압": "모압 고원 대표 지점(길하레셋 = 현 요르단 카락)",
+    "베들레헴": "현 베들레헴(예수 탄생 교회) 기준",
+    "실로": "텔 실로 유적 기준 — 확실",
+    "소라": "텔 초라 기준 — 통설",
+    "길르앗 미스바": "위치 불명 — 요단강 동편 길르앗 지역 대표 지점",
+    "라마": "사무엘의 라마 — 위치 논쟁(알-람·네비 삼윌 등), 예루살렘 북쪽으로 표시",
+    "사마리아": "세바스티아 유적 기준 — 확실",
+    "갈멜산": "무흐라카(엘리야 제단 전승지) 기준",
+    "도단": "텔 도탄 유적 기준 — 통설",
+    "욥바": "옛 야파 항구(현 텔아비브-야포) 기준",
+    "니느웨": "쿠윤직·네비 유누스 유적(이라크 모술 동쪽) 기준 — 확실",
+    "드고아": "키르벳 테쿠아(베들레헴 남쪽) 기준 — 통설",
+    "모레셋": "모레셋 가드 — 텔 엘-주데이데 설, 대략 표시",
+    "하볼 강(고산)": "하볼(카부르) 강가 고산 = 텔 할라프(시리아 북동) 기준 — 통설",
+    "라기스": "텔 라기스 유적 기준 — 확실",
+    "바벨론": "바빌론 유적(이라크 힐라 인근) 기준 — 확실",
+    "아나돗": "아나타 마을 인근(라스 엘-하루베) 기준 — 통설",
+    "므깃도": "텔 므깃도 유적 기준 — 확실",
+    "그발 강(델아빕)": "그발 강 = 니푸르 부근 운하 — 델아빕 정확 위치 불명, 니푸르 근처로 표시",
+    "립나": "시리아 립나(리블라) 유적 기준 — 확실",
+    "다바네스": "텔 데펜네(나일 삼각주 동부) 기준 — 통설",
+    "수산": "수사 유적(이란 슈쉬) 기준 — 확실",
+    "힛데겔(티그리스) 강가": "힛데겔 = 티그리스 강 — 다니엘이 선 지점 불명, 바그다드 부근 강가로 임의 표시",
+    "바사(파사르가대)": "고레스의 수도 파사르가대 유적(이란) — 페르시아 대표 지점",
+    "펠라(마케도니아)": "마케도니아 왕국 수도 펠라 유적(그리스) 기준",
+    "알렉산드리아": "현 알렉산드리아(이집트) 기준",
+    "안디옥": "수리아 안디옥(현 튀르키예 안타키아) — 셀류시드 왕조 수도",
+    "모데인": "마카비 가문의 고향 모데인 — 후보지 여러 곳, 대략 표시",
+    "로마": "로마 포룸 기준",
+    "나사렛": "수태고지 교회 기준",
+    "요단강 베다니": "알-마그타스(요르단 쪽 세례 터, 유네스코 2015) — '요단강 건너편 베다니'(요 1:28) 전통 위치",
+    "지중해(요나의 폭풍)": "위치 불명 — 욥바에서 다시스(스페인 남부 타르테소스 추정) 방향 바다 위 임의 지점",
+}
+LAB = {38: "38-1", 38.5: "38-2"}
+
+
+def lab_of(n):
+    return LAB.get(n, str(int(n)))
+
 
 # (번호, 기, 종류, 연대, 제목, 설명, 장소 or [경로...])
 #  종류: g=족보 인물/사건, k=왕, m=하나님이 보내신 사람(천사·선지자·사사·멜기세덱·세례요한), x=세계사
@@ -76,7 +139,8 @@ E = [
     (36, 2, "m", "BC 860경", "엘리야 도피 — 로뎀나무 아래 천사, 호렙산", "왕상 19", ["갈멜산", "브엘세바", "시내산(호렙)"]),
     (37, 2, "k", "BC 853–841", "요람 — 아합의 딸 아달랴와 결혼", "왕하 8:16-18", "예루살렘"),
     (37, 2, "m", "BC 848–797", "엘리사 — 사마리아·도단", "왕하 2-13", ["사마리아", "도단"]),
-    (38, 2, "m", "BC 785경", "요나 — 니느웨로", "욘 1-4", ["욥바", "니느웨"]),
+    (38, 2, "m", "BC 785경", "요나 — 다시스로 도망, 폭풍과 큰 물고기", "욘 1:1-17", ["욥바", "지중해(요나의 폭풍)"]),
+    (38.5, 2, "m", "BC 785경", "요나 — 물고기 배에서 나와 니느웨로", "욘 2:10–3:10", ["지중해(요나의 폭풍)", "니느웨"]),
     (39, 2, "m", "BC 760", "아모스 — 드고아에서 벧엘로", "암 1:1; 7:10-13", ["드고아", "벧엘"]),
     (39, 2, "m", "BC 755–715", "호세아 — 북이스라엘", "호 1", "사마리아"),
     (40, 2, "m", "BC 740", "이사야 소명 — 웃시야 왕이 죽던 해 (웃시야·요담)", "사 6", "예루살렘"),
@@ -167,6 +231,7 @@ def arrowhead(p_prev, p_end, size):
 
 
 assert len(DESC) == len(E), (len(DESC), len(E))
+assert all(k in P_NOTE for k in P), [k for k in P if k not in P_NOTE]
 # ---- 같은 장소에 여러 번호가 겹치지 않게 살짝 흩뿌림 ----
 visits = {}
 markers = []   # (num, per, kind, date, title, note, place, lat, lon, color)
@@ -179,7 +244,7 @@ for idx, e in enumerate(E):
     n = visits.get(end, 0); visits[end] = n + 1
     r = 0.045 * math.sqrt(n); th = n * 2.4
     lat, lon = P[end][0] + r * math.sin(th), P[end][1] + r * math.cos(th)
-    markers.append((num, per, kind, date, title, note, end, lat, lon, col, DESC[idx]))
+    markers.append((num, per, kind, date, title, note, end, lat, lon, col, DESC[idx], lab_of(num), P_NOTE[end], " → ".join(route) if len(route) > 1 else ""))
     if len(route) > 1:
         pts = []
         bend = 0.12 if idx % 2 == 0 else -0.12
@@ -187,7 +252,7 @@ for idx, e in enumerate(E):
             seg = curve(P[a], P[b], bend)
             pts += seg if not pts else seg[1:]
         seglen = math.hypot(P[route[-1]][0] - P[route[-2]][0], P[route[-1]][1] - P[route[-2]][1])
-        head = arrowhead(pts[-3], pts[-1], max(0.035, min(0.18, seglen * 0.05)))
+        head = arrowhead(pts[-3], pts[-1], max(0.012, min(0.06, seglen * 0.02)))
         paths.append((num, title, col, pts, head, " → ".join(route)))
 
 # ---------------- KML ----------------
@@ -208,10 +273,10 @@ for num_col in set(m[9] for m in markers):
              f'<PolyStyle><color>{kml_color(num_col)}</color><fill>1</fill><outline>0</outline></PolyStyle></Style>')
 for per in (1, 2, 3):
     k.append(f"<Folder><name>{esc(folders[per])}</name>")
-    for (num, pp, kind, date, title, note, place, lat, lon, col, desc) in markers:
+    for (num, pp, kind, date, title, note, place, lat, lon, col, desc, lab, pnote, rtxt) in markers:
         if pp != per:
             continue
-        k.append(f'<Placemark><name>{num}. {esc(title)}</name><description>{esc(desc)} ({esc(note)})</description>'
+        k.append(f'<Placemark><name>{lab}. {esc(title)}</name><description>{esc(desc)} ({esc(note)}) / 📍 {esc(place)}: {esc(pnote)}</description>'
                  f'<styleUrl>#p{col.lstrip("#")}</styleUrl><Point><coordinates>{lon:.5f},{lat:.5f},0</coordinates></Point></Placemark>')
     for (num, title, col, pts, head, route_txt) in paths:
         per_of = next(m[1] for m in markers if m[0] == num and m[4] == title)
@@ -219,7 +284,7 @@ for per in (1, 2, 3):
             continue
         coords = " ".join(f"{x:.5f},{y:.5f},0" for y, x in pts)
         hc = " ".join(f"{x:.5f},{y:.5f},0" for y, x in head)
-        k.append(f'<Placemark><name>{num} → {esc(route_txt)}</name><description>{esc(title)}</description>'
+        k.append(f'<Placemark><name>{lab_of(num)} → {esc(route_txt)}</name><description>{esc(title)}</description>'
                  f'<styleUrl>#l{col.lstrip("#")}</styleUrl><MultiGeometry>'
                  f'<LineString><tessellate>1</tessellate><coordinates>{coords}</coordinates></LineString>'
                  f'<Polygon><outerBoundaryIs><LinearRing><coordinates>{hc}</coordinates></LinearRing></outerBoundaryIs></Polygon>'
@@ -242,7 +307,7 @@ def cat_of(num, per, kind):
 mcat = {(m[0], m[4]): cat_of(m[0], m[1], m[2]) for m in markers}
 data = {
     "markers": [dict(n=m[0], per=m[1], kind=m[2], date=m[3], title=m[4], note=m[5], place=m[6],
-                     lat=m[7], lon=m[8], col=m[9], desc=m[10], cat=mcat[(m[0], m[4])]) for m in markers],
+                     lat=m[7], lon=m[8], col=m[9], desc=m[10], lab=m[11], pnote=m[12], route=m[13], cat=mcat[(m[0], m[4])]) for m in markers],
     "paths": [dict(n=p[0], title=p[1], col=p[2], pts=p[3], head=p[4], route=p[5],
                    cat=mcat[(p[0], p[1])]) for p in paths],
 }
@@ -272,7 +337,7 @@ html,body{margin:0;height:100%;background:#141414;font-family:'Malgun Gothic',sa
 #list .it:hover{background:#2a2a2a}
 #list .it.act{background:#3a2f12;color:#fff}
 #list .it.hid{display:none}
-.num{display:flex;align-items:center;justify-content:center;border-radius:50%;color:#111;font-weight:700;font-size:11px;border:1px solid #111;width:22px;height:22px}
+.num{display:flex;align-items:center;justify-content:center;border-radius:11px;color:#111;font-weight:700;font-size:11px;border:1px solid #111;min-width:22px;height:22px;padding:0 3px;box-sizing:border-box;white-space:nowrap}
 .num.cur{animation:pulse 1s ease-out infinite;transform-origin:center;box-shadow:0 0 0 0 rgba(255,255,255,.8)}
 @keyframes pulse{0%{transform:scale(1.9);box-shadow:0 0 0 0 rgba(255,255,255,.9)}70%{transform:scale(1.5);box-shadow:0 0 0 14px rgba(255,255,255,0)}100%{transform:scale(1.5)}}
 #cap{position:absolute;left:calc(320px + 50% - 160px);transform:translateX(-50%);bottom:28px;z-index:1000;min-width:420px;max-width:720px;
@@ -280,7 +345,7 @@ html,body{margin:0;height:100%;background:#141414;font-family:'Malgun Gothic',sa
 #cap.show{display:flex;gap:14px;align-items:center;animation:rise .5s ease-out}
 @keyframes rise{from{opacity:0;transform:translate(-50%,20px)}to{opacity:1;transform:translate(-50%,0)}}
 #cap .big{flex:none;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#111}
-#cap .dt{color:#bbb;font-size:12px}#cap .tt{font-size:17px;font-weight:700;margin:4px 0 2px}#cap .ds{font-size:13.5px;line-height:1.55;color:#eee}#cap .nt{color:#999;font-size:11.5px;margin-top:6px}#cap .body{max-height:38vh;overflow:auto}
+#cap .dt{color:#bbb;font-size:12px}#cap .tt{font-size:17px;font-weight:700;margin:4px 0 2px}#cap .ds{font-size:13.5px;line-height:1.55;color:#eee}#cap .nt{color:#999;font-size:11.5px;margin-top:6px}#cap .body{max-height:42vh;overflow:auto}#cap .pl{color:#9fd3ff;font-size:11.5px;margin-top:6px;line-height:1.5;border-top:1px solid #333;padding-top:6px}
 #prog{position:absolute;left:320px;right:0;top:0;height:4px;z-index:1000;background:transparent}
 #prog div{height:100%;width:0;background:#F2C14E;transition:width .3s}
 @media (max-width:820px){#side{right:0;bottom:auto;width:auto;height:42%}#map{inset:42% 0 0 0}#prog{left:0;top:42%}#cap{left:50%;bottom:12px;min-width:0;width:calc(100% - 24px);padding:10px 12px}#cap .big{width:44px;height:44px;font-size:18px}#cap .tt{font-size:14px}#cap .ds{font-size:12.5px}}
@@ -298,7 +363,7 @@ html,body{margin:0;height:100%;background:#141414;font-family:'Malgun Gothic',sa
  <div id="list"></div>
 </div>
 <div id="map"></div><div id="prog"><div></div></div>
-<div id="cap"><div class="big"></div><div class="body"><div class="dt"></div><div class="tx"></div><div class="nt"></div></div></div>
+<div id="cap"><div class="big"></div><div class="body"><div class="dt"></div><div class="tx"></div><div class="nt"></div><div class="pl"></div></div></div>
 <script>
 const D=__DATA__;
 const CATS=[['p1','1기','#F2C14E'],['p2','2기','#4FA3E0'],['p3','3기','#5CC98A'],['m','천사·선지자·사사','#C78BE8'],['x','세계사','#9A9A9A'],['red','BC 586','#FF4D4D']];
@@ -311,12 +376,13 @@ esri.addTo(map);L.control.layers({'도로 지도 (Esri)':esri,'지형 (Esri)':to
 
 // ---- items ----
 const items=[];const list=document.getElementById('list');
-function icon(m,cur){return L.divIcon({className:'',html:`<div class="num${cur?' cur':''}" style="background:${m.col}">${m.n}</div>`,iconSize:[22,22],iconAnchor:[11,11]})}
+function arrowMk(p){const a=p.pts[p.pts.length-2],b=p.pts[p.pts.length-1];const A=map.project(a,6),B=map.project(b,6);const deg=Math.atan2(B.y-A.y,B.x-A.x)*180/Math.PI;return L.marker(b,{interactive:false,keyboard:false,icon:L.divIcon({className:'',iconSize:[14,14],iconAnchor:[7,7],html:`<svg width="14" height="14" viewBox="0 0 14 14" style="overflow:visible;transform:rotate(${deg}deg)"><polygon points="7,7 -2,2.5 -2,11.5" fill="${p.col}" stroke="#111" stroke-width=".6"/></svg>`})})}
+function icon(m,cur){return L.divIcon({className:'',html:`<div class="num${cur?' cur':''}" style="background:${m.col}">${m.lab}</div>`,iconSize:[m.lab.length>2?36:22,22],iconAnchor:[m.lab.length>2?18:11,11]})}
 D.paths.forEach(p=>{const g=L.layerGroup([L.polyline(p.pts,{color:p.col,weight:3,opacity:.9}).bindTooltip(p.n+' → '+p.route),
-  L.polygon(p.head,{color:p.col,fillColor:p.col,fillOpacity:1,weight:1})]);
+  arrowMk(p)]);
   items.push({type:'p',n:p.n,cat:p.cat,layer:g,d:p,ll:p.pts});});
-D.markers.forEach(m=>{const mk=L.marker([m.lat,m.lon],{icon:icon(m,false),zIndexOffset:m.n}).bindPopup(`<b>${m.n}. ${m.title}</b><br>${m.desc}<br><small>${m.place} · ${m.note}</small>`,{maxWidth:320});
-  const el=document.createElement('div');el.className='it';el.innerHTML=`<b style="color:${m.col}">${m.n}</b> ${m.date} — ${m.title}`;
+D.markers.forEach(m=>{const mk=L.marker([m.lat,m.lon],{icon:icon(m,false),zIndexOffset:m.n}).bindPopup(`<b>${m.lab}. ${m.title}</b><br>${m.desc}<br><small>📍 ${m.place}: ${m.pnote}<br>📖 ${m.note}</small>`,{maxWidth:340});
+  const el=document.createElement('div');el.className='it';el.innerHTML=`<b style="color:${m.col}">${m.lab}</b> ${m.date} — ${m.title}`;
   el.onclick=()=>startFrom(m.n);list.appendChild(el);
   items.push({type:'m',n:m.n,cat:m.cat,layer:mk,d:m,ll:[[m.lat,m.lon]],el});});
 
@@ -340,10 +406,11 @@ function fitShown(dur){const pts=[];items.forEach(it=>{if(map.hasLayer(it.layer)
   if(b.getNorthEast().distanceTo(b.getSouthWest())<30000)map.flyTo(b.getCenter(),7.5,{duration:opt.duration});else map.flyToBounds(b,opt);}
 function caption(n){const ms=items.filter(it=>it.type==='m'&&it.n===n&&vis[it.cat]).map(it=>it.d);const c=$('cap');
   if(!ms.length){c.classList.remove('show');return}
-  const m0=ms[0];c.querySelector('.big').textContent=n;c.querySelector('.big').style.background=m0.col;
+  const m0=ms[0];c.querySelector('.big').textContent=m0.lab;c.querySelector('.big').style.background=m0.col;
   c.querySelector('.dt').textContent=m0.date+' · '+[...new Set(ms.map(m=>m.place))].join(' / ');
   c.querySelector('.tx').innerHTML=ms.map(m=>`<div class="tt">${m.title}</div><div class="ds">${m.desc}</div>`).join('');
   c.querySelector('.nt').textContent='📖 '+ms.map(m=>m.note).join(' · ');
+  const seen=new Set();c.querySelector('.pl').innerHTML=ms.filter(m=>{if(seen.has(m.place))return false;seen.add(m.place);return true}).map(m=>`📍 <b>${m.place}</b> — ${m.pnote}`+(m.route?`<br><span style="color:#888">경로: ${m.route}</span>`:'')).join('<br>');
   c.classList.remove('show');void c.offsetWidth;c.classList.add('show');}
 function animatePaths(n,ms){items.filter(it=>it.type==='p'&&it.n===n&&vis[it.cat]).forEach(it=>{
   map.removeLayer(it.layer);const pl=L.polyline([it.d.pts[0]],{color:it.d.col,weight:5,opacity:1}).addTo(map);anims.push(pl);
@@ -351,13 +418,14 @@ function animatePaths(n,ms){items.filter(it=>it.type==='p'&&it.n===n&&vis[it.cat
     pl.setLatLngs(it.d.pts.slice(0,upto+1));if(k<1&&mode==='play')requestAnimationFrame(step);else{map.removeLayer(pl);if(shown(it))it.layer.addTo(map);}})(t0);});}
 function numbersInRange(){return [...new Set(items.filter(it=>vis[it.cat]&&it.n>=s0&&it.n<=s1).map(it=>it.n))].sort((a,b)=>a-b)}
 let seq=[],si=0;
+function LB(n){const m=items.find(it=>it.type==='m'&&it.n===n);return m?m.d.lab:n}
 function showAt(i,manual){cur=seq[i];si=i+1;const iv=Math.max(300,+$('iv').value||2500);
   anims.forEach(a=>map.removeLayer(a));anims=[];
   render(false);animatePaths(cur,Math.min(iv*0.55,1200));caption(cur);fitShown(Math.min(1.6,iv/1000*0.6));
   items.forEach(it=>{if(it.type==='m')it.el.classList.toggle('act',it.n===cur)});
   const a=items.find(it=>it.type==='m'&&it.n===cur);if(a)a.el.scrollIntoView({block:'center',behavior:'smooth'});
   $('prog').firstChild.style.width=((i+1)/seq.length*100)+'%';
-  $('st').textContent=`${manual?'수동':'재생 중'} — ${cur} (${i+1}/${seq.length})`;}
+  $('st').textContent=`${manual?'수동':'재생 중'} — ${LB(cur)} (${i+1}/${seq.length})`;}
 function tick(){if(paused)return;if(si>=seq.length){$('st').textContent=`완료 — ${s0}~${s1}`;timer=null;return}
   const iv=Math.max(300,+$('iv').value||2500);showAt(si,false);timer=setTimeout(tick,iv);}
 function initSeq(){s0=Math.max(1,Math.min(74,+$('s0').value||1));s1=Math.max(1,Math.min(74,+$('s1').value||74));if(s0>s1)[s0,s1]=[s1,s0];
@@ -365,7 +433,7 @@ function initSeq(){s0=Math.max(1,Math.min(74,+$('s0').value||1));s1=Math.max(1,M
 function manualStep(dir){clearTimeout(timer);timer=null;
   if(mode!=='play'){initSeq();paused=true;if(!seq.length)return;showAt(dir>0?0:seq.length-1,true);return}
   paused=true;const curIdx=si-1;const t=curIdx+dir;
-  if(t<0||t>=seq.length){$('st').textContent=`${t<0?'처음':'마지막'} 단계입니다 — ${cur}`;return}
+  if(t<0||t>=seq.length){$('st').textContent=`${t<0?'처음':'마지막'} 단계입니다 — ${LB(cur)}`;return}
   showAt(t,true);}
 function startFrom(n){clearTimeout(timer);timer=null;$('s0').value=n;if((+$('s1').value||74)<n)$('s1').value=74;
   initSeq();paused=true;if(!seq.length)return;anims.forEach(a=>map.removeLayer(a));anims=[];showAt(0,true);
@@ -378,7 +446,7 @@ document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;
 $('bPlay').onclick=()=>{if(mode==='play'&&paused){paused=false;$('st').textContent='재생 재개';tick();return}
   if(mode==='play'&&timer)return;
   initSeq();paused=false;render(false);tick();};
-$('bPause').onclick=()=>{if(mode!=='play')return;paused=true;clearTimeout(timer);timer=null;$('st').textContent=`일시정지 — ${cur}`};
+$('bPause').onclick=()=>{if(mode!=='play')return;paused=true;clearTimeout(timer);timer=null;$('st').textContent=`일시정지 — ${LB(cur)}`};
 $('bStop').onclick=()=>{clearTimeout(timer);timer=null;paused=false;mode='all';anims.forEach(a=>map.removeLayer(a));anims=[];
   $('cap').classList.remove('show');$('prog').firstChild.style.width='0';items.forEach(it=>it.el&&it.el.classList.remove('act'));
   render(true);$('st').textContent='정지 — 전체 보기';};
