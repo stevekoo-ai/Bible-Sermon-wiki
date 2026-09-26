@@ -18,6 +18,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-09-25_열왕기와역대기_같은역사두개의시선]]
 - [[2026-09-25_횃불언약과결혼언약_공동체의회복과한영혼의멸망]]
 - [[2026-10-01_여호야긴에서예수까지_포로기이후인물연표]]
+- [[2026-10-01_예수님족보연대표_마태복음1장]]
 
 
 ## Old Testament Exegesis
