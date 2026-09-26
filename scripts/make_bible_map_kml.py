@@ -6,6 +6,8 @@
 좌표는 전통적·학계 통용 위치의 근사값(일부 장소는 위치 논쟁 있음 — note 참고).
 """
 import math, os, sys, json, html
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from bible_map_descriptions import DESC
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "."
 
@@ -164,6 +166,7 @@ def arrowhead(p_prev, p_end, size):
     return [p_end, pL, pR, p_end]
 
 
+assert len(DESC) == len(E), (len(DESC), len(E))
 # ---- 같은 장소에 여러 번호가 겹치지 않게 살짝 흩뿌림 ----
 visits = {}
 markers = []   # (num, per, kind, date, title, note, place, lat, lon, color)
@@ -176,7 +179,7 @@ for idx, e in enumerate(E):
     n = visits.get(end, 0); visits[end] = n + 1
     r = 0.045 * math.sqrt(n); th = n * 2.4
     lat, lon = P[end][0] + r * math.sin(th), P[end][1] + r * math.cos(th)
-    markers.append((num, per, kind, date, title, note, end, lat, lon, col))
+    markers.append((num, per, kind, date, title, note, end, lat, lon, col, DESC[idx]))
     if len(route) > 1:
         pts = []
         bend = 0.12 if idx % 2 == 0 else -0.12
@@ -205,10 +208,10 @@ for num_col in set(m[9] for m in markers):
              f'<PolyStyle><color>{kml_color(num_col)}</color><fill>1</fill><outline>0</outline></PolyStyle></Style>')
 for per in (1, 2, 3):
     k.append(f"<Folder><name>{esc(folders[per])}</name>")
-    for (num, pp, kind, date, title, note, place, lat, lon, col) in markers:
+    for (num, pp, kind, date, title, note, place, lat, lon, col, desc) in markers:
         if pp != per:
             continue
-        k.append(f'<Placemark><name>{num}. {esc(title)}</name><description>{esc(date)} · {esc(place)} · {esc(note)}</description>'
+        k.append(f'<Placemark><name>{num}. {esc(title)}</name><description>{esc(desc)} ({esc(note)})</description>'
                  f'<styleUrl>#p{col.lstrip("#")}</styleUrl><Point><coordinates>{lon:.5f},{lat:.5f},0</coordinates></Point></Placemark>')
     for (num, title, col, pts, head, route_txt) in paths:
         per_of = next(m[1] for m in markers if m[0] == num and m[4] == title)
@@ -239,7 +242,7 @@ def cat_of(num, per, kind):
 mcat = {(m[0], m[4]): cat_of(m[0], m[1], m[2]) for m in markers}
 data = {
     "markers": [dict(n=m[0], per=m[1], kind=m[2], date=m[3], title=m[4], note=m[5], place=m[6],
-                     lat=m[7], lon=m[8], col=m[9], cat=mcat[(m[0], m[4])]) for m in markers],
+                     lat=m[7], lon=m[8], col=m[9], desc=m[10], cat=mcat[(m[0], m[4])]) for m in markers],
     "paths": [dict(n=p[0], title=p[1], col=p[2], pts=p[3], head=p[4], route=p[5],
                    cat=mcat[(p[0], p[1])]) for p in paths],
 }
@@ -272,15 +275,15 @@ html,body{margin:0;height:100%;background:#141414;font-family:'Malgun Gothic',sa
 .num{display:flex;align-items:center;justify-content:center;border-radius:50%;color:#111;font-weight:700;font-size:11px;border:1px solid #111;width:22px;height:22px}
 .num.cur{animation:pulse 1s ease-out infinite;transform-origin:center;box-shadow:0 0 0 0 rgba(255,255,255,.8)}
 @keyframes pulse{0%{transform:scale(1.9);box-shadow:0 0 0 0 rgba(255,255,255,.9)}70%{transform:scale(1.5);box-shadow:0 0 0 14px rgba(255,255,255,0)}100%{transform:scale(1.5)}}
-#cap{position:absolute;left:calc(320px + 50% - 160px);transform:translateX(-50%);bottom:28px;z-index:1000;min-width:420px;max-width:640px;
+#cap{position:absolute;left:calc(320px + 50% - 160px);transform:translateX(-50%);bottom:28px;z-index:1000;min-width:420px;max-width:720px;
  background:rgba(15,15,15,.88);color:#fff;border-radius:14px;padding:14px 18px;display:none;box-shadow:0 8px 30px rgba(0,0,0,.5)}
 #cap.show{display:flex;gap:14px;align-items:center;animation:rise .5s ease-out}
 @keyframes rise{from{opacity:0;transform:translate(-50%,20px)}to{opacity:1;transform:translate(-50%,0)}}
 #cap .big{flex:none;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#111}
-#cap .dt{color:#bbb;font-size:12px}#cap .tt{font-size:17px;font-weight:700;margin:2px 0}#cap .nt{color:#ccc;font-size:12px}
+#cap .dt{color:#bbb;font-size:12px}#cap .tt{font-size:17px;font-weight:700;margin:4px 0 2px}#cap .ds{font-size:13.5px;line-height:1.55;color:#eee}#cap .nt{color:#999;font-size:11.5px;margin-top:6px}#cap .body{max-height:38vh;overflow:auto}
 #prog{position:absolute;left:320px;right:0;top:0;height:4px;z-index:1000;background:transparent}
 #prog div{height:100%;width:0;background:#F2C14E;transition:width .3s}
-@media (max-width:820px){#side{right:0;bottom:auto;width:auto;height:42%}#map{inset:42% 0 0 0}#prog{left:0;top:42%}#cap{left:50%;bottom:12px;min-width:0;width:calc(100% - 24px);padding:10px 12px}#cap .big{width:44px;height:44px;font-size:18px}#cap .tt{font-size:14px}}
+@media (max-width:820px){#side{right:0;bottom:auto;width:auto;height:42%}#map{inset:42% 0 0 0}#prog{left:0;top:42%}#cap{left:50%;bottom:12px;min-width:0;width:calc(100% - 24px);padding:10px 12px}#cap .big{width:44px;height:44px;font-size:18px}#cap .tt{font-size:14px}#cap .ds{font-size:12.5px}}
 </style></head><body>
 <div id="side">
  <h1>예수님 족보 지도 연표 (1–74)</h1>
@@ -295,7 +298,7 @@ html,body{margin:0;height:100%;background:#141414;font-family:'Malgun Gothic',sa
  <div id="list"></div>
 </div>
 <div id="map"></div><div id="prog"><div></div></div>
-<div id="cap"><div class="big"></div><div><div class="dt"></div><div class="tt"></div><div class="nt"></div></div></div>
+<div id="cap"><div class="big"></div><div class="body"><div class="dt"></div><div class="tx"></div><div class="nt"></div></div></div>
 <script>
 const D=__DATA__;
 const CATS=[['p1','1기','#F2C14E'],['p2','2기','#4FA3E0'],['p3','3기','#5CC98A'],['m','천사·선지자·사사','#C78BE8'],['x','세계사','#9A9A9A'],['red','BC 586','#FF4D4D']];
@@ -312,7 +315,7 @@ function icon(m,cur){return L.divIcon({className:'',html:`<div class="num${cur?'
 D.paths.forEach(p=>{const g=L.layerGroup([L.polyline(p.pts,{color:p.col,weight:3,opacity:.9}).bindTooltip(p.n+' → '+p.route),
   L.polygon(p.head,{color:p.col,fillColor:p.col,fillOpacity:1,weight:1})]);
   items.push({type:'p',n:p.n,cat:p.cat,layer:g,d:p,ll:p.pts});});
-D.markers.forEach(m=>{const mk=L.marker([m.lat,m.lon],{icon:icon(m,false),zIndexOffset:m.n}).bindPopup(`<b>${m.n}. ${m.title}</b><br>${m.date} · ${m.place}<br>${m.note}`);
+D.markers.forEach(m=>{const mk=L.marker([m.lat,m.lon],{icon:icon(m,false),zIndexOffset:m.n}).bindPopup(`<b>${m.n}. ${m.title}</b><br>${m.desc}<br><small>${m.place} · ${m.note}</small>`,{maxWidth:320});
   const el=document.createElement('div');el.className='it';el.innerHTML=`<b style="color:${m.col}">${m.n}</b> ${m.date} — ${m.title}`;
   el.onclick=()=>startFrom(m.n);list.appendChild(el);
   items.push({type:'m',n:m.n,cat:m.cat,layer:mk,d:m,ll:[[m.lat,m.lon]],el});});
@@ -339,8 +342,8 @@ function caption(n){const ms=items.filter(it=>it.type==='m'&&it.n===n&&vis[it.ca
   if(!ms.length){c.classList.remove('show');return}
   const m0=ms[0];c.querySelector('.big').textContent=n;c.querySelector('.big').style.background=m0.col;
   c.querySelector('.dt').textContent=m0.date+' · '+[...new Set(ms.map(m=>m.place))].join(' / ');
-  c.querySelector('.tt').innerHTML=ms.map(m=>m.title).join('<br>');
-  c.querySelector('.nt').textContent=ms.map(m=>m.note).join(' · ');
+  c.querySelector('.tx').innerHTML=ms.map(m=>`<div class="tt">${m.title}</div><div class="ds">${m.desc}</div>`).join('');
+  c.querySelector('.nt').textContent='📖 '+ms.map(m=>m.note).join(' · ');
   c.classList.remove('show');void c.offsetWidth;c.classList.add('show');}
 function animatePaths(n,ms){items.filter(it=>it.type==='p'&&it.n===n&&vis[it.cat]).forEach(it=>{
   map.removeLayer(it.layer);const pl=L.polyline([it.d.pts[0]],{color:it.d.col,weight:5,opacity:1}).addTo(map);anims.push(pl);
