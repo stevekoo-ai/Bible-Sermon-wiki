@@ -28,6 +28,7 @@ TYPE_ICON = {
     "theology_term": "📚",
     "nanum": "🙏",
     "series": "🧵",
+    "reference": "🖥️",
 }
 
 # 66-book canon, Korean standard names. Order matters for matching (longest/most
