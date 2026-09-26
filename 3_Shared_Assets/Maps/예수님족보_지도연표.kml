@@ -4,16 +4,16 @@
 <description>1~74 시간 순서. 같은 번호 = 같은 시기의 여러 갈래. 금색=1기, 파랑=2기, 초록=3기, 보라=천사·선지자·사사, 회색=세계사, 빨강=BC 586 성전 불탐. 좌표는 근사값.</description>
 <Style id="pFF4D4D"><IconStyle><color>ff4D4DFF</color><scale>0.9</scale><Icon><href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href></Icon></IconStyle><LabelStyle><scale>0.8</scale></LabelStyle></Style>
 <Style id="lFF4D4D"><LineStyle><color>e64D4DFF</color><width>3</width></LineStyle><PolyStyle><color>ff4D4DFF</color><fill>1</fill><outline>0</outline></PolyStyle></Style>
-<Style id="pF2C14E"><IconStyle><color>ff4EC1F2</color><scale>0.9</scale><Icon><href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href></Icon></IconStyle><LabelStyle><scale>0.8</scale></LabelStyle></Style>
-<Style id="lF2C14E"><LineStyle><color>e64EC1F2</color><width>3</width></LineStyle><PolyStyle><color>ff4EC1F2</color><fill>1</fill><outline>0</outline></PolyStyle></Style>
 <Style id="p5CC98A"><IconStyle><color>ff8AC95C</color><scale>0.9</scale><Icon><href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href></Icon></IconStyle><LabelStyle><scale>0.8</scale></LabelStyle></Style>
 <Style id="l5CC98A"><LineStyle><color>e68AC95C</color><width>3</width></LineStyle><PolyStyle><color>ff8AC95C</color><fill>1</fill><outline>0</outline></PolyStyle></Style>
+<Style id="pC78BE8"><IconStyle><color>ffE88BC7</color><scale>0.9</scale><Icon><href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href></Icon></IconStyle><LabelStyle><scale>0.8</scale></LabelStyle></Style>
+<Style id="lC78BE8"><LineStyle><color>e6E88BC7</color><width>3</width></LineStyle><PolyStyle><color>ffE88BC7</color><fill>1</fill><outline>0</outline></PolyStyle></Style>
+<Style id="pF2C14E"><IconStyle><color>ff4EC1F2</color><scale>0.9</scale><Icon><href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href></Icon></IconStyle><LabelStyle><scale>0.8</scale></LabelStyle></Style>
+<Style id="lF2C14E"><LineStyle><color>e64EC1F2</color><width>3</width></LineStyle><PolyStyle><color>ff4EC1F2</color><fill>1</fill><outline>0</outline></PolyStyle></Style>
 <Style id="p4FA3E0"><IconStyle><color>ffE0A34F</color><scale>0.9</scale><Icon><href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href></Icon></IconStyle><LabelStyle><scale>0.8</scale></LabelStyle></Style>
 <Style id="l4FA3E0"><LineStyle><color>e6E0A34F</color><width>3</width></LineStyle><PolyStyle><color>ffE0A34F</color><fill>1</fill><outline>0</outline></PolyStyle></Style>
 <Style id="p9A9A9A"><IconStyle><color>ff9A9A9A</color><scale>0.9</scale><Icon><href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href></Icon></IconStyle><LabelStyle><scale>0.8</scale></LabelStyle></Style>
 <Style id="l9A9A9A"><LineStyle><color>e69A9A9A</color><width>3</width></LineStyle><PolyStyle><color>ff9A9A9A</color><fill>1</fill><outline>0</outline></PolyStyle></Style>
-<Style id="pC78BE8"><IconStyle><color>ffE88BC7</color><scale>0.9</scale><Icon><href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href></Icon></IconStyle><LabelStyle><scale>0.8</scale></LabelStyle></Style>
-<Style id="lC78BE8"><LineStyle><color>e6E88BC7</color><width>3</width></LineStyle><PolyStyle><color>ffE88BC7</color><fill>1</fill><outline>0</outline></PolyStyle></Style>
 <Folder><name>1기 · 약속 (아브라함 → 다윗)</name>
 <Placemark><name>1. 아브라함 출생 — 갈대아 우르</name><description>BC 2166 · 우르 · 창 11:27-28</description><styleUrl>#pF2C14E</styleUrl><Point><coordinates>46.10310,30.96260,0</coordinates></Point></Placemark>
 <Placemark><name>2. 데라와 함께 하란으로</name><description>BC 2100경 · 하란 · 창 11:31</description><styleUrl>#pF2C14E</styleUrl><Point><coordinates>39.03100,36.86500,0</coordinates></Point></Placemark>

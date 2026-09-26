@@ -262,7 +262,7 @@ html,body{margin:0;height:100%;background:#141414;font-family:'Malgun Gothic',sa
 #ctl input#iv{width:62px}
 #ctl .btns{margin-top:6px;display:flex;gap:6px}
 #ctl button{flex:1;padding:5px 0;border:0;border-radius:5px;font-weight:700;cursor:pointer;color:#111}
-#bPlay{background:#5CC98A}#bPause{background:#F2C14E}#bStop{background:#FF6B6B}
+#bPlay{background:#5CC98A}#bPause{background:#F2C14E}#bStop{background:#FF6B6B}#bPrev,#bNext{background:#9CC7F0}
 #st{margin-top:5px;color:#aaa;font-size:11px}
 #list{flex:1;overflow:auto}
 #list .it{padding:4px 10px;border-bottom:1px solid #2a2a2a;cursor:pointer}
@@ -289,7 +289,7 @@ html,body{margin:0;height:100%;background:#141414;font-family:'Malgun Gothic',sa
   <label>시작 <input id="s0" type="number" min="1" max="74" value="1"></label>
   <label>끝 <input id="s1" type="number" min="1" max="74" value="74"></label>
   <label>간격 <input id="iv" type="number" min="300" step="100" value="2500">ms</label>
-  <div class="btns"><button id="bPlay">▶ Play</button><button id="bPause">❚❚ Pause</button><button id="bStop">■ Stop</button></div>
+  <div class="btns"><button id="bPlay">▶ Play</button><button id="bPause">❚❚ Pause</button><button id="bStop">■ Stop</button></div><div class="btns"><button id="bPrev">◀ Prev</button><button id="bNext">Next ▶</button></div>
   <div id="st">정지 — 전체 보기</div>
  </div>
  <div id="list"></div>
@@ -348,17 +348,30 @@ function animatePaths(n,ms){items.filter(it=>it.type==='p'&&it.n===n&&vis[it.cat
     pl.setLatLngs(it.d.pts.slice(0,upto+1));if(k<1&&mode==='play')requestAnimationFrame(step);else{map.removeLayer(pl);if(shown(it))it.layer.addTo(map);}})(t0);});}
 function numbersInRange(){return [...new Set(items.filter(it=>vis[it.cat]&&it.n>=s0&&it.n<=s1).map(it=>it.n))].sort((a,b)=>a-b)}
 let seq=[],si=0;
-function tick(){if(paused)return;if(si>=seq.length){$('st').textContent=`완료 — ${s0}~${s1}`;timer=null;return}
-  cur=seq[si];const iv=Math.max(300,+$('iv').value||2500);
-  render(false);animatePaths(cur,iv*0.55);caption(cur);fitShown(Math.min(1.6,iv/1000*0.6));
+function showAt(i,manual){cur=seq[i];si=i+1;const iv=Math.max(300,+$('iv').value||2500);
+  anims.forEach(a=>map.removeLayer(a));anims=[];
+  render(false);animatePaths(cur,Math.min(iv*0.55,1200));caption(cur);fitShown(Math.min(1.6,iv/1000*0.6));
   items.forEach(it=>{if(it.type==='m')it.el.classList.toggle('act',it.n===cur)});
   const a=items.find(it=>it.type==='m'&&it.n===cur);if(a)a.el.scrollIntoView({block:'center',behavior:'smooth'});
-  $('prog').firstChild.style.width=((si+1)/seq.length*100)+'%';
-  $('st').textContent=`재생 중 — ${cur} (${si+1}/${seq.length})`;si++;timer=setTimeout(tick,iv);}
+  $('prog').firstChild.style.width=((i+1)/seq.length*100)+'%';
+  $('st').textContent=`${manual?'수동':'재생 중'} — ${cur} (${i+1}/${seq.length})`;}
+function tick(){if(paused)return;if(si>=seq.length){$('st').textContent=`완료 — ${s0}~${s1}`;timer=null;return}
+  const iv=Math.max(300,+$('iv').value||2500);showAt(si,false);timer=setTimeout(tick,iv);}
+function initSeq(){s0=Math.max(1,Math.min(74,+$('s0').value||1));s1=Math.max(1,Math.min(74,+$('s1').value||74));if(s0>s1)[s0,s1]=[s1,s0];
+  mode='play';seq=numbersInRange();si=0;cur=s0-1;}
+function manualStep(dir){clearTimeout(timer);timer=null;
+  if(mode!=='play'){initSeq();paused=true;if(!seq.length)return;showAt(dir>0?0:seq.length-1,true);return}
+  paused=true;const curIdx=si-1;const t=curIdx+dir;
+  if(t<0||t>=seq.length){$('st').textContent=`${t<0?'처음':'마지막'} 단계입니다 — ${cur}`;return}
+  showAt(t,true);}
+$('bNext').onclick=()=>manualStep(1);
+$('bPrev').onclick=()=>manualStep(-1);
+document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;
+  if(e.key==='ArrowRight'){manualStep(1);e.preventDefault()}else if(e.key==='ArrowLeft'){manualStep(-1);e.preventDefault()}
+  else if(e.key===' '){(mode==='play'&&!paused)?$('bPause').click():$('bPlay').click();e.preventDefault()}});
 $('bPlay').onclick=()=>{if(mode==='play'&&paused){paused=false;$('st').textContent='재생 재개';tick();return}
   if(mode==='play'&&timer)return;
-  s0=Math.max(1,Math.min(74,+$('s0').value||1));s1=Math.max(1,Math.min(74,+$('s1').value||74));if(s0>s1)[s0,s1]=[s1,s0];
-  mode='play';paused=false;seq=numbersInRange();si=0;cur=s0-1;render(false);tick();};
+  initSeq();paused=false;render(false);tick();};
 $('bPause').onclick=()=>{if(mode!=='play')return;paused=true;clearTimeout(timer);timer=null;$('st').textContent=`일시정지 — ${cur}`};
 $('bStop').onclick=()=>{clearTimeout(timer);timer=null;paused=false;mode='all';anims.forEach(a=>map.removeLayer(a));anims=[];
   $('cap').classList.remove('show');$('prog').firstChild.style.width='0';items.forEach(it=>it.el&&it.el.classList.remove('act'));
