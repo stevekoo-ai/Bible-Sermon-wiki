@@ -84,11 +84,47 @@ SW, SH = 13.333, 7.5
 X0, X1 = 1.35, SW - 0.2            # plot area (left leaves room for period labels)
 T0, T1 = -2200, 40
 TOP = 1.02                          # first row top
-BOTTOM = SH - 0.28
+ROW_BOTTOM = 5.9                   # genealogy rows end here
+BOTTOM = SH - 0.14                  # vertical guide lines run through the messenger band too
 N = len(ROWS)
-PITCH = (BOTTOM - TOP) / N
-BAR_H = 0.042
-TXT_H = 0.09
+PITCH = (ROW_BOTTOM - TOP) / N
+BAR_H = 0.034
+TXT_H = 0.078
+ROW_FONT = 5
+
+# ---------- 하나님이 보내신 사람들 (계단이 아니라 한 줄씩) ----------
+# (라벨, 시작, 끝 or None, 비고) — BC 음수
+MESSENGER_LANES = [
+    ("천사", RGBColor(0xE8, 0xE8, 0xFF), 3, [
+        ("하갈에게(창 16)", -2080, None),
+        ("모리아산(창 22)", -2050, None),
+        ("떨기나무 모세(출 3)", -1446, None),
+        ("기드온(삿 6)", -1169, None),
+        ("삼손 부모(삿 13)", -1095, None),
+        ("로뎀나무 엘리야(왕상 19)", -860, None),
+        ("앗수르 18만5천(왕하 19)", -701, None),
+        ("가브리엘→다니엘(단 8·9)", -551, -539),
+        ("미가엘(단 10·12)", -536, None),
+        ("가브리엘→사가랴·마리아(눅 1)", -7, -6),
+    ]),
+    ("특별히 보내신 사람", RGBColor(0xFF, 0xB3, 0x47), 1, [
+        ("멜기세덱 — 살렘 왕·지극히 높은 하나님의 제사장(창 14; 히 7)", -2085, None),
+        ("세례 요한 — 주의 길을 예비(말 3:1 → 마 3)", -6, 29),
+    ]),
+    ("사사", RGBColor(0xD9, 0x8C, 0x5F), 3, [
+        ("옷니엘", -1373, -1334), ("에훗", -1316, -1236), ("드보라·바락", -1216, -1176),
+        ("기드온", -1169, -1129), ("입다", -1086, -1080), ("엘리", -1107, -1067),
+        ("삼손", -1075, -1055), ("사무엘(마지막 사사·선지자)", -1060, -1020),
+    ]),
+    ("선지자", RGBColor(0xC7, 0x8B, 0xE8), 5, [
+        ("모세", -1446, -1406), ("나단", -1000, -970), ("엘리야", -875, -848), ("엘리사", -848, -797),
+        ("요나", -785, None), ("아모스", -760, None), ("호세아", -755, -715), ("이사야", -740, -681),
+        ("미가", -735, -700), ("나훔", -650, None), ("스바냐", -630, None), ("예레미야", -627, -586),
+        ("하박국", -607, None), ("다니엘", -605, -536), ("에스겔", -593, -571), ("학개", -520, None),
+        ("스가랴", -520, -480), ("말라기", -430, None),
+    ]),
+]
+LANE_H = {1: 0.18, 3: 0.34, 5: 0.5}
 
 
 def xpos(year):
@@ -162,6 +198,20 @@ for p in (1, 2, 3):
     sub = {1: "아브라함 → 다윗", 2: "다윗 → 바벨론 포로", 3: "포로 → 그리스도"}[p]
     text(0.32, y0 + 0.48, 1.0, 0.2, sub, 7, GREY)
 
+# messenger band backgrounds (drawn before the guide lines so the lines stay visible)
+MB_TOP = ROW_BOTTOM + 0.06
+BAND_BG = RGBColor(0x22, 0x1A, 0x2B)
+lane_y = []
+yy = MB_TOP
+for name, col, lv, items in MESSENGER_LANES:
+    h = LANE_H[lv]
+    box(0.2, yy, SW - 0.35, h, fill=BAND_BG)
+    box(0.2, yy, 0.07, h, fill=col)
+    text(0.32, yy + 0.02, 1.0, 0.14, name, 8, col, bold=True)
+    lane_y.append((yy, h))
+    yy += h + 0.012
+text(0.32, MB_TOP + 0.2, 1.0, 0.1, "여호와의 사자·가브리엘·미가엘", 5, GREY)
+
 # ---------- time axis + milestones ----------
 AX_Y = 0.86
 ax = s.shapes.add_connector(MSO_CONNECTOR.STRAIGHT, Inches(X0), Inches(AX_Y), Inches(X1), Inches(AX_Y))
@@ -182,7 +232,7 @@ for i, (yr, lab) in enumerate(MILESTONES):
     text(x - 0.45, ty, 0.9, 0.11, f"{lab} {-yr if yr < 0 else ''}".strip(), 6, col, bold=(yr == HIGHLIGHT), align=PP_ALIGN.CENTER)
 
 # ---------- rows (staircase) ----------
-CHAR_W = 0.052  # approx width per char @6pt (Korean)
+CHAR_W = 0.045  # approx width per char @5pt (Korean)
 for i, (p, name, a, b, est, info) in enumerate(ROWS):
     y = TOP + i * PITCH
     xa, xb = xpos(a), xpos(b)
@@ -195,10 +245,30 @@ for i, (p, name, a, b, est, info) in enumerate(ROWS):
     tw = len(label) * CHAR_W + 0.1
     ty = y + BAR_H + 0.004
     if xa + tw <= SW - 0.2:
-        text(xa, ty, tw, TXT_H, label, 5.5, WHITE)
+        text(xa, ty, tw, TXT_H, label, ROW_FONT, WHITE)
     else:  # near the right edge → right-align to bar end
         right = min(xa + w, SW - 0.2)
-        text(right - tw, ty, tw, TXT_H, label, 5.5, WHITE, align=PP_ALIGN.RIGHT)
+        text(right - tw, ty, tw, TXT_H, label, ROW_FONT, WHITE, align=PP_ALIGN.RIGHT)
+
+# ---------- messengers: one straight line per lane ----------
+for (name, col, lv, items), (ly, lh) in zip(MESSENGER_LANES, lane_y):
+    line_y = ly + 0.07
+    ln = s.shapes.add_connector(MSO_CONNECTOR.STRAIGHT, Inches(X0), Inches(line_y), Inches(X1), Inches(line_y))
+    ln.line.color.rgb = RGBColor(0x55, 0x4A, 0x60); ln.line.width = Pt(0.5)
+    for k, (lab, a, b) in enumerate(sorted(items, key=lambda it: it[1])):
+        xa = xpos(a)
+        if b is None:
+            box(xa - 0.03, line_y - 0.03, 0.06, 0.06, fill=col, shape=MSO_SHAPE.OVAL)
+        else:
+            xb = xpos(b)
+            box(xa, line_y - 0.022, max(xb - xa, 0.05), 0.044, fill=col)
+        lvl = k % lv
+        ty = line_y + 0.035 + lvl * 0.08
+        tw = len(lab) * 0.047 + 0.1
+        if xa + tw > SW - 0.2:
+            text(SW - 0.2 - tw, ty, tw, 0.08, lab, 5.5, col, align=PP_ALIGN.RIGHT)
+        else:
+            text(xa - 0.02, ty, tw, 0.08, lab, 5.5, col)
 
 # ---------- 586 callout (left of the red line, in the empty 3기 area) ----------
 x = xpos(HIGHLIGHT)
