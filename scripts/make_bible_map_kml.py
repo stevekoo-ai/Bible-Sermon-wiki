@@ -227,31 +227,143 @@ os.makedirs(OUT, exist_ok=True)
 with open(os.path.join(OUT, "예수님족보_지도연표.kml"), "w", encoding="utf-8") as f:
     f.write("\n".join(k))
 
-# ---------------- HTML 미리보기 (Leaflet + OSM) ----------------
+# ---------------- HTML 미리보기 (Leaflet · 범례 토글 · 슬라이드쇼) ----------------
+def cat_of(num, per, kind):
+    if num == 52:
+        return "red"
+    if kind in ("m", "x"):
+        return kind
+    return f"p{per}"
+
+
+mcat = {(m[0], m[4]): cat_of(m[0], m[1], m[2]) for m in markers}
 data = {
-    "markers": [dict(n=m[0], per=m[1], kind=m[2], date=m[3], title=m[4], note=m[5], place=m[6], lat=m[7], lon=m[8], col=m[9]) for m in markers],
-    "paths": [dict(n=p[0], title=p[1], col=p[2], pts=p[3], head=p[4], route=p[5]) for p in paths],
+    "markers": [dict(n=m[0], per=m[1], kind=m[2], date=m[3], title=m[4], note=m[5], place=m[6],
+                     lat=m[7], lon=m[8], col=m[9], cat=mcat[(m[0], m[4])]) for m in markers],
+    "paths": [dict(n=p[0], title=p[1], col=p[2], pts=p[3], head=p[4], route=p[5],
+                   cat=mcat[(p[0], p[1])]) for p in paths],
 }
-page = """<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+page = r"""<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>예수님 족보 지도 연표</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<style>html,body{margin:0;height:100%;background:#141414;font-family:'Malgun Gothic',sans-serif}#map{position:absolute;inset:0 0 0 300px}
-#side{position:absolute;left:0;top:0;bottom:0;width:300px;overflow:auto;background:#1b1b1b;color:#ddd;font-size:12px}
-#side h1{font-size:14px;margin:10px;color:#fff}#side .it{padding:4px 10px;border-bottom:1px solid #2a2a2a;cursor:pointer}#side .it:hover{background:#2a2a2a}
+<style>
+html,body{margin:0;height:100%;background:#141414;font-family:'Malgun Gothic',sans-serif}
+#map{position:absolute;inset:0 0 0 320px}
+#side{position:absolute;left:0;top:0;bottom:0;width:320px;display:flex;flex-direction:column;background:#1b1b1b;color:#ddd;font-size:12px}
+#side h1{font-size:14px;margin:10px 10px 6px;color:#fff}
+#lg{padding:0 8px 6px;display:flex;flex-wrap:wrap;gap:4px}
+#lg .c{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border:1px solid #333;border-radius:12px;cursor:pointer;user-select:none;background:#222}
+#lg .c i{width:10px;height:10px;border-radius:50%;display:inline-block}
+#lg .c.off{opacity:.35;text-decoration:line-through}
+#ctl{padding:8px 10px;border-top:1px solid #2a2a2a;border-bottom:1px solid #2a2a2a;background:#202020}
+#ctl label{display:inline-block;margin-right:6px;color:#aaa}
+#ctl input{width:52px;background:#111;color:#fff;border:1px solid #444;border-radius:4px;padding:2px 4px}
+#ctl input#iv{width:62px}
+#ctl .btns{margin-top:6px;display:flex;gap:6px}
+#ctl button{flex:1;padding:5px 0;border:0;border-radius:5px;font-weight:700;cursor:pointer;color:#111}
+#bPlay{background:#5CC98A}#bPause{background:#F2C14E}#bStop{background:#FF6B6B}
+#st{margin-top:5px;color:#aaa;font-size:11px}
+#list{flex:1;overflow:auto}
+#list .it{padding:4px 10px;border-bottom:1px solid #2a2a2a;cursor:pointer}
+#list .it:hover{background:#2a2a2a}
+#list .it.act{background:#3a2f12;color:#fff}
+#list .it.hid{display:none}
 .num{display:flex;align-items:center;justify-content:center;border-radius:50%;color:#111;font-weight:700;font-size:11px;border:1px solid #111;width:22px;height:22px}
-.lg span{display:inline-block;width:10px;height:10px;border-radius:50%;margin:0 4px 0 10px}</style></head><body>
-<div id="side"><h1>예수님 족보 지도 연표 (1–74)</h1><div class="lg"><span style="background:#F2C14E"></span>1기<span style="background:#4FA3E0"></span>2기<span style="background:#5CC98A"></span>3기<br><span style="background:#C78BE8"></span>천사·선지자·사사<span style="background:#9A9A9A"></span>세계사<span style="background:#FF4D4D"></span>BC 586</div><div id="list"></div></div>
-<div id="map"></div><script>
+.num.cur{animation:pulse 1s ease-out infinite;transform-origin:center;box-shadow:0 0 0 0 rgba(255,255,255,.8)}
+@keyframes pulse{0%{transform:scale(1.9);box-shadow:0 0 0 0 rgba(255,255,255,.9)}70%{transform:scale(1.5);box-shadow:0 0 0 14px rgba(255,255,255,0)}100%{transform:scale(1.5)}}
+#cap{position:absolute;left:calc(320px + 50% - 160px);transform:translateX(-50%);bottom:28px;z-index:1000;min-width:420px;max-width:640px;
+ background:rgba(15,15,15,.88);color:#fff;border-radius:14px;padding:14px 18px;display:none;box-shadow:0 8px 30px rgba(0,0,0,.5)}
+#cap.show{display:flex;gap:14px;align-items:center;animation:rise .5s ease-out}
+@keyframes rise{from{opacity:0;transform:translate(-50%,20px)}to{opacity:1;transform:translate(-50%,0)}}
+#cap .big{flex:none;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#111}
+#cap .dt{color:#bbb;font-size:12px}#cap .tt{font-size:17px;font-weight:700;margin:2px 0}#cap .nt{color:#ccc;font-size:12px}
+#prog{position:absolute;left:320px;right:0;top:0;height:4px;z-index:1000;background:transparent}
+#prog div{height:100%;width:0;background:#F2C14E;transition:width .3s}
+@media (max-width:820px){#side{right:0;bottom:auto;width:auto;height:42%}#map{inset:42% 0 0 0}#prog{left:0;top:42%}#cap{left:50%;bottom:12px;min-width:0;width:calc(100% - 24px);padding:10px 12px}#cap .big{width:44px;height:44px;font-size:18px}#cap .tt{font-size:14px}}
+</style></head><body>
+<div id="side">
+ <h1>예수님 족보 지도 연표 (1–74)</h1>
+ <div id="lg"></div>
+ <div id="ctl">
+  <label>시작 <input id="s0" type="number" min="1" max="74" value="1"></label>
+  <label>끝 <input id="s1" type="number" min="1" max="74" value="74"></label>
+  <label>간격 <input id="iv" type="number" min="300" step="100" value="2500">ms</label>
+  <div class="btns"><button id="bPlay">▶ Play</button><button id="bPause">❚❚ Pause</button><button id="bStop">■ Stop</button></div>
+  <div id="st">정지 — 전체 보기</div>
+ </div>
+ <div id="list"></div>
+</div>
+<div id="map"></div><div id="prog"><div></div></div>
+<div id="cap"><div class="big"></div><div><div class="dt"></div><div class="tt"></div><div class="nt"></div></div></div>
+<script>
 const D=__DATA__;
-const map=L.map('map').setView([32.5,38],5);
-const carto=L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png',{subdomains:'abcd',maxZoom:12,attribution:'© OpenStreetMap contributors © CARTO'});const esri=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:12,attribution:'Tiles © Esri'});const sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:12,attribution:'Imagery © Esri'});carto.addTo(map);L.control.layers({'기본 (CARTO)':carto,'도로 지도 (Esri)':esri,'위성 (Esri)':sat}).addTo(map);
-D.paths.forEach(p=>{L.polyline(p.pts,{color:p.col,weight:3,opacity:.9}).addTo(map).bindTooltip(p.n+' → '+p.route);
- L.polygon(p.head,{color:p.col,fillColor:p.col,fillOpacity:1,weight:1}).addTo(map);});
-const list=document.getElementById('list');
-D.markers.forEach(m=>{const ic=L.divIcon({className:'',html:`<div class="num" style="background:${m.col}">${m.n}</div>`,iconSize:[22,22],iconAnchor:[11,11]});
- const mk=L.marker([m.lat,m.lon],{icon:ic}).addTo(map).bindPopup(`<b>${m.n}. ${m.title}</b><br>${m.date} · ${m.place}<br>${m.note}`);
- const d=document.createElement('div');d.className='it';d.innerHTML=`<b style="color:${m.col}">${m.n}</b> ${m.date} — ${m.title}`;d.onclick=()=>{map.setView([m.lat,m.lon],8);mk.openPopup()};list.appendChild(d);});
+const CATS=[['p1','1기','#F2C14E'],['p2','2기','#4FA3E0'],['p3','3기','#5CC98A'],['m','천사·선지자·사사','#C78BE8'],['x','세계사','#9A9A9A'],['red','BC 586','#FF4D4D']];
+const vis={};CATS.forEach(c=>vis[c[0]]=true);
+const map=L.map('map',{zoomSnap:0.25,minZoom:3}).setView([32.5,38],5);
+const esri=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:12,attribution:'Tiles © Esri'});
+const topo=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:12,attribution:'Tiles © Esri'});
+const sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:12,attribution:'Imagery © Esri'});
+esri.addTo(map);L.control.layers({'도로 지도 (Esri)':esri,'지형 (Esri)':topo,'위성 (Esri)':sat}).addTo(map);
+
+// ---- items ----
+const items=[];const list=document.getElementById('list');
+function icon(m,cur){return L.divIcon({className:'',html:`<div class="num${cur?' cur':''}" style="background:${m.col}">${m.n}</div>`,iconSize:[22,22],iconAnchor:[11,11]})}
+D.paths.forEach(p=>{const g=L.layerGroup([L.polyline(p.pts,{color:p.col,weight:3,opacity:.9}).bindTooltip(p.n+' → '+p.route),
+  L.polygon(p.head,{color:p.col,fillColor:p.col,fillOpacity:1,weight:1})]);
+  items.push({type:'p',n:p.n,cat:p.cat,layer:g,d:p,ll:p.pts});});
+D.markers.forEach(m=>{const mk=L.marker([m.lat,m.lon],{icon:icon(m,false),zIndexOffset:m.n}).bindPopup(`<b>${m.n}. ${m.title}</b><br>${m.date} · ${m.place}<br>${m.note}`);
+  const el=document.createElement('div');el.className='it';el.innerHTML=`<b style="color:${m.col}">${m.n}</b> ${m.date} — ${m.title}`;
+  el.onclick=()=>{if(!map.hasLayer(mk))return;map.flyTo([m.lat,m.lon],8,{duration:.8});mk.openPopup()};list.appendChild(el);
+  items.push({type:'m',n:m.n,cat:m.cat,layer:mk,d:m,ll:[[m.lat,m.lon]],el});});
+
+// ---- legend toggles ----
+const lg=document.getElementById('lg');
+CATS.forEach(([k,name,col])=>{const b=document.createElement('span');b.className='c';b.innerHTML=`<i style="background:${col}"></i>${name}`;
+  b.onclick=()=>{vis[k]=!vis[k];b.classList.toggle('off',!vis[k]);render(false)};lg.appendChild(b);});
+
+// ---- state ----
+let mode='all', cur=0, s0=1, s1=74, timer=null, paused=false, anims=[];
+const $=id=>document.getElementById(id);
+function shown(it){ if(!vis[it.cat])return false; if(mode==='all')return true; return it.n>=s0 && it.n<=cur; }
+function render(fit){
+  items.forEach(it=>{const on=shown(it);if(on&&!map.hasLayer(it.layer))it.layer.addTo(map);if(!on&&map.hasLayer(it.layer))map.removeLayer(it.layer);
+    if(it.type==='m'){it.el.classList.toggle('hid',!vis[it.cat]);it.layer.setIcon(icon(it.d,mode!=='all'&&it.n===cur));}});
+  if(fit)fitShown();
+}
+function fitShown(dur){const pts=[];items.forEach(it=>{if(map.hasLayer(it.layer))pts.push(...it.ll)});
+  if(!pts.length)return;const b=L.latLngBounds(pts);
+  const opt={padding:[70,70],maxZoom:8,duration:dur||1.0};
+  if(b.getNorthEast().distanceTo(b.getSouthWest())<30000)map.flyTo(b.getCenter(),7.5,{duration:opt.duration});else map.flyToBounds(b,opt);}
+function caption(n){const ms=items.filter(it=>it.type==='m'&&it.n===n&&vis[it.cat]).map(it=>it.d);const c=$('cap');
+  if(!ms.length){c.classList.remove('show');return}
+  const m0=ms[0];c.querySelector('.big').textContent=n;c.querySelector('.big').style.background=m0.col;
+  c.querySelector('.dt').textContent=m0.date+' · '+[...new Set(ms.map(m=>m.place))].join(' / ');
+  c.querySelector('.tt').innerHTML=ms.map(m=>m.title).join('<br>');
+  c.querySelector('.nt').textContent=ms.map(m=>m.note).join(' · ');
+  c.classList.remove('show');void c.offsetWidth;c.classList.add('show');}
+function animatePaths(n,ms){items.filter(it=>it.type==='p'&&it.n===n&&vis[it.cat]).forEach(it=>{
+  map.removeLayer(it.layer);const pl=L.polyline([it.d.pts[0]],{color:it.d.col,weight:5,opacity:1}).addTo(map);anims.push(pl);
+  const t0=performance.now();(function step(t){const k=Math.min(1,(t-t0)/ms);const upto=Math.max(1,Math.round(k*(it.d.pts.length-1)));
+    pl.setLatLngs(it.d.pts.slice(0,upto+1));if(k<1&&mode==='play')requestAnimationFrame(step);else{map.removeLayer(pl);if(shown(it))it.layer.addTo(map);}})(t0);});}
+function numbersInRange(){return [...new Set(items.filter(it=>vis[it.cat]&&it.n>=s0&&it.n<=s1).map(it=>it.n))].sort((a,b)=>a-b)}
+let seq=[],si=0;
+function tick(){if(paused)return;if(si>=seq.length){$('st').textContent=`완료 — ${s0}~${s1}`;timer=null;return}
+  cur=seq[si];const iv=Math.max(300,+$('iv').value||2500);
+  render(false);animatePaths(cur,iv*0.55);caption(cur);fitShown(Math.min(1.6,iv/1000*0.6));
+  items.forEach(it=>{if(it.type==='m')it.el.classList.toggle('act',it.n===cur)});
+  const a=items.find(it=>it.type==='m'&&it.n===cur);if(a)a.el.scrollIntoView({block:'center',behavior:'smooth'});
+  $('prog').firstChild.style.width=((si+1)/seq.length*100)+'%';
+  $('st').textContent=`재생 중 — ${cur} (${si+1}/${seq.length})`;si++;timer=setTimeout(tick,iv);}
+$('bPlay').onclick=()=>{if(mode==='play'&&paused){paused=false;$('st').textContent='재생 재개';tick();return}
+  if(mode==='play'&&timer)return;
+  s0=Math.max(1,Math.min(74,+$('s0').value||1));s1=Math.max(1,Math.min(74,+$('s1').value||74));if(s0>s1)[s0,s1]=[s1,s0];
+  mode='play';paused=false;seq=numbersInRange();si=0;cur=s0-1;render(false);tick();};
+$('bPause').onclick=()=>{if(mode!=='play')return;paused=true;clearTimeout(timer);timer=null;$('st').textContent=`일시정지 — ${cur}`};
+$('bStop').onclick=()=>{clearTimeout(timer);timer=null;paused=false;mode='all';anims.forEach(a=>map.removeLayer(a));anims=[];
+  $('cap').classList.remove('show');$('prog').firstChild.style.width='0';items.forEach(it=>it.el&&it.el.classList.remove('act'));
+  render(true);$('st').textContent='정지 — 전체 보기';};
+render(false);map.fitBounds([[27.5,29],[37.5,49]]);
 </script></body></html>"""
 with open(os.path.join(OUT, "예수님족보_지도연표_미리보기.html"), "w", encoding="utf-8") as f:
     f.write(page.replace("__DATA__", json.dumps(data, ensure_ascii=False)))
