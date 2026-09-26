@@ -245,7 +245,7 @@ page = """<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name=
 <div id="map"></div><script>
 const D=__DATA__;
 const map=L.map('map').setView([32.5,38],5);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:12,attribution:'© OpenStreetMap'}).addTo(map);
+const carto=L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png',{subdomains:'abcd',maxZoom:12,attribution:'© OpenStreetMap contributors © CARTO'});const esri=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:12,attribution:'Tiles © Esri'});const sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:12,attribution:'Imagery © Esri'});carto.addTo(map);L.control.layers({'기본 (CARTO)':carto,'도로 지도 (Esri)':esri,'위성 (Esri)':sat}).addTo(map);
 D.paths.forEach(p=>{L.polyline(p.pts,{color:p.col,weight:3,opacity:.9}).addTo(map).bindTooltip(p.n+' → '+p.route);
  L.polygon(p.head,{color:p.col,fillColor:p.col,fillOpacity:1,weight:1}).addTo(map);});
 const list=document.getElementById('list');
