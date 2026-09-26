@@ -88,6 +88,7 @@ Automated index of all research, sermons, and shared assets.
 
 ## Reference Research
 
+- [[여로보암_르호보암_이름어원]]
 - [[열왕기상하_시대배경_숲으로보기]]
 - [[출애굽기19-20장_시내산결혼언약_외부자료조사]]
 
