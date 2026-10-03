@@ -137,4 +137,5 @@ Automated index of all research, sermons, and shared assets.
 
 - [[2026-08-23_얼룩이_마르기_전에]]
 - [[2026-09-19_조금씩_나눠서_해]]
+- [[2026-10-05_STOP]]
 
