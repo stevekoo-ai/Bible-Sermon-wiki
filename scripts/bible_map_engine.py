@@ -60,7 +60,7 @@ def build_map(events, P, P_NOTE, cats, title, out_dir, basename,
         route = e["where"] if isinstance(e["where"], list) else [e["where"]]
         end = route[-1]
         n = visits.get(end, 0); visits[end] = n + 1
-        r = 0.045 * math.sqrt(n); th = n * 2.4
+        r = 0.018 * math.sqrt(n); th = n * 2.4
         col = color[e["cat"]]
         m = dict(n=e["k"], lab=e["lab"], cat=e["cat"], date=e["date"], title=e["title"], note=e["note"],
                  desc=e["desc"], place=end, pnote=P_NOTE[end], col=col,
@@ -175,6 +175,7 @@ html,body{margin:0;height:100%;background:#141414;font-family:'Malgun Gothic',sa
   <label>시작 <input id="s0" type="number" step="any" min="__KMIN__" max="__KMAX__" value="__KMIN__"></label>
   <label>끝 <input id="s1" type="number" step="any" min="__KMIN__" max="__KMAX__" value="__KMAX__"></label>
   <label>간격 <input id="iv" type="number" min="300" step="100" value="2500">ms</label>
+  <label style="display:block;margin-top:6px">카메라 <select id="cam" style="background:#111;color:#fff;border:1px solid #444;border-radius:4px;padding:2px 4px"><option value="auto">자동 줌 (단계마다 확대·축소)</option><option value="cum">누적 범위 (지금까지 전체)</option><option value="fixed">화면 고정 (수동으로 이동)</option></select></label>
   <div class="btns"><button id="bPlay">▶ Play</button><button id="bPause">❚❚ Pause</button><button id="bStop">■ Stop</button></div><div class="btns"><button id="bPrev">◀ Prev</button><button id="bNext">Next ▶</button></div>
   <div id="st">정지 — 전체 보기</div>
  </div>
@@ -203,9 +204,9 @@ D.markers.forEach(m=>{const mk=L.marker([m.lat,m.lon],{icon:icon(m,false),zIndex
 const lg=document.getElementById('lg');
 CATS.forEach(([k,name,col])=>{const b=document.createElement('span');b.className='c'+(vis[k]?'':' off');b.innerHTML=`<i style="background:${col}"></i>${name}`;
   b.onclick=()=>{vis[k]=!vis[k];b.classList.toggle('off',!vis[k]);if(mode==='play'){const keep=cur;seq=numbersInRange();si=Math.max(0,seq.indexOf(keep))+1;}render(false)};lg.appendChild(b);});
-let mode='all', cur=0, s0=KMIN, s1=KMAX, timer=null, paused=false, anims=[];
+let mode='all', cur=0, s0=KMIN, s1=KMAX, timer=null, paused=false, anims=[], token=0, pending=null;
 const $=id=>document.getElementById(id);
-function shown(it){ if(!vis[it.cat])return false; if(mode==='all')return true; return it.n>=s0 && it.n<=cur; }
+function shown(it){ if(!vis[it.cat])return false; if(mode==='all')return true; if(pending!==null&&it.n===pending)return false; return it.n>=s0 && it.n<=cur; }
 function render(fit){
   items.forEach(it=>{const on=shown(it);if(on&&!map.hasLayer(it.layer))it.layer.addTo(map);if(!on&&map.hasLayer(it.layer))map.removeLayer(it.layer);
     if(it.type==='m'){it.el.classList.toggle('hid',!vis[it.cat]);it.layer.setIcon(icon(it.d,mode!=='all'&&it.n===cur));}});
@@ -213,10 +214,22 @@ function render(fit){
 }
 function fitShown(dur){const pts=[];items.forEach(it=>{if(map.hasLayer(it.layer))pts.push(...it.ll)});
   if(!pts.length)return;const b=L.latLngBounds(pts);
-  const small=b.getNorthEast().distanceTo(b.getSouthWest())<30000;
-  const z=small?8:Math.min(8.5,map.getBoundsZoom(b,false,L.point(140,140)));const c=b.getCenter();
+  const z=Math.min(8.5,map.getBoundsZoom(b,false,L.point(140,140)));const c=b.getCenter();
   if(map.getCenter().distanceTo(c)<800&&Math.abs(map.getZoom()-z)<0.1)return;
   try{map.flyTo(c,z,{duration:dur||1.0})}catch(e){map.setView(c,z)}}
+function stepBounds(n){const pts=[];items.forEach(it=>{if(it.n===n&&vis[it.cat])pts.push(...it.ll)});return pts.length?L.latLngBounds(pts):null}
+function camTarget(n,i){const cm=$('cam').value;if(cm==='fixed')return null;let b;
+  if(cm==='cum'){const pts=[];items.forEach(it=>{if(vis[it.cat]&&it.n>=s0&&it.n<=n)pts.push(...it.ll)});if(!pts.length)return null;b=L.latLngBounds(pts);}
+  else{b=stepBounds(n);if(!b)return null;
+    if(i>0){const pb=stepBounds(seq[i-1]);if(pb&&pb.getCenter().distanceTo(b.getCenter())<120000)b=L.latLngBounds([b.getSouthWest(),b.getNorthEast(),pb.getSouthWest(),pb.getNorthEast()]);}}
+  const span=b.getNorthEast().distanceTo(b.getSouthWest());
+  let z=span<20000?8.5:map.getBoundsZoom(b,false,L.point(170,230));z=Math.max(3.5,Math.min(8.5,z));
+  const c=L.latLng(b.getCenter().lat-(span<20000?0:0.06*(b.getNorth()-b.getSouth())),b.getCenter().lng);
+  return {c,z,b};}
+function moveCam(t,dur){if(!t)return false;const cz=map.getZoom();
+  if(map.getCenter().distanceTo(t.c)<800&&Math.abs(cz-t.z)<0.1)return false;
+  if($('cam').value==='auto'&&map.getBounds().pad(-0.08).contains(t.b)&&Math.abs(t.z-cz)<0.75)return false;
+  try{map.flyTo(t.c,t.z,{duration:dur})}catch(e){map.setView(t.c,t.z);return false}return true;}
 function caption(n){const ms=items.filter(it=>it.type==='m'&&it.n===n&&vis[it.cat]).map(it=>it.d);const c=$('cap');
   if(!ms.length){c.classList.remove('show');return}
   const m0=ms[0];c.querySelector('.big').textContent=m0.lab;c.querySelector('.big').style.background=m0.col;
@@ -225,20 +238,28 @@ function caption(n){const ms=items.filter(it=>it.type==='m'&&it.n===n&&vis[it.ca
   c.querySelector('.nt').textContent='📖 '+[...new Set(ms.map(m=>m.note))].join(' · ');
   const seen=new Set();c.querySelector('.pl').innerHTML=ms.filter(m=>{const key=m.place+m.route;if(seen.has(key))return false;seen.add(key);return true}).map(m=>`📍 <b>${m.place}</b> — ${m.pnote}`+(m.route?`<br><span style="color:#888">경로: ${m.route}</span>`:'')).join('<br>');
   c.classList.remove('show');void c.offsetWidth;c.classList.add('show');}
-function animatePaths(n,ms){items.filter(it=>it.type==='p'&&it.n===n&&vis[it.cat]).forEach(it=>{
-  map.removeLayer(it.layer);const pl=L.polyline([it.d.pts[0]],{color:it.d.col,weight:5,opacity:1}).addTo(map);anims.push(pl);
-  const t0=performance.now();(function step(t){const k=Math.min(1,(t-t0)/ms);const upto=Math.max(1,Math.round(k*(it.d.pts.length-1)));
-    pl.setLatLngs(it.d.pts.slice(0,upto+1));if(k<1&&mode==='play')requestAnimationFrame(step);else{map.removeLayer(pl);if(shown(it))it.layer.addTo(map);}})(t0);});}
+function reveal(n,tk,pathMs){if(tk!==token)return;
+  const ps=items.filter(it=>it.type==='p'&&it.n===n&&vis[it.cat]);let left=ps.length;
+  const finish=()=>{if(tk!==token)return;pending=null;render(false);};
+  if(!left){finish();return}
+  ps.forEach(it=>{const pl=L.polyline([it.d.pts[0]],{color:it.d.col,weight:5,opacity:1}).addTo(map);anims.push(pl);
+    const ms=pathMs*Math.min(1.6,Math.max(0.7,it.d.pts.length/21));const t0=performance.now();
+    (function step(t){if(tk!==token){map.removeLayer(pl);return}
+      const k=Math.min(1,(t-t0)/ms);const upto=Math.max(1,Math.round(k*(it.d.pts.length-1)));pl.setLatLngs(it.d.pts.slice(0,upto+1));
+      if(k<1)requestAnimationFrame(step);else{map.removeLayer(pl);if(--left===0)finish();}})(t0);});}
 function numbersInRange(){return [...new Set(items.filter(it=>vis[it.cat]&&it.n>=s0&&it.n<=s1).map(it=>it.n))].sort((a,b)=>a-b)}
 let seq=[],si=0;
 function LB(n){const m=items.find(it=>it.type==='m'&&it.n===n);return m?m.d.lab:n}
-function showAt(i,manual){cur=seq[i];si=i+1;const iv=Math.max(300,+$('iv').value||2500);
-  anims.forEach(a=>map.removeLayer(a));anims=[];
-  render(false);animatePaths(cur,Math.min(iv*0.55,1200));caption(cur);fitShown(Math.min(1.6,iv/1000*0.6));
-  items.forEach(it=>{if(it.type==='m')it.el.classList.toggle('act',it.n===cur)});
-  const a=items.find(it=>it.type==='m'&&it.n===cur&&vis[it.cat]);if(a)a.el.scrollIntoView({block:'center',behavior:'smooth'});
+function showAt(i,manual){const n=seq[i];cur=n;si=i+1;const iv=Math.max(300,+$('iv').value||2500);
+  const tk=++token;anims.forEach(a=>map.removeLayer(a));anims=[];pending=n;render(false);
+  caption(n);
+  items.forEach(it=>{if(it.type==='m')it.el.classList.toggle('act',it.n===n)});
+  const a=items.find(it=>it.type==='m'&&it.n===n&&vis[it.cat]);if(a)a.el.scrollIntoView({block:'center',behavior:'smooth'});
   $('prog').firstChild.style.width=((i+1)/seq.length*100)+'%';
-  $('st').textContent=`${manual?'수동':'재생 중'} — ${LB(cur)} (${i+1}/${seq.length})`;}
+  $('st').textContent=`${manual?'수동':'재생 중'} — ${LB(n)} (${i+1}/${seq.length})`;
+  const camDur=Math.min(1.4,Math.max(0.4,iv/1000*0.3)),pathMs=Math.min(1700,Math.max(250,iv*0.35));
+  const moved=moveCam(camTarget(n,i),camDur);let done=false;const go=()=>{if(done)return;done=true;reveal(n,tk,pathMs)};
+  if(moved){map.once('moveend',()=>setTimeout(go,120));setTimeout(go,camDur*1000+600)}else go();}
 function tick(){if(paused)return;if(si>=seq.length){$('st').textContent=`완료 — ${LB(seq[0])}~${LB(seq[seq.length-1])}`;timer=null;return}
   const iv=Math.max(300,+$('iv').value||2500);showAt(si,false);timer=setTimeout(tick,iv);}
 function initSeq(){s0=Math.max(KMIN,Math.min(KMAX,+$('s0').value||KMIN));s1=Math.max(KMIN,Math.min(KMAX,+$('s1').value||KMAX));if(s0>s1)[s0,s1]=[s1,s0];
@@ -260,7 +281,7 @@ $('bPlay').onclick=()=>{if(mode==='play'&&paused){paused=false;$('st').textConte
   if(mode==='play'&&timer)return;
   initSeq();paused=false;render(false);tick();};
 $('bPause').onclick=()=>{if(mode!=='play')return;paused=true;clearTimeout(timer);timer=null;$('st').textContent=`일시정지 — ${LB(cur)}`};
-$('bStop').onclick=()=>{clearTimeout(timer);timer=null;paused=false;mode='all';anims.forEach(a=>map.removeLayer(a));anims=[];
+$('bStop').onclick=()=>{clearTimeout(timer);timer=null;paused=false;mode='all';token++;pending=null;anims.forEach(a=>map.removeLayer(a));anims=[];
   $('cap').classList.remove('show');$('prog').firstChild.style.width='0';items.forEach(it=>it.el&&it.el.classList.remove('act'));
   render(true);$('st').textContent='정지 — 전체 보기';};
 render(false);map.fitBounds(__BOUNDS__);
