@@ -20,6 +20,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-10-01_여호야긴에서예수까지_포로기이후인물연표]]
 - [[2026-10-01_예수님족보연대표_마태복음1장]]
 - [[2026-10-02_아담930년_인구증가계산]]
+- [[2026-10-05_바벨론은왜북쪽에서왔나_비옥한초승달행군로]]
 
 
 ## Old Testament Exegesis
