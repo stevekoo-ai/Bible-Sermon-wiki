@@ -21,6 +21,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-10-01_예수님족보연대표_마태복음1장]]
 - [[2026-10-02_아담930년_인구증가계산]]
 - [[2026-10-05_바벨론은왜북쪽에서왔나_비옥한초승달행군로]]
+- [[2026-10-06_언약적공의와땅의거룩함_두범주]]
 
 
 ## Old Testament Exegesis
@@ -86,7 +87,6 @@ Automated index of all research, sermons, and shared assets.
 
 ## Theology Terms
 
-- *(No entries found)*
 
 
 ## Reference Research
