@@ -25,6 +25,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-10-07_예수가밥먹여주냐_광야의만나와히스기야의기도]]
 - [[2026-10-08_배신감의두얼굴_열왕기말기왕들과호산나군중]]
 - [[2026-10-08_시간의깃발_시드기야의예언성취와내게꽂힌깃발]]
+- [[2026-10-11_독수리타고온참새_사업부폐쇄와신입사원으로의환난연단소망]]
 - [[2026-10-13_느부갓네살의예언_이름까지미리말씀하신하나님]]
 - [[2026-10-13_시드기야의운명_예언과성취]]
 - [[2026-10-13_열왕기마지막장면의예언총정리]]
@@ -95,7 +96,6 @@ Automated index of all research, sermons, and shared assets.
 
 ## Theology Terms
 
-- *(No entries found)*
 
 
 ## Reference Research
