@@ -28,6 +28,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-10-13_느부갓네살의예언_이름까지미리말씀하신하나님]]
 - [[2026-10-13_시드기야의운명_예언과성취]]
 - [[2026-10-13_열왕기마지막장면의예언총정리]]
+- [[2026-10-14_내가원하는것을주지않는하나님_왕하25묵상]]
 
 
 ## Old Testament Exegesis
