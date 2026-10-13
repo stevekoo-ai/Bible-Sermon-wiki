@@ -27,6 +27,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-10-08_시간의깃발_시드기야의예언성취와내게꽂힌깃발]]
 - [[2026-10-13_느부갓네살의예언_이름까지미리말씀하신하나님]]
 - [[2026-10-13_시드기야의운명_예언과성취]]
+- [[2026-10-13_열왕기마지막장면의예언총정리]]
 
 
 ## Old Testament Exegesis
