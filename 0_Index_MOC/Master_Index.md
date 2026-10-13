@@ -29,6 +29,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-10-13_시드기야의운명_예언과성취]]
 - [[2026-10-13_열왕기마지막장면의예언총정리]]
 - [[2026-10-14_내가원하는것을주지않는하나님_왕하25묵상]]
+- [[2026-10-14_예언은운명인가_정해진심판과열려있던문]]
 
 
 ## Old Testament Exegesis
