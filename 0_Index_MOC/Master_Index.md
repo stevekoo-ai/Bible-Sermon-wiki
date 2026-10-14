@@ -97,6 +97,7 @@ Automated index of all research, sermons, and shared assets.
 
 ## Theology Terms
 
+- *(No entries found)*
 
 
 ## Reference Research
@@ -144,6 +145,11 @@ Automated index of all research, sermons, and shared assets.
 
 
 ## Group Sharing (나눔)
+
+### 심화반_6기
+
+- [[2025-12-20_로마서3장_내가쌓은바벨탑과연필깎이]]
+
 
 ### 히엘_1-4목장
 
