@@ -34,6 +34,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-10-14_예언인가운명인가경고인가_병주고약주시는하나님]]
 - [[2026-10-16_다섯나라이야기_앗수르에서새언약까지]]
 - [[2026-10-16_애가3장에서십자가까지_새언약과횃불언약_대단원검토]]
+- [[2026-10-16_왜선지자를통해서만말씀하셨나_직접음성에서새언약까지]]
 - [[2026-10-16_유다멸망_관련성경_연관도목록]]
 - [[2026-10-16_유다멸망_선지서시간순재배열]]
 
@@ -101,7 +102,6 @@ Automated index of all research, sermons, and shared assets.
 
 ## Theology Terms
 
-- *(No entries found)*
 
 
 ## Reference Research
