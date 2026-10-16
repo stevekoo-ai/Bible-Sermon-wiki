@@ -21,8 +21,8 @@ PN = {**GPN, **PLACE_NOTES, **EXT_PLACE_NOTES}
 folder = dict((c[0], c[1]) for c in CATS)
 
 r = build_map([dict(e, folder=folder[e["cat"]]) for e in events], P, PN, CATS,
-              f"유다 멸망 지도 연표 확장판 (1–{total}) — 열왕기 흐름 + 선지서의 말씀 (BC 627 ~ BC 518 · 신약)",
+              f"유다 멸망 지도 연표 확장판 (1–{total}) — 열왕기 흐름 + 선지서의 말씀 (BC 740 ~ BC 518 · 신약)",
               out, "유다멸망_지도연표_확장판", bounds=((29.5, 30.5), (37.2, 46)), landmarks=LANDMARKS,
-              kml_desc=f"BC 627 예레미야 소명 ~ BC 518 스가랴, 신약 에필로그까지 {total}단계. 기존 38개 사건 + 예레미야·에스겔·애가·하박국·스바냐·오바댜·다니엘·시편·학개·스가랴의 말씀. "
+              kml_desc=f"BC 740 이사야 소명 ~ BC 518 스가랴, 신약 에필로그까지 {total}단계. 기존 38개 사건 + 예레미야·에스겔·애가·하박국·스바냐·오바댜·다니엘·시편·학개·스가랴의 말씀. "
                        "날짜는 Thiele/Parker-Dubberstein 환산(함락 586년설), 율리우스력 근사. 근거: 2026-10-16 선지서 시간순 재배열 노트.")
 print(total, r)
