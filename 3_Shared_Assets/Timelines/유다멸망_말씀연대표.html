@@ -1,0 +1,1265 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>유다 멸망 말씀 연대표</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one reading column; sticky era/lane bar; each era = rows of [date | words by lane]; siege era splits Jerusalem | Babylon side by side. */
+:root {
+  --bg: #f4f5f1;
+  --surface: #fbfbf8;
+  --ink: #1d221f;
+  --muted: #59625c;
+  --rule: #d9dcd3;
+  --lapis: #2a4b8d;      /* Babylon — Ishtar gate blue */
+  --ochre: #85641a;      /* Jerusalem — limestone */
+  --hist: #4a5650;
+  --other: #6b4c7c;
+  --ember: #a3342a;      /* the burning / sermon-text marks */
+  --key-bg: #f6e8e3;
+  --c-fix: #2d7a4d;
+  --c-est: #9c6c14;
+  --c-unk: #858b86;
+  --f-display: "Hahmlet", "Noto Serif KR", "Nanum Myeongjo", serif;
+  --f-body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121513; --surface: #191d1a; --ink: #e5e8e2; --muted: #a0a8a2; --rule: #2c332e;
+    --lapis: #93ade8; --ochre: #d8b35c; --hist: #a9b5ad; --other: #c7aad9; --ember: #e98f80;
+    --key-bg: #2a1c19; --c-fix: #6cc392; --c-est: #e1b45a; --c-unk: #8f9690;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121513; --surface: #191d1a; --ink: #e5e8e2; --muted: #a0a8a2; --rule: #2c332e;
+  --lapis: #93ade8; --ochre: #d8b35c; --hist: #a9b5ad; --other: #c7aad9; --ember: #e98f80;
+  --key-bg: #2a1c19; --c-fix: #6cc392; --c-est: #e1b45a; --c-unk: #8f9690;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.75;
+  word-break: keep-all; overflow-wrap: break-word;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+.wrap { max-width: 860px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.prose { max-width: 40em; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.35; margin: 0; }
+p { margin: 0; }
+strong { font-weight: 600; }
+.ref { font-family: var(--f-mono); font-size: .78em; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.he { font-family: "Noto Serif Hebrew", "SBL Hebrew", serif; font-size: 1.05em; }
+
+/* header */
+header.top { padding-block: 2.5rem 1.75rem; }
+.eyebrow { font-size: .8rem; letter-spacing: .06em; color: var(--muted); }
+header.top h1 { font-size: clamp(1.65rem, 4.6vw, 2.35rem); font-weight: 700; margin-top: .6rem; }
+header.top .lede { margin-top: 1rem; font-size: 1.05rem; }
+.howto { margin-top: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem 2rem; font-size: .9rem; color: var(--muted); }
+.howto h3 { font-family: var(--f-body); font-size: .78rem; letter-spacing: .06em; color: var(--ink); font-weight: 600; margin-bottom: .35rem; }
+.howto ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .3rem; }
+
+/* chips */
+.c { display: inline-flex; align-items: center; gap: .35em; font-size: .72rem; font-weight: 500; letter-spacing: .02em; padding: .05em .55em; border-radius: 99px; border: 1px solid currentColor; white-space: nowrap; }
+.c::before { content: ""; width: .5em; height: .5em; border-radius: 50%; background: currentColor; }
+.c-fix { color: var(--c-fix); } .c-est { color: var(--c-est); } .c-unk { color: var(--c-unk); }
+.c-key { color: var(--ember); }
+.lane { font-size: .75rem; font-weight: 600; letter-spacing: .04em; display: inline-flex; align-items: center; gap: .4em; }
+.lane::before { content: ""; width: .55em; height: .55em; border-radius: 2px; background: currentColor; }
+.l-hist { color: var(--hist); } .l-jer { color: var(--ochre); } .l-ezk { color: var(--lapis); } .l-other { color: var(--other); }
+
+/* sticky bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-block: 1px solid var(--rule); }
+.bar .wrap { padding-block: .55rem; display: grid; gap: .45rem; }
+.eras { display: flex; gap: .35rem; overflow-x: auto; scrollbar-width: thin; padding-bottom: .1rem; }
+.eras a { flex: none; text-decoration: none; color: var(--ink); font-size: .82rem; padding: .2rem .65rem; border-radius: 6px; border: 1px solid var(--rule); background: var(--bg); white-space: nowrap; }
+.eras a b { font-family: var(--f-display); font-weight: 700; margin-right: .3em; }
+.eras a.siege { border-color: var(--ember); color: var(--ember); }
+.eras a:focus-visible, .filters button:focus-visible { outline: 2px solid var(--lapis); outline-offset: 2px; }
+.filters { display: flex; flex-wrap: wrap; gap: .35rem .5rem; align-items: center; font-size: .8rem; }
+.filters .lbl { color: var(--muted); margin-right: .15rem; }
+.filters button { font: inherit; font-size: .78rem; cursor: pointer; padding: .15rem .6rem; border-radius: 99px; border: 1px solid var(--rule); background: transparent; color: var(--muted); display: inline-flex; align-items: center; gap: .35em; }
+.filters button[aria-pressed="true"] { color: var(--ink); border-color: currentColor; background: var(--bg); }
+.filters button[aria-pressed="true"].l-hist { color: var(--hist); }
+.filters button[aria-pressed="true"].l-jer { color: var(--ochre); }
+.filters button[aria-pressed="true"].l-ezk { color: var(--lapis); }
+.filters button[aria-pressed="true"].l-other { color: var(--other); }
+.filters button[aria-pressed="true"].f-key { color: var(--ember); }
+.filters button .dot { width: .55em; height: .55em; border-radius: 2px; background: currentColor; }
+
+/* sections */
+main { padding-block: 1rem 3rem; }
+section { scroll-margin-top: 7.5rem; }
+.part { padding-block: 2.25rem 1rem; }
+.part > h2 { font-size: 1.45rem; }
+.part > .sub { color: var(--muted); margin-top: .35rem; }
+
+.why { margin-top: 1rem; display: grid; gap: .9rem; }
+.why div { display: grid; grid-template-columns: 7.5rem 1fr; gap: .25rem 1rem; }
+.why dt { font-weight: 600; }
+.why dd { margin: 0; color: var(--ink); }
+@media (max-width: 560px) { .why div { grid-template-columns: 1fr; } }
+
+.era { padding-block: 2.5rem .5rem; }
+.era-head { display: grid; grid-template-columns: auto 1fr; gap: .1rem 1rem; align-items: baseline; padding-bottom: .9rem; border-bottom: 2px solid var(--ink); }
+.era-head .num { font-family: var(--f-display); font-weight: 700; font-size: 2rem; line-height: 1; color: var(--muted); grid-row: span 2; }
+.era-head h2 { font-size: 1.3rem; }
+.era-head .span { font-family: var(--f-mono); font-size: .82rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.era-head .gist { grid-column: 2; color: var(--muted); font-size: .95rem; }
+.era.siege .era-head { border-bottom-color: var(--ember); }
+.era.siege .era-head .num { color: var(--ember); }
+
+.row { display: grid; grid-template-columns: 8.75rem minmax(0, 1fr); gap: .5rem 1.25rem; padding-block: 1.05rem; border-bottom: 1px solid var(--rule); }
+.row.key { background: var(--key-bg); padding-inline: .75rem; margin-inline: -.75rem; border-radius: 4px; }
+.when { display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; }
+.when .date { font-family: var(--f-mono); font-weight: 500; font-size: .9rem; font-variant-numeric: tabular-nums; line-height: 1.4; }
+.when .date small { display: block; font-family: var(--f-body); font-size: .75rem; color: var(--muted); font-weight: 400; }
+.what { display: grid; gap: .85rem; min-width: 0; }
+.item { display: grid; gap: .15rem; min-width: 0; }
+.item p + p { margin-top: .3rem; }
+.item .aside { font-size: .88rem; color: var(--muted); }
+.sameday { grid-column: 1 / -1; font-size: .8rem; color: var(--ember); font-weight: 600; letter-spacing: .02em; display: flex; align-items: center; gap: .6rem; }
+.sameday::before, .sameday::after { content: ""; height: 1px; background: currentColor; flex: 1; opacity: .5; }
+.empty { color: var(--muted); font-size: .9rem; padding-block: 1rem; }
+
+.cols-head { display: none; }
+@media (min-width: 720px) {
+  .era.siege .what { grid-template-columns: 1fr 1fr; column-gap: 1.5rem; }
+  .era.siege .item[data-lane="hist"], .era.siege .item[data-lane="other"] { grid-column: 1 / -1; }
+  .era.siege .item[data-lane="jer"] { grid-column: 1; }
+  .era.siege .item[data-lane="ezk"] { grid-column: 2; }
+  .cols-head { display: grid; grid-template-columns: 8.75rem 1fr 1fr; column-gap: 1.25rem; padding-block: .6rem; border-bottom: 1px solid var(--rule); font-size: .8rem; }
+  .cols-head span:nth-child(3) { padding-left: .125rem; }
+}
+@media (max-width: 560px) {
+  .row { grid-template-columns: 1fr; }
+  .when { flex-direction: row; flex-wrap: wrap; align-items: center; }
+}
+
+.nt { margin-top: 1rem; display: grid; gap: .6rem; padding: 0; list-style: none; }
+.nt li { display: grid; grid-template-columns: 8.75rem 1fr; gap: 1.25rem; padding-bottom: .6rem; border-bottom: 1px solid var(--rule); }
+@media (max-width: 560px) { .nt li { grid-template-columns: 1fr; gap: .1rem; } }
+
+/* chronicles index */
+.toc { margin-top: 1.25rem; display: grid; gap: 0; }
+.toc div { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: .3rem 1.5rem; padding-block: .9rem; border-bottom: 1px solid var(--rule); }
+.toc dt { font-family: var(--f-display); font-weight: 500; }
+.toc dt .ref { display: block; margin-bottom: .15rem; }
+.toc dd { margin: 0; font-size: .95rem; }
+@media (max-width: 600px) { .toc div { grid-template-columns: 1fr; } }
+
+/* discoveries */
+.finds { margin-top: 1.25rem; display: grid; gap: 2rem; counter-reset: f; }
+.find { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: .2rem 1rem; }
+.find .n { font-family: var(--f-display); font-weight: 700; font-size: 1.6rem; line-height: 1.2; color: var(--lapis); }
+.find h3 { font-size: 1.12rem; }
+.find .kind { font-size: .72rem; color: var(--muted); letter-spacing: .04em; margin-top: .1rem; }
+.find .body { grid-column: 2; display: grid; gap: .5rem; }
+.find ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .35rem; }
+.use { font-size: .92rem; border-left: 2px solid var(--ochre); padding-left: .8rem; color: var(--ink); }
+.use b { color: var(--ochre); font-weight: 600; margin-right: .3em; }
+.flow { font-size: .92rem; color: var(--ink); }
+.flow span { white-space: nowrap; }
+.flow i { font-style: normal; color: var(--muted); margin-inline: .25em; }
+
+.tbl { overflow-x: auto; margin-top: .25rem; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; min-width: 480px; }
+th, td { text-align: left; vertical-align: top; padding: .5rem .7rem .5rem 0; border-bottom: 1px solid var(--rule); }
+th { font-weight: 600; font-size: .8rem; color: var(--muted); }
+td.num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.fix { margin-top: 1rem; display: grid; gap: .9rem; padding-left: 1.1rem; }
+footer { padding-block: 2rem 3rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--rule); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+/* expanded entries: word → background → link */
+.item .ttl { margin-top: .1rem; }
+.item blockquote.w { margin: .35rem 0 .2rem; padding: .55rem .85rem; border-left: 3px solid var(--rule); background: var(--surface); border-radius: 0 4px 4px 0; font-family: var(--f-display); font-weight: 500; font-size: .97rem; line-height: 1.8; }
+.item[data-lane="hist"] blockquote.w { border-left-color: var(--hist); }
+.item[data-lane="jer"] blockquote.w { border-left-color: var(--ochre); }
+.item[data-lane="ezk"] blockquote.w { border-left-color: var(--lapis); }
+.item[data-lane="other"] blockquote.w { border-left-color: var(--other); }
+.item blockquote.w .ref { font-family: var(--f-mono); font-weight: 500; }
+.item .bg, .item .ln { font-size: .92rem; color: var(--ink); }
+.item .bg { color: var(--muted); }
+.item .bg b, .item .ln b { display: inline-block; font-size: .7rem; font-weight: 600; letter-spacing: .06em; padding: 0 .45em; margin-right: .5em; border-radius: 3px; vertical-align: .1em; }
+.item .bg b { background: var(--rule); color: var(--ink); }
+.item .ln b { background: var(--key-bg); color: var(--ember); }
+.item .tbl { margin-block: .3rem; }
+.nt .mini { display: block; font-size: .9rem; color: var(--muted); margin-top: .2rem; }
+.nt li > span:last-child strong { color: var(--ink); }
+.item .ttl .ref, .item .bg, .item .ln, .toc dd .ref, .item blockquote.w .ref { white-space: normal; }
+.what, .item, .row { min-width: 0; }
+footer .ref { white-space: normal; word-break: break-all; }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">열왕기하 25장 · 10/18 설교 준비 · 2026-10-16 묵상 노트</p>
+    <h1>포위된 18개월, 하나님은 침묵하지 않으셨다</h1>
+    <div class="prose">
+      <p class="lede">예루살렘에서는 예레미야에게, 1,300km 떨어진 바벨론에서는 에스겔에게 <strong>같은 날</strong> 말씀하셨다. 한 손으로는 "지금이라도 나오면 산다"는 문을 끝까지 열어 두셨고, 다른 손으로는 <strong>무너진 뒤에 지킬 새 언약을 그 포위 속에서 이미 쓰고 계셨다.</strong></p>
+    </div>
+    <div class="howto">
+      <div>
+        <h3>같은 줄 = 같은 시점</h3>
+        <ul>
+          <li><span class="lane l-hist">역사서</span> 열왕기하 · 역대하</li>
+          <li><span class="lane l-jer">예레미야</span> 예루살렘에서</li>
+          <li><span class="lane l-ezk">에스겔</span> 바벨론 그발 강 가에서</li>
+          <li><span class="lane l-other">그 밖의 말씀</span> 애가 · 시편 · 소선지서 등</li>
+        </ul>
+      </div>
+      <div>
+        <h3>날짜의 확실도</h3>
+        <ul>
+          <li><span class="c c-fix">확정</span> 본문에 날짜가 적혀 있음</li>
+          <li><span class="c c-est">추정</span> 내용으로 시점을 좁힘 (학자 다수설)</li>
+          <li><span class="c c-unk">불명</span> 견해가 갈림</li>
+          <li><span class="c c-key">설교 본문</span> 왕하 25:1-12, 21과 맞물리는 지점</li>
+        </ul>
+      </div>
+      <div>
+        <h3>항목 읽는 법</h3>
+        <ul>
+          <li><b style="font-family:var(--f-display)">"말씀"</b> 개역개정 원문 인용</li>
+          <li><span style="font-size:.7rem;font-weight:600;padding:0 .45em;border-radius:3px;background:var(--rule);color:var(--ink)">배경</span> 누가, 어디서, 어떤 상황에서</li>
+          <li><span style="font-size:.7rem;font-weight:600;padding:0 .45em;border-radius:3px;background:var(--key-bg);color:var(--ember)">연결</span> 앞뒤 본문·성취·신약과 이어지는 곳</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="bar" aria-label="시대와 보기 설정">
+  <div class="wrap">
+    <div class="eras">
+      <a href="#why">순서가 섞인 이유</a>
+      <a href="#e1"><b>Ⅰ</b>요시야</a>
+      <a href="#e2"><b>Ⅱ</b>여호야김</a>
+      <a href="#e3"><b>Ⅲ</b>597</a>
+      <a href="#e4"><b>Ⅳ</b>시드기야 초기</a>
+      <a href="#e5" class="siege"><b>Ⅴ</b>포위 18개월</a>
+      <a href="#e6" class="siege"><b>Ⅵ</b>무너진 한 달</a>
+      <a href="#e7"><b>Ⅶ</b>남은 자들</a>
+      <a href="#e8"><b>Ⅷ</b>긴 기다림</a>
+      <a href="#e9"><b>Ⅸ</b>신약</a>
+      <a href="#toc">역대하 36장 목차</a>
+      <a href="#finds">발견 10가지</a>
+      <a href="#diff">본문 차이</a>
+    </div>
+    <div class="filters" role="group" aria-label="보이는 말씀 고르기">
+      <span class="lbl">보기</span>
+      <button type="button" id="f-hist" class="l-hist" data-lane="hist" aria-pressed="true"><span class="dot"></span>역사서</button>
+      <button type="button" id="f-jer" class="l-jer" data-lane="jer" aria-pressed="true"><span class="dot"></span>예레미야</button>
+      <button type="button" id="f-ezk" class="l-ezk" data-lane="ezk" aria-pressed="true"><span class="dot"></span>에스겔</button>
+      <button type="button" id="f-other" class="l-other" data-lane="other" aria-pressed="true"><span class="dot"></span>그 밖의 말씀</button>
+      <button type="button" id="f-key" class="f-key" aria-pressed="false"><span class="dot"></span>설교 본문 지점만</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+<div class="wrap">
+
+<section id="why" class="part">
+  <h2>왜 성경 순서대로 읽으면 헷갈리나</h2>
+  <p class="sub prose">선지서는 날짜순이 아니라 주제와 묶음으로 편집되었다. 그래서 시간순으로 다시 놓아야 흐름이 보인다.</p>
+  <dl class="why prose">
+    <div><dt>예레미야</dt><dd>주제·청중·두루마리별 묶음이다. 1–25장 유다 심판, 26–45장 예레미야 이야기, 46–51장 열방 신탁, 52장 부록(=왕하 24:18–25:30). 예를 들어 21장(포위 중, 588)이 25장(605)과 26장(609)보다 앞에 있다. 처음부터 "두루마리 → 불탐 → 다시 쓰고 더함"<span class="ref">렘 36:32</span>을 거친 책이다.</dd></div>
+    <div><dt>예레미야애가</dt><dd>다섯 편의 시. 시간순이 아니라 <strong>감정의 구조</strong>로 짜여 있다. 소망은 3장 한가운데<span class="ref">애 3:22-23</span>에 놓여 있다.</dd></div>
+    <div><dt>에스겔</dt><dd>대체로 날짜순(13개의 날짜 표기). 다만 열방 신탁(25–32장)은 주제별 묶음이라, 책에서 가장 늦은 날짜<span class="ref">겔 29:17, BC 571</span>가 중간에 끼어 있다.</dd></div>
+    <div><dt>역대하 36장</dt><dd>약 50년(609–538)을 23절로 압축했다. 한 절 한 절이 선지서 몇 장씩의 "목차"처럼 읽힌다. <a href="#toc">아래 목차 보기</a></dd></div>
+  </dl>
+</section>
+
+<!-- Ⅰ -->
+<section id="e1" class="era">
+  <div class="era-head"><span class="num">Ⅰ</span><h2>경고의 시대 · 요시야</h2><span class="span">BC 640–609</span><p class="gist">말씀이 처음 울리고, 한 왕은 옷을 찢었다. 그러나 므낫세 55년의 죄가 남긴 무게는 그대로였다.</p></div>
+  <article class="row">
+    <div class="when"><span class="date">630–620년대</span><span class="c c-est">추정</span></div>
+    <div class="what">
+      <div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+        <p class="ttl"><strong>요시야의 개혁</strong> <span class="ref">왕하 22–23; 대하 34–35</span></p>
+        <blockquote class="w">"요시야와 같이 마음을 다하며 뜻을 다하며 힘을 다하여 모세의 모든 율법을 따라 여호와께로 돌이킨 왕은 요시야 전에도 없었고 후에도 그와 같은 자가 없었더라. 그러나 여호와께서 유다를 향하여 내리신 그 크게 타오르는 진노를 돌이키지 아니하셨으니 이는 므낫세가 여호와를 격노하게 한 그 모든 격노 때문이라" <span class="ref">왕하 23:25-26</span></blockquote>
+        <p class="bg"><b>배경</b>요시야는 여덟 살에 왕이 되었다(22:1). 할아버지 므낫세가 55년, 아버지 아몬이 2년 동안 성전 안에까지 우상을 세운 뒤였다. 16세에 하나님을 찾기 시작했고 20세에 우상을 없애기 시작했다(대하 34:3).</p>
+        <p class="ln"><b>연결</b>가장 선한 왕도 나라의 방향을 되돌리지 못했다. 개혁이 왕 한 사람의 개혁으로 끝났기 때문이다. 예레미야의 평가: 유다는 "진심으로 내게 돌아오지 아니하고 거짓으로 할 뿐이니라"(렘 3:10).</p>
+      </div>
+      <div class="item" data-lane="other"><span class="lane l-other">그 밖의 말씀</span>
+        <p class="ttl"><strong>스바냐 — "등불로 예루살렘을 두루 찾으리라"</strong> <span class="ref">습 1:1, 12; 2:3; 3:7, 17</span></p>
+        <blockquote class="w">"그 때에 내가 예루살렘에서 찌꺼기 같이 가라앉아서 마음속에 스스로 이르기를 여호와께서는 복도 내리지 아니하시며 화도 내리지 아니하시리라 하는 자를 등불로 두루 찾아 벌하리니" <span class="ref">1:12</span><br>"여호와의 규례를 지키는 세상의 모든 겸손한 자들아… 너희가 혹시 여호와의 분노의 날에 숨김을 얻으리라" <span class="ref">2:3</span></blockquote>
+        <p class="bg"><b>배경</b>스바냐는 히스기야 왕의 현손, 곧 왕족이었다(1:1). 그가 겨눈 죄는 우상보다 무서운 무관심이었다. "하나님은 좋은 일도 나쁜 일도 안 하신다"는 생각, 곧 실제로는 하나님이 없는 듯 사는 신앙이다.</p>
+        <p class="ln"><b>연결</b>같은 책은 이렇게 끝난다. "너의 하나님 여호와가… 너로 말미암아 기쁨을 이기지 못하시며 너를 잠잠히 사랑하시며 너로 말미암아 즐거이 부르며 기뻐하시리라"(3:17). 신부를 두고 노래하는 신랑의 모습이다.</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">627/626</span><span class="c c-fix">확정</span></div>
+    <div class="what">
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>예레미야의 소명 — 살구나무와 북쪽의 끓는 가마</strong> <span class="ref">렘 1:1-19</span></p>
+        <blockquote class="w">"슬프도소이다 주 여호와여 보소서 나는 아이라 말할 줄을 알지 못하나이다" <span class="ref">1:6</span><br>"예레미야야 네가 무엇을 보느냐… 내가 살구나무 가지를 보나이다. 여호와께서 내게 이르시되 네가 잘 보았도다 이는 내가 내 말을 지켜 그대로 이루려 함이라" <span class="ref">1:11-12</span><br>"북방 왕국들의 모든 족속들을… 부를 것인즉 그들이 와서 예루살렘 성문 어귀에 각기 자리를 정하고" <span class="ref">1:15</span></blockquote>
+        <p class="bg"><b>배경</b>베냐민 땅 아나돗(예루살렘 북동쪽 약 5km)의 제사장 집안 청년이었다. 요시야 13년부터 시드기야 11년 다섯째 달, 곧 예루살렘이 사로잡혀 갈 때까지 약 40년을 일했다(1:2-3). 히브리어로 살구나무는 '샤케드', 지켜본다는 '쇼케드'다. 봄에 가장 먼저 깨어나는 나무처럼 하나님이 당신의 말을 깨어서 지키신다는 말장난이다.</p>
+        <p class="ln"><b>연결</b>40년 뒤 바벨론 고관들이 정말로 예루살렘 중문에 앉는다(39:3). "뽑고 파괴하며… 건설하고 심게"(1:10)라는 사명은 포위 중의 약속에서 다시 들린다. "깨어서 그들을 뿌리 뽑으며… 무너뜨리던 것과 같이 내가 깨어서 그들을 세우며 심으리라"(31:28).</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">622<small>요시야 18년</small></span><span class="c c-fix">확정</span></div>
+    <div class="what">
+      <div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+        <p class="ttl"><strong>율법책을 듣고 옷을 찢은 왕</strong> <span class="ref">왕하 22:8-20</span></p>
+        <blockquote class="w">"왕이 율법책의 말을 듣자 곧 그의 옷을 찢으니라" <span class="ref">22:11</span><br>"네가 듣고 마음이 부드러워져서 여호와 앞 곧 내 앞에서 겸비하여 옷을 찢고 통곡하였으므로 나도 네 말을 들었노라… 내가 이 곳에 내리는 모든 재앙을 네 눈이 보지 못하리라" <span class="ref">22:19-20</span></blockquote>
+        <p class="bg"><b>배경</b>성전 수리 중 대제사장 힐기야가 율법책을 발견했다. 서기관 사반이 왕 앞에서 읽었다(22:8-10). 신명기의 축복과 저주 대목으로 보는 견해가 많다. 왕은 여선지자 훌다에게 물었고, 재앙은 정해졌지만 요시야 생전에는 오지 않으리라는 답을 들었다.</p>
+        <p class="ln"><b>연결</b>18년 뒤 그의 아들 여호야김은 같은 말씀을 칼로 베어 불에 넣으며 "옷을 찢지 아니하였다"(렘 36:24). 사반의 아들·손자들(아히감, 그마랴, 그달리야)은 끝까지 예레미야 곁에 선다(렘 26:24; 36:10; 40:5). "부드러운 마음"은 훗날 새 언약의 약속이 된다(겔 36:26).</p>
+      </div>
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>신혼 → 이혼서 → "나는 너희 남편"</strong> <span class="ref">렘 2–3 (3:6 "요시야 왕 때에")</span></p>
+        <blockquote class="w">"내가 너를 위하여 네 청년 때의 인애와 네 신혼 때의 사랑을 기억하노니 곧 씨 뿌리지 못하는 땅, 그 광야에서 나를 따랐음이니라" <span class="ref">2:2</span><br>"내 백성이 두 가지 악을 행하였나니 곧 그들이 생수의 근원되는 나를 버린 것과 스스로 웅덩이를 판 것인데 그것은 그 물을 가두지 못할 터진 웅덩이들이니라" <span class="ref">2:13</span><br>"배역한 이스라엘이 간음을 행하였으므로 내가 그를 내쫓고 그에게 이혼서까지 주었으되 그의 반역한 자매 유다가 두려워하지 아니하고" <span class="ref">3:8</span> · "배역한 자식들아 돌아오라 나는 너희 남편임이라" <span class="ref">3:14</span></blockquote>
+        <p class="bg"><b>배경</b>'이혼서'는 BC 722 북이스라엘(사마리아)의 멸망을 가리킨다. 언니가 쫓겨나는 것을 보고도 동생 유다는 두려워하지 않았다. 하나님은 시내산 언약을 결혼으로, 우상숭배를 간음으로 말씀하신다.</p>
+        <p class="ln"><b>연결</b>시리즈 #4(시내산 = 결혼식)가 예레미야의 첫 설교에 이미 있다. 이 결혼의 끝과 새 출발이 렘 31:32에서 한 절로 묶인다. "내가 그들의 남편이 되었어도 그들이 내 언약을 깨뜨렸음이라."</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">612</span><span class="c c-fix">확정</span></div>
+    <div class="what">
+      <div class="item" data-lane="other"><span class="lane l-other">그 밖의 말씀</span>
+        <p class="ttl"><strong>나훔 — 니느웨(앗수르)의 몰락</strong> <span class="ref">나 1–3; 습 2:13-15</span></p>
+        <blockquote class="w">"여호와는 노하기를 더디하시며 권능이 크시며 벌 받을 자를 결코 내버려두지 아니하시느니라" <span class="ref">나 1:3</span> · "여호와는 선하시며 환난 날에 산성이시라 그는 자기에게 피하는 자들을 아시느니라" <span class="ref">1:7</span></blockquote>
+        <p class="bg"><b>배경</b>110년 전 북이스라엘을 무너뜨린 앗수르의 수도 니느웨가 BC 612년 바벨론·메대 연합군에게 무너졌다. 이사야가 "내 진노의 막대기"(사 10:5)라 부른 나라였다. 막대기도 쓰임이 끝나면 꺾인다.</p>
+        <p class="ln"><b>연결</b>이제 바벨론이 하나님의 "종"(렘 25:9)으로 일어선다. 그리고 바벨론 역시 70년 뒤 같은 길을 간다(렘 25:12; 51장).</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">609 여름</span><span class="c c-fix">확정</span></div>
+    <div class="what">
+      <div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+        <p class="ttl"><strong>므깃도 — 요시야 전사</strong> <span class="ref">왕하 23:29-30; 대하 35:20-25</span></p>
+        <blockquote class="w">"(느고가) 하나님이 나에게 명령하사 속히 하라 하셨은즉… 그대는 하나님을 거스르지 말라… 요시야가 몸을 돌이켜 떠나기를 싫어하고 오히려 변장하고 그와 싸우고자 하여" <span class="ref">대하 35:21-22</span><br>"예레미야는 그를 위하여 애가를 지었으며 모든 노래하는 남자들과 여자들은 요시야를 슬피 노래하니 이스라엘에 규례가 되어 오늘까지 이르렀으며" <span class="ref">35:25</span></blockquote>
+        <p class="bg"><b>배경</b>애굽 왕 느고가 무너져 가는 앗수르를 도우러 유프라테스로 올라갔다. 39세의 요시야가 므깃도에서 길을 막다가 화살에 맞아 죽었다. 유다의 마지막 선한 왕이었다.</p>
+        <p class="ln"><b>연결</b>약속대로 요시야는 "평안히 묘실로" 들어가 586년의 재앙을 보지 않았다(왕하 22:20). 이때부터 23년 동안 왕 넷이 바뀌고 나라가 무너진다. 이 시기 예레미야의 첫 '애가'는 22년 뒤 예루살렘을 위한 애가로 이어진다.</p>
+      </div>
+    </div>
+  </article>
+  <p class="empty" hidden>이 시기에는 고른 말씀이 없습니다.</p>
+</section>
+
+<!-- Ⅱ -->
+<section id="e2" class="era">
+  <div class="era-head"><span class="num">Ⅱ</span><h2>여호야김 · 말씀을 칼로 자른 왕</h2><span class="span">BC 609–598</span><p class="gist">23년 동안 꾸준히 일렀고, 성전 앞에서 "혹시 돌아오면"을 외쳤다. 왕은 두루마리를 칼로 베어 불에 넣었다.</p></div>
+  <article class="row">
+    <div class="when"><span class="date">609</span><span class="c c-fix">확정</span></div>
+    <div class="what">
+      <div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+        <p class="ttl"><strong>여호아하스 석 달 — 립나에 갇혔다가 애굽으로</strong> <span class="ref">왕하 23:31-35</span></p>
+        <blockquote class="w">"바로 느고가 그를 하맛 땅 립나에 가두어 예루살렘에서 왕이 되지 못하게 하고 또 그 나라로 은 백 달란트와 금 한 달란트를 벌금으로 내게 하고" <span class="ref">23:33</span></blockquote>
+        <p class="bg"><b>배경</b>백성이 세운 요시야의 아들 여호아하스(살룸, 대상 3:15)는 23세에 즉위해 석 달 만에 폐위되었다. 느고는 그의 형 엘리아김을 '여호야김'으로 이름을 바꿔 세웠다. 여호야김은 벌금을 내려고 백성에게 세금을 매겼다(23:35).</p>
+        <p class="ln"><b>연결</b>시리아의 <strong>립나</strong>. 23년 뒤 같은 곳에서 동생 시드기야가 두 눈을 잃는다(25:6-7).</p>
+      </div>
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>"잡혀 간 자를 위하여 슬피 울라"</strong> <span class="ref">렘 22:10-12</span></p>
+        <blockquote class="w">"너희는 죽은 자를 위하여 울지 말며 그를 위하여 애통하지 말고 잡혀 간 자를 위하여 슬피 울라 그는 다시 돌아와 그 고국을 보지 못할 것임이라" <span class="ref">22:10</span></blockquote>
+        <p class="bg"><b>배경</b>'죽은 자'는 므깃도에서 죽은 요시야, '잡혀 간 자'는 애굽으로 끌려간 살룸이다.</p>
+        <p class="ln"><b>연결</b>"그 땅을 다시 보지 못하리라"는 말은 시드기야에게도 그대로 반복된다(겔 12:13).</p>
+      </div>
+      <div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+        <p class="ttl"><strong>사자 새끼의 애가 (훗날의 회고)</strong> <span class="ref">겔 19:1-4</span></p>
+        <blockquote class="w">"그 새끼 하나를 키우매 젊은 사자가 되어 먹이 물어뜯기를 배워 사람을 삼키매 이방이 듣고 함정으로 그를 잡아 갈고리로 꿰어 끌고 애굽 땅으로 간지라" <span class="ref">19:3-4</span></blockquote>
+        <p class="bg"><b>배경</b>에스겔이 바벨론에서 지은 애가다. 어미 사자는 유다(왕실), 첫 새끼는 여호아하스다.</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">609/608<small>여호야김 즉위 초</small></span><span class="c c-fix">확정</span></div>
+    <div class="what">
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>성전 설교 — "여호와의 성전이라, 여호와의 성전이라, 여호와의 성전이라"</strong> <span class="ref">렘 7:1-15; 26:1-24</span></p>
+        <blockquote class="w">"너희는 이것이 여호와의 성전이라, 여호와의 성전이라, 여호와의 성전이라 하는 거짓말을 믿지 말라" <span class="ref">7:4</span><br>"너희가 도둑질하며 살인하며 간음하며… 내 이름으로 일컬음을 받는 이 집에 들어와서 내 앞에 서서 말하기를 우리가 구원을 얻었나이다 하느냐… 이 집이 너희 눈에는 도둑의 소굴로 보이느냐" <span class="ref">7:9-11</span><br>"너희는 내가 처음으로 내 이름을 둔 처소 실로에 가서… 내가 어떻게 행하였는지를 보라" <span class="ref">7:12</span><br>"그들이 듣고 혹시 각각 그 악한 길에서 돌아오리라 그리하면 내가… 재앙을 내리려 하던 뜻을 돌이키리라" <span class="ref">26:3</span></blockquote>
+        <p class="bg"><b>배경</b>100년 전 히스기야 때 앗수르 대군이 예루살렘 앞에서 하룻밤에 무너졌다(왕하 19). 그 뒤로 "성전이 있는 한 예루살렘은 무너지지 않는다"는 믿음이 굳었다. 실로는 사사 시대 성막이 있던 곳이다. 언약궤를 빼앗긴(삼상 4) 뒤 폐허가 되었다. 제사장과 선지자들이 "네가 반드시 죽어야 하리라"며 붙잡았고(26:8), 사반의 아들 아히감이 그를 지켰다(26:24). 같은 말을 한 선지자 우리야는 애굽까지 쫓겨 가 처형되었다(26:20-23).</p>
+        <p class="ln"><b>연결</b>예수님이 성전을 정결하게 하실 때 이 구절을 인용하셨다. "너희는 강도의 소굴을 만드는도다"(마 21:13). 설교 대지 3의 "성전이 지켜 주지 못했다"는 이 설교에 대한 22년 뒤의 답이다.</p>
+      </div>
+      <div class="item" data-lane="other"><span class="lane l-other">그 밖의 말씀</span>
+        <p class="ttl"><strong>장로들이 인용한 100년 전의 미가</strong> <span class="ref">미 3:11-12; 렘 26:17-19</span></p>
+        <blockquote class="w">"여호와를 의뢰하여 이르기를 여호와께서 우리 중에 계시지 아니하냐 재앙이 우리에게 임하지 아니하리라 하는도다. 이러므로 너희로 말미암아 시온은 갈아엎은 밭이 되고 예루살렘은 무더기가 되고" <span class="ref">미 3:11-12</span></blockquote>
+        <p class="bg"><b>배경</b>예레미야를 죽이려는 무리 앞에서 장로들이 기억해 냈다. 히스기야는 미가의 경고를 듣고 "여호와께 간구하매 여호와께서… 재앙에 대하여 뜻을 돌이키지 아니하셨느냐"(렘 26:19).</p>
+        <p class="ln"><b>연결</b>경고는 운명이 아니라 문이다. 토기장이 비유(렘 18:7-10)가 같은 원리를 말한다.</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">609–605</span><span class="c c-est">추정</span></div>
+    <div class="what">
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>품삯을 주지 않고 궁전을 지은 왕</strong> <span class="ref">렘 22:13-19</span></p>
+        <blockquote class="w">"불의로 그 집을 세우며 부정하게 그 다락방을 지으며 자기의 이웃을 고용하고 그의 품삯을 주지 아니하는 자에게 화 있을진저… 네 아버지가… 정의와 공의를 행하지 아니하였느냐… 그는 가난한 자와 궁핍한 자를 변호하고 형통하였나니 이것이 나를 앎이 아니냐… 그가 끌려 예루살렘 문 밖에 던져지고 나귀 같이 매장함을 당하리라" <span class="ref">22:13-19</span></blockquote>
+        <p class="bg"><b>배경</b>애굽에 벌금을 내느라 백성의 세금을 짜내던 때, 여호야김은 백향목과 붉은 칠로 궁전을 넓혔다.</p>
+        <p class="ln"><b>연결</b>하나님을 "안다"는 것은 가난한 자를 변호하는 것이다(22:16). 렘 36:30에서 다시 선고된다. "그의 시체는 버림을 당하여 낮에는 더위, 밤에는 추위를 당하리라."</p>
+      </div>
+      <div class="item" data-lane="other"><span class="lane l-other">그 밖의 말씀</span>
+        <p class="ttl"><strong>하박국 — "어느 때까지리이까" / "비록 더딜지라도" / "비록… 없을지라도"</strong> <span class="ref">합 1–3</span></p>
+        <blockquote class="w">"여호와여 내가 부르짖어도 주께서 듣지 아니하시니 어느 때까지리이까" <span class="ref">1:2</span> → "보라 내가 사납고 성급한 백성 곧… 갈대아 사람을 일으켰나니" <span class="ref">1:6</span><br>"주께서는 눈이 정결하시므로 악을 차마 보지 못하시거늘 어찌하여 거짓된 자들을 방관하시며 악인이 자기보다 의로운 사람을 삼키는데도 잠잠하시나이까" <span class="ref">1:13</span><br>"이 묵시는 정한 때가 있나니… 비록 더딜지라도 기다리라 지체되지 않고 반드시 응하리라… 의인은 그의 믿음으로 말미암아 살리라" <span class="ref">2:3-4</span><br>"진노 중에라도 긍휼을 잊지 마옵소서" <span class="ref">3:2</span> · "비록 무화과나무가 무성하지 못하며 포도나무에 열매가 없으며… 우리에 양이 없으며 외양간에 소가 없을지라도 나는 여호와로 말미암아 즐거워하며 나의 구원의 하나님으로 말미암아 기뻐하리로다" <span class="ref">3:17-18</span></blockquote>
+        <p class="bg"><b>배경</b>날짜는 없지만 "갈대아 사람을 일으켰다"는 말로 보아 바벨론이 패권을 잡기 직전(609–605)으로 본다. 하박국은 두 번 묻는다. "왜 유다의 악을 내버려 두십니까?" 그리고 "왜 더 악한 바벨론을 쓰십니까?"</p>
+        <p class="ln"><b>연결</b>시리즈의 질문 "하나님, 왜?"와 같은 자리다. 2:4는 바울이 복음의 핵심으로 인용한다(롬 1:17). 3:17-18은 무너질 것을 미리 알고 드린 고백이다. 성벽·왕·성전이 다 없어도 즐거워하겠다는 결단 한 줄로 쓸 수 있다.</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">605 여름</span><span class="c c-fix">확정</span></div>
+    <div class="what">
+      <div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+        <p class="ttl"><strong>갈그미스 전투 — 애굽의 몰락</strong> <span class="ref">왕하 24:7</span></p>
+        <blockquote class="w">"애굽 왕이 다시는 그 나라에서 나오지 못하였으니 이는 바벨론 왕이 애굽 강에서부터 유브라데 강까지 애굽 왕에게 속한 땅을 다 점령하였음이더라" <span class="ref">24:7</span></blockquote>
+        <p class="bg"><b>배경</b>유프라테스 강가 갈그미스에서 바벨론 왕세자 느부갓네살이 4년 전 요시야를 죽인 느고를 격파했다. 세계의 주인이 바뀐 날이다. 그해 9월 느부갓네살이 왕위에 오른다.</p>
+      </div>
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>애굽에 대한 말씀</strong> <span class="ref">렘 46:2-12 (여호야김 4년)</span></p>
+        <blockquote class="w">"처녀 딸 애굽이여 길르앗으로 올라가서 유향을 취하라 네가 치료를 많이 받아도 효력이 없어 낫지 못하리라" <span class="ref">46:11</span></blockquote>
+        <p class="ln"><b>연결</b>그런데도 유다는 끝까지 애굽을 의지한다. 그 결과가 포위 중 애굽 구원군의 실패(렘 37:5-10)와 "갈대 지팡이"(겔 29:6)다.</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">605<small>1차 포로</small></span><span class="c c-fix">확정</span></div>
+    <div class="what">
+      <div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+        <p class="ttl"><strong>다니엘과 친구들 — 성전 그릇이 "시날 땅"으로</strong> <span class="ref">단 1:1-8</span></p>
+        <blockquote class="w">"주께서 유다 왕 여호야김과 하나님의 전 그릇 얼마를 그의 손에 넘기시매 그가 그것을 가지고 시날 땅 자기 신들의 신전에 가져다가" <span class="ref">1:2</span> · "다니엘은 뜻을 정하여 왕의 음식과 그가 마시는 포도주로 자기를 더럽히지 아니하리라 하고" <span class="ref">1:8</span></blockquote>
+        <p class="bg"><b>배경</b>느부갓네살이 예루살렘을 굴복시키고 왕족·귀족 소년들을 데려가 바벨론 학문을 가르쳤다. '시날'은 바벨탑을 쌓던 바로 그 땅이다(창 11:2).</p>
+        <p class="ln"><b>연결</b>100년 전 이사야가 히스기야에게 한 말이 이루어졌다. "네게서 태어날 자손 중에서 몇이 사로잡혀 바벨론 왕궁의 환관이 되리라." 히스기야의 대답은 "내 생전에는 평안과 견고함이 있으리로다"였다(사 39:7-8). 이 다니엘이 66년 뒤 예레미야의 책을 읽고 기도한다(단 9:2).</p>
+      </div>
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>"이십삼 년 동안 꾸준히 일렀으나" — 내 종 느부갓네살, 칠십 년</strong> <span class="ref">렘 25:1-14; 36:1-8; 45</span></p>
+        <blockquote class="w">"요시야 왕 열셋째 해부터 오늘까지 이십삼 년 동안 여호와의 말씀이 내게 임하기로 내가 너희에게 꾸준히 일렀으나 너희가 순종하지 아니하였느니라" <span class="ref">25:3</span><br>"너희는 각자의 악한 길과 악행을 버리고 돌아오라… 그리하면 내가 너희를 해하지 아니하리라 하였으나" <span class="ref">25:5-6</span><br>"내가… 내 종 바벨론의 왕 느부갓네살을 불러다가… 이 민족들은 칠십 년 동안 바벨론의 왕을 섬기리라" <span class="ref">25:9, 11</span><br>"유다 가문이… 모든 재난을 듣고 각기 악한 길에서 돌이키리니 그리하면 내가 그 악과 죄를 용서하리라" <span class="ref">36:3</span></blockquote>
+        <p class="bg"><b>배경</b>갈그미스 전투와 같은 해다. 하나님은 이방 왕을 "내 종"이라 부르셨다. 같은 해 처음으로 바룩에게 지금까지의 말씀을 두루마리에 받아 적게 하셨다. 목적은 "혹시… 돌이키리니"였다. 지친 바룩에게는 "네가 너를 위하여 큰 일을 찾느냐 그것을 찾지 말라… 네 생명을 노략물 주듯 하리라"(45:5).</p>
+        <p class="ln"><b>연결</b>이 70년은 역대기의 마지막 장(대하 36:21)과 다니엘의 기도(단 9:2), 고레스 칙령(스 1:1)의 근거가 된다.</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">604년 12월<small>여호야김 5년 9월</small></span><span class="c c-fix">확정</span></div>
+    <div class="what">
+      <div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+        <p class="ttl"><strong>아스글론 함락 (바벨론 연대기)</strong></p>
+        <p class="bg"><b>배경</b>바벨론 연대기 토판에 따르면 이해 기슬래월(11–12월)에 느부갓네살이 블레셋 해안 도시 아스글론을 함락하고 폐허로 만들었다. 예루살렘에서 약 65km 떨어진 곳이다. 같은 달의 금식 선포를 이 위기와 연결해 보는 견해가 있다.</p>
+      </div>
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>두루마리를 칼로 베어 불에 — "옷을 찢지 아니하였고"</strong> <span class="ref">렘 36:9-32</span></p>
+        <blockquote class="w">"그 때는 아홉째 달이라 왕이 겨울 궁전에 앉았고 그 앞에는 불 피운 화로가 있더라. 여후디가 서너 쪽을 낭독하면 왕이 면도칼로 그것을 연하여 베어 화로 불에 던져서 두루마리를 모두 태웠더라. 왕과 그의 신하들이 이 모든 말을 듣고도 두려워하거나 자기들의 옷을 찢지 아니하였고" <span class="ref">36:22-24</span><br>"여호와께서 그들을 숨기셨더라" <span class="ref">36:26</span> · "너는 다시 다른 두루마리를 가지고… 첫 두루마리의 모든 말을 기록하고" <span class="ref">36:28</span></blockquote>
+        <p class="bg"><b>배경</b>금식일, 바룩이 성전 위뜰 <strong>사반의 아들 그마랴의 방</strong>에서 낭독했다(36:10). 18년 전 요시야에게 율법책을 읽어 준 서기관 사반의 아들이다. 그마랴·엘라단·들라야가 태우지 말라고 말렸지만 왕은 듣지 않았다(36:25).</p>
+        <p class="ln"><b>연결</b>아버지는 옷을 찢었고(왕하 22:11) 아들은 말씀을 찢었다. 그래도 말씀은 사라지지 않았다. 다시 쓴 두루마리에는 "그 같은 말을 많이 더 하였더라"(36:32).</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">599–598</span><span class="c c-est">추정</span></div>
+    <div class="what">
+      <div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+        <p class="ttl"><strong>여호야김의 배반과 주변 나라 부대들의 침공</strong> <span class="ref">왕하 24:1-4</span></p>
+        <blockquote class="w">"이 일이 유다에 임함은 곧 여호와의 말씀대로 그들을 자기 앞에서 물리치고자 하심이니 이는 므낫세의 지은 모든 죄 때문이며 또 그가 무죄한 자의 피를 흘려 그의 피가 예루살렘에 가득하게 하였음이라 여호와께서 사하시기를 즐겨하지 아니하시니라" <span class="ref">24:3-4</span></blockquote>
+        <p class="bg"><b>배경</b>3년간 바벨론을 섬기던 여호야김이 601년 바벨론–애굽 충돌 뒤 돌아섰다. 바벨론은 정규군 대신 갈대아·아람·모압·암몬 부대를 보내 유다를 쳤다.</p>
+      </div>
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>레갑 사람 — 사람의 명령도 지켜지는데</strong> <span class="ref">렘 35</span></p>
+        <blockquote class="w">"우리는 포도주를 마시지 아니하겠노라 레갑의 아들 우리 선조 요나답이 우리에게 명령하여… 평생 동안 장막에 살아라 하였으므로" <span class="ref">35:6-7</span><br>"그들은 그 선조의 명령을 순종하여 오늘까지 마시지 아니하거늘 내가 너희에게 말하고 끊임없이 말하여도 너희는 내게 순종하지 아니하도다" <span class="ref">35:14</span> · "레갑의 아들 요나답에게서 내 앞에 설 사람이 영원히 끊어지지 아니하리라" <span class="ref">35:19</span></blockquote>
+        <p class="bg"><b>배경</b>"갈대아인의 군대와 수리아인의 군대를 피하여 예루살렘으로 가자"(35:11). 왕하 24:2와 같은 상황이다. 레갑 사람들은 예후 시대(약 250년 전, 왕하 10:15)의 조상 요나답의 규칙을 지켜 온 유목민이었다.</p>
+        <p class="ln"><b>연결</b>하나님은 성전의 한 방을 '실물 교안' 교실로 쓰셨다. 조상의 말도 지키는 사람이 있는데 하나님의 말씀은 왜 지키지 않느냐는 것이다.</p>
+      </div>
+    </div>
+  </article>
+  <p class="empty" hidden>이 시기에는 고른 말씀이 없습니다.</p>
+</section>
+
+<!-- Ⅲ -->
+<section id="e3" class="era">
+  <div class="era-head"><span class="num">Ⅲ</span><h2>여호야긴과 2차 포로</h2><span class="span">BC 597</span><p class="gist">왕이 끌려가고, 그 행렬 속에 젊은 제사장 에스겔도 있었다.</p></div>
+  <article class="row">
+    <div class="when"><span class="date">597.3.16</span><span class="c c-fix">확정</span></div>
+    <div class="what">
+      <div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+        <p class="ttl"><strong>여호야긴 항복, 1만 명이 바벨론으로</strong> <span class="ref">왕하 24:8-17; 대하 36:9-10</span></p>
+        <blockquote class="w">"그가 여호와의 성전의 모든 보물과 왕궁 보물을 집어내고… 여호와의 말씀과 같이 되었더라. 그가 또 예루살렘의 모든 백성과 모든 지도자와 모든 용사 만 명과 모든 장인과 대장장이를 사로잡아 가매 비천한 자 외에는 그 땅에 남은 자가 없었더라" <span class="ref">24:13-14</span></blockquote>
+        <p class="bg"><b>배경</b>18세 여호야긴은 석 달 만에 어머니 느후스다와 함께 성문을 열고 나갔다. 바벨론 연대기도 이 날(아달월 2일)을 적고 있다. 즉위 나이는 대하 36:9에 "8세"로 되어 있다(<a href="#diff">본문 차이</a>).</p>
+        <p class="ln"><b>연결</b>이때 지도층이 끌려가고 남은 사람들은 "우리가 남았으니 좋은 쪽"이라고 착각했다(겔 11:15; 렘 24장). 여호야긴은 37년 뒤 왕의 식탁에 앉는다(25:27-30).</p>
+      </div>
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>"고니야가 나의 오른손의 인장반지라 할지라도"</strong> <span class="ref">렘 13:18-19; 22:24-30</span> <span class="c c-est">추정</span></p>
+        <blockquote class="w">"너는 왕과 왕후에게 전하기를 스스로 낮추어 앉으라 관 곧 영광의 면류관이 내려졌다 하라" <span class="ref">13:18</span><br>"나의 삶으로 맹세하노니 유다 왕 여호야김의 아들 고니야가 나의 오른손의 인장반지라 할지라도 내가 빼어" <span class="ref">22:24</span> · "땅이여, 땅이여, 땅이여, 여호와의 말을 들을지니라… 이 사람이 자식이 없겠고… 그의 자손 중 형통하여 다윗의 왕위에 앉아 유다를 다스릴 사람이 다시는 없을 것" <span class="ref">22:29-30</span></blockquote>
+        <p class="bg"><b>배경</b>고니야 = 여고냐 = 여호야긴이다. '왕후'는 왕의 어머니 느후스다다. 인장반지는 왕의 권위 자체이고, 그것을 손가락에서 빼어 던지겠다는 뜻이다. '자식이 없다'는 말은 실제로 아들이 없다는 뜻이 아니라 왕위에 앉는 자손이 없다는 뜻이다. 그에게는 아들이 있었다(대상 3:17).</p>
+        <p class="ln"><b>연결</b>77년 뒤 하나님은 그의 손자에게 말씀하신다. "스룹바벨아… 너를 인장으로 삼으리니"(학 2:23). 그리고 예수님의 족보는 바로 이 줄로 이어진다(마 1:12).</p>
+      </div>
+      <div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+        <p class="ttl"><strong>포로 행렬 속의 에스겔</strong> <span class="ref">겔 1:2-3; 3:15; 19:5-9</span></p>
+        <blockquote class="w">"(둘째 사자 새끼를) 우리에 넣고 갈고리를 꿰어 끌고 바벨론 왕에게 이르렀나니 그를 옥에 가두어 그 소리가 다시 이스라엘 산에 들리지 아니하게 하려 함이라" <span class="ref">19:9</span></blockquote>
+        <p class="bg"><b>배경</b>제사장 부시의 아들 에스겔도 이때 끌려갔다. 그래서 에스겔서의 모든 날짜는 "여호야긴 왕이 사로잡힌 지 ○년"으로 센다. 그가 살던 곳은 그발 강(운하) 가의 <strong>델아빕</strong>이다. 오늘날 이스라엘 도시 '텔아비브'의 이름이 여기서 왔다.</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">597 이후</span><span class="c c-fix">확정</span></div>
+    <div class="what">
+      <div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+        <p class="ttl"><strong>맛다니야 → '시드기야'</strong> <span class="ref">왕하 24:17-19</span></p>
+        <blockquote class="w">"바벨론 왕이 또 여호야긴의 숙부 맛다니야를 대신하여 왕으로 삼고 그의 이름을 고쳐 시드기야라 하였더라" <span class="ref">24:17</span></blockquote>
+        <p class="bg"><b>배경</b>요시야의 막내아들(21세)이다. 느부갓네살이 지어 준 이름 '시드기야(치드키야후)'는 "여호와는 나의 의"라는 뜻이다. 바벨론 왕은 그에게 하나님의 이름으로 충성을 맹세하게 했다(대하 36:13).</p>
+      </div>
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>무화과 두 광주리 · "여호와 우리의 공의"</strong> <span class="ref">렘 24; 23:5-6</span></p>
+        <blockquote class="w">"내가 이 곳에서 옮겨 갈대아인의 땅에 이르게 한 유다 포로를 이 좋은 무화과 같이 잘 돌볼 것이라… 내가 여호와인 줄 아는 마음을 그들에게 주어서 그들이 전심으로 내게 돌아오게 하리니 그들은 내 백성이 되겠고 나는 그들의 하나님이 되리라" <span class="ref">24:5-7</span><br>"보라 때가 이르리니 내가 다윗에게 한 의로운 가지를 일으킬 것이라… 그의 이름은 여호와 우리의 공의라 일컬음을 받으리라" <span class="ref">23:5-6</span></blockquote>
+        <p class="bg"><b>배경</b>성전 앞에 놓인 극히 좋은 무화과와 먹을 수 없이 나쁜 무화과다. 남은 사람들의 생각과 정반대로, 하나님은 끌려간 쪽을 좋은 무화과라 하셨다. 시드기야와 남은 자들은 나쁜 무화과였다(24:8).</p>
+        <p class="ln"><b>연결</b>"마음을 주어"(24:7)는 새 언약의 핵심(31:33)을 미리 보여 준다. 이름만 "여호와는 나의 의"인 왕(시드기야)과 진짜 "여호와 우리의 공의"이실 왕(23:6)을 대조하는 언어유희로 보는 견해가 많다.</p>
+      </div>
+    </div>
+  </article>
+  <p class="empty" hidden>이 시기에는 고른 말씀이 없습니다.</p>
+</section>
+
+<!-- Ⅳ -->
+<section id="e4" class="era">
+  <div class="era-head"><span class="num">Ⅳ</span><h2>시드기야 초기 · 맹세와 거짓 평안</h2><span class="span">BC 597–589</span><p class="gist">예루살렘에서는 "2년 안에 돌아온다"는 거짓 평안이 퍼지고, 바벨론에서는 에스겔이 부름받는다. 그리고 영광이 성전을 떠난다.</p></div>
+  <article class="row">
+    <div class="when"><span class="date">597/596</span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+      <p class="ttl"><strong>엘람에 대한 말씀</strong> <span class="ref">렘 49:34-39</span></p>
+      <blockquote class="w">"유다 왕 시드기야가 즉위한 지 오래지 아니하여서… 내가 엘람의 힘의 으뜸가는 활을 꺾을 것이요… 그러나 말일에 이르러 내가 엘람의 포로를 돌아가게 하리라" <span class="ref">49:34-35, 39</span></blockquote>
+      <p class="bg"><b>배경</b>엘람은 바벨론 동쪽(수산 일대)의 나라다. 심판의 말씀도 "그러나 말일에"로 끝난다.</p>
+      <p class="ln"><b>연결</b>오순절 성령강림 때 그 자리에 "엘람인"이 있었다(행 2:9).</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">594/593<small>시드기야 4년 5월</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+      <p class="ttl"><strong>나무 멍에를 꺾자 쇠 멍에 — 거짓 평안의 선지자 하나냐</strong> <span class="ref">렘 27–28</span></p>
+      <blockquote class="w">"너는 줄과 멍에를 만들어 네 목에 걸고 유다의 왕 시드기야를 보러 예루살렘에 온 사신들의 손에도 그것을 주어 에돔의 왕과 모압의 왕과 암몬 자손의 왕과 두로의 왕과 시돈의 왕에게 보내며" <span class="ref">27:2-3</span><br>(하나냐) "내가 바벨론의 왕의 멍에를 꺾었느니라 … 이 년 안에 다시 이 곳으로 되돌려 오리라" <span class="ref">28:2-3</span><br>(예레미야) "아멘, 여호와는 이같이 하옵소서" <span class="ref">28:6</span> → "네가 나무 멍에들을 꺾었으나 그 대신 쇠 멍에들을 만들었느니라" <span class="ref">28:13</span> · "선지자 하나냐가 그 해 일곱째 달에 죽었더라" <span class="ref">28:17</span></blockquote>
+      <p class="bg"><b>배경</b>주변 다섯 나라 사신들이 예루살렘에 모였다. 바벨론에 맞설 동맹을 의논하는 자리로 보인다. 그 회의장에 예레미야가 멍에를 메고 나타나 "바벨론 왕의 멍에를 메고 섬기면 그 땅에 머물러 살게 하리라"(27:11)고 외쳤다. 예레미야도 하나냐의 말이 이루어지기를 바랐다("아멘"). 그러나 원하는 말과 하나님의 말씀은 달랐다.</p>
+      <p class="ln"><b>연결</b>"평강하다, 평강하다 하나 평강이 없도다"(6:14; 8:11). 에스겔은 같은 시기 거짓 선지자들을 "회칠한 담"이라 부른다(겔 13:10). ※ 27:1의 "여호야김"은 내용으로 보아 시드기야 때로 읽는 견해가 다수다(<a href="#diff">본문 차이</a>).</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">594/593<small>시드기야 4년</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+      <p class="ttl"><strong>스라야 — 바벨론 심판의 책을 유브라데에 던짐</strong> <span class="ref">렘 51:59-64</span></p>
+      <blockquote class="w">"너는 이 책 읽기를 다한 후에 책에 돌을 매어 유브라데 강 속에 던지며 말하기를 바벨론이 나의 재난 때문에 이같이 몰락하여 다시 일어서지 못하리니 그들이 피폐하리라 하라" <span class="ref">51:63-64</span></blockquote>
+      <p class="bg"><b>배경</b>스라야는 바룩의 형제다(둘 다 "마세야의 손자 네리야의 아들", 32:12; 51:59). 시드기야와 함께 바벨론에 갈 때(충성 확인 여행으로 보는 견해) 병참감이었다. 같은 해에 예레미야는 "바벨론을 섬기라"(27장)와 "바벨론도 망하리라"(51장)를 함께 말했다.</p>
+      <p class="ln"><b>연결</b>요한계시록이 같은 장면을 그린다. "한 힘 센 천사가 큰 맷돌 같은 돌을 들어 바다에 던져 이르되 큰 성 바벨론이 이같이 비참하게 던져져 결코 다시 보이지 아니하리로다"(계 18:21).</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">594 무렵</span><span class="c c-est">추정</span></div>
+    <div class="what"><div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+      <p class="ttl"><strong>포로들에게 보낸 편지 — "평안이요 재앙이 아니니라"</strong> <span class="ref">렘 29</span></p>
+      <blockquote class="w">"너희는 집을 짓고 거기에 살며 텃밭을 만들고 그 열매를 먹으라… 너희는 내가 사로잡혀 가게 한 그 성읍의 평안을 구하고 그를 위하여 여호와께 기도하라" <span class="ref">29:5-7</span><br>"바벨론에서 칠십 년이 차면 내가 너희를 돌보고 나의 선한 말을 너희에게 성취하여 너희를 이 곳으로 돌아오게 하리라. 너희를 향한 나의 생각을 내가 아나니 평안이요 재앙이 아니니라 너희에게 미래와 희망을 주는 것이니라… 너희가 온 마음으로 나를 구하면 나를 찾을 것이요 나를 만나리라" <span class="ref">29:10-13</span></blockquote>
+      <p class="bg"><b>배경</b>시드기야의 사절 엘라사(사반의 아들)와 그마랴 편에 바벨론 포로들에게 보냈다(29:3). 바벨론에서도 거짓 선지자들이 "곧 돌아간다"고 했고, 그중 아합과 시드기야(왕과 동명이인)는 느부갓네살에게 불태워 죽임을 당했다(29:21-22). 편지를 받은 스마야는 예레미야를 가두라고 맞섰다(29:24-28).</p>
+      <p class="ln"><b>연결</b>70년이 차기 직전, 다니엘이 바로 이 말씀대로 "온 마음으로" 구했다(단 9:2-3).</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">593.7.31<small>포로 5년 4월 5일</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+      <p class="ttl"><strong>에스겔의 소명 — 그발 강 가에 나타난 움직이는 보좌</strong> <span class="ref">겔 1–3</span></p>
+      <blockquote class="w">"내가 그발 강 가 사로잡힌 자 중에 있을 때에 하늘이 열리며 하나님의 모습이 내게 보이니" <span class="ref">1:1</span><br>"그 머리 위에 있는 궁창 위에 보좌의 형상이 있는데… 그 사방 광채의 모양은 비 오는 날 구름에 있는 무지개 같으니 이는 여호와의 영광의 형상의 모양이라" <span class="ref">1:26-28</span><br>"그 위에 애가와 애곡과 재앙의 말이 기록되었더라… 내가 먹으니 그것이 내 입에서 달기가 꿀 같더라" <span class="ref">2:10; 3:3</span> · "인자야 내가 너를 이스라엘 족속의 파수꾼으로 세웠으니" <span class="ref">3:17</span></blockquote>
+      <p class="bg"><b>배경</b>성전에서 섬겨야 할 제사장이 성전에서 1,300km 떨어진 이방 땅 운하 가에 앉아 있었다. 그곳에 하나님의 보좌가 바퀴를 달고 "사방으로" 왔다(1:17). 하나님은 예루살렘 건물에 매인 분이 아니었다.</p>
+      <p class="ln"><b>연결</b>요한도 보좌와 무지개(계 4:3)를 보고, 두루마리를 먹는다. "내 입에는 꿀 같이 다나 먹은 후에 내 배에서는 쓰게 되더라"(계 10:10).</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">593–592</span><span class="c c-est">추정</span></div>
+    <div class="what"><div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+      <p class="ttl"><strong>토판 위의 포위 모형 · 저울에 달아 먹는 떡</strong> <span class="ref">겔 4–5</span></p>
+      <blockquote class="w">"너 인자야 토판을 가져다가… 예루살렘을 그 위에 그리고 그 성읍을 에워싸되 그것을 향하여 사다리를 세우고… 흙으로 언덕을 쌓고… 진을 치고… 공성퇴를 둘러 세우고" <span class="ref">4:1-2</span><br>"너는 음식물을 달아서 하루 이십 세겔씩 때를 따라 먹고 물도 육분의 일 힌씩 되어서… 백성이 근심 중에 떡을 달아 먹고 두려워 떨며 물을 되어 마시다가" <span class="ref">4:10-11, 16</span><br>"너는 터럭 중에서 조금을 네 옷자락에 싸고" <span class="ref">5:3</span></blockquote>
+      <p class="bg"><b>배경</b>에스겔은 말 대신 몸으로 설교했다. 진흙판 위에 예루살렘을 그리고 포위 모형을 만들어 그 앞에 누웠다. 하루 떡 20세겔(약 230g), 물 1/6힌(약 0.6L)이다. 머리털을 셋으로 나눠 태우고, 칼로 치고, 바람에 날렸다(5:2). 그중 조금은 옷자락에 싸서 지켰다.</p>
+      <p class="ln"><b>연결</b>5년 뒤 왕하 25:1-3에서 그대로 일어난다. "토성을 쌓으매… 성 중에 기근이 심하여." 레 26:26 "떡을 저울에 달아 주리니"의 성취다. Steve의 기둥 모형과 같은 '실물 설교'의 성경 원조다.</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">592.9.18<small>6년 6월 5일</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+      <p class="ttl"><strong>환상 중 예루살렘 성전으로 — 그리고 영광이 떠남</strong> <span class="ref">겔 8–11</span></p>
+      <blockquote class="w">"인자야 이스라엘 족속의 장로들이 각각 그 우상의 방안 어두운 가운데에서 행하는 것을 네가 보았느냐 그들이 이르기를 여호와께서 우리를 보지 아니하시며 여호와께서 이 땅을 버리셨다 하느니라" <span class="ref">8:12</span><br>"여호와의 성전 문 곧 현관과 제단 사이에서 약 스물다섯 명이 여호와의 성전을 등지고 낯을 동쪽으로 향하여 동쪽 태양에게 예배하더라" <span class="ref">8:16</span><br>"그 가운데에서 행하는 모든 가증한 일로 말미암아 탄식하며 우는 자의 이마에 표를 그리라… 내 성소에서 시작할지니라" <span class="ref">9:4, 6</span><br>"여호와의 영광이 성전 문지방을 떠나서… 동문에 머물고… 여호와의 영광이 성읍 가운데에서부터 올라가 성읍 동쪽 산에 머무르고" <span class="ref">10:18-19; 11:23</span><br>"내가 비록 그들을 멀리 이방인 가운데로 쫓아내어… 흩었으나 그들이 도달한 나라들에서 내가 잠깐 그들에게 성소가 되리라" <span class="ref">11:16</span> · "그 몸에서 돌 같은 마음을 제거하고 살처럼 부드러운 마음을 주어" <span class="ref">11:19</span></blockquote>
+      <p class="bg"><b>배경</b>유다 장로들이 바벨론의 에스겔 집에 앉아 있을 때였다(8:1). 에스겔은 환상 중에 예루살렘으로 옮겨졌다. 70 장로 가운데 '사반의 아들 야아사냐'도 있었다(8:11). 예레미야를 지킨 사반 집안에서도 타락한 사람이 나왔다. 성전 지도자들의 자랑은 "이 성읍은 가마요 우리는 고기"였다(11:3). 가마 속 고기처럼 성 안에 있는 우리는 안전하다는 뜻이다.</p>
+      <p class="ln"><b>연결</b><strong>성전이 불타기 6년 전에 하나님의 영광은 이미 떠났다.</strong> 586년의 불은 빈집을 태웠다. 영광이 머문 "동쪽 산"(감람산)에서 600년 뒤 예수님이 성을 보고 우셨고(눅 19:41), 승천하셨다(행 1:12). 이마의 표는 요한계시록에서도 나온다. "하나님의 종들의 이마에 인치기까지"(계 7:3).</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">592–591</span><span class="c c-est">추정</span></div>
+    <div class="what"><div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+      <p class="ttl"><strong>밤에 성벽을 뚫고 나가는 연기 · 버려진 아기에서 신부로 · 두 독수리</strong> <span class="ref">겔 12; 16; 17; 18</span></p>
+      <blockquote class="w">"그 중에 왕은 어두울 때에 어깨에 행장을 메고 나가며 눈으로 땅을 보지 아니하려고 자기 얼굴을 가리리라… 내가 또 내 그물을 그의 위에 치고… 끌고 갈대아 땅 바벨론에 이르리니 그가 거기에서 죽으려니와 그 땅을 보지 못하리라" <span class="ref">12:12-13</span><br>"내가 네 곁으로 지나갈 때에 네가 피투성이가 되어 발짓하는 것을 보고 네게 이르기를 너는 피투성이라도 살아 있으라… 내 옷으로 너를 덮어 벌거벗은 것을 가리고 네게 맹세하고 언약하여 너를 내게 속하게 하였느니라" <span class="ref">16:6, 8</span> · "그러나 내가 너의 어렸을 때에 너와 세운 언약을 기억하고 너와 영원한 언약을 세우리라" <span class="ref">16:60</span><br>"그가 내 맹세를 업신여기고 내 언약을 배반하였은즉" <span class="ref">17:19</span> · "죽을 자가 죽는 것도 내가 기뻐하지 아니하노니 너희는 스스로 돌이키고 살지니라" <span class="ref">18:32</span></blockquote>
+      <p class="bg"><b>배경</b>12장: 에스겔이 낮에 포로의 짐을 꾸려 내놓고, 저녁에 손으로 담을 뚫고, 캄캄할 때 얼굴을 가리고 나갔다. 사람들이 "무엇을 하느냐" 묻게 하려는 연기였다. 16장: 가나안 들판에 버려진 피투성이 아기를 하나님이 살리고 신부로 맞으셨는데, 그 신부가 음녀가 되었다는 예루살렘의 일대기다. 17장: 첫 독수리는 바벨론 왕, 둘째 독수리는 애굽 왕이다. 시드기야는 바벨론에 맹세하고도 애굽에 사신을 보냈다(17:15). 하나님은 하나님의 이름으로 한 그 맹세를 "내 맹세"라 하셨다.</p>
+      <p class="ln"><b>연결</b>12장은 6년 뒤 왕하 25:4-7 그대로 이루어진다. 16:8 "옷으로 덮다"는 룻이 보아스에게 한 결혼 요청과 같은 말이다("당신의 옷자락을 펴 당신의 여종을 덮으소서… 당신이 기업을 무를 자가 됨이니이다", 룻 3:9). #4 결혼 언약과 이어진다.</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">591.8.14<small>7년 5월 10일</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+      <p class="ttl"><strong>"내 이름을 위하여" · 갈림길의 점괘 · 무너진 데를 막아 설 사람</strong> <span class="ref">겔 20–23</span></p>
+      <blockquote class="w">"그러나 내가 그들을 아껴서 광야에서 멸하여 아주 없이하지 아니하였었노라" <span class="ref">20:17</span> · "너희가 스스로 이르기를 우리가 이방인… 같이 되어서 목석을 경배하리라 하거니와 너희 마음에 품은 것을 결코 이루지 못하리라" <span class="ref">20:32</span><br>"바벨론 왕이 갈랫길 곧 두 길 어귀에 서서 점을 치되 화살들을 흔들어 우상에게 묻고 희생제물의 간을 살펴서 오른손에 예루살렘으로 갈 점괘를 얻었으므로" <span class="ref">21:21-22</span><br>"관을 제거하며 왕관을 벗길지라… 내가 엎드러뜨리고 엎드러뜨리고 엎드러뜨리려니와 이것도 다시 있지 못하리라 마땅히 얻을 자가 이르면 그에게 주리라" <span class="ref">21:26-27</span><br>"이 땅을 위하여 성을 쌓으며 성 무너진 데를 막아 서서 나로 하여금 멸하지 못하게 할 사람을 내가 그 가운데에서 찾다가 찾지 못하였으므로" <span class="ref">22:30</span></blockquote>
+      <p class="bg"><b>배경</b>장로들이 물으러 오자 하나님은 "내가 용납하지 아니하리라"(20:3) 하시고, 출애굽부터 지금까지 "내 이름을 위하여" 몇 번이나 참으셨는지 되짚으셨다. 21장의 느부갓네살은 암몬의 랍바로 갈지 예루살렘으로 갈지 점을 친다. 그 점괘조차 하나님 손에 있었다. 23장의 두 자매 이름: 오홀라는 "그녀의 장막"(사마리아), 오홀리바는 "나의 장막이 그녀 안에"(예루살렘)라는 뜻이다.</p>
+      <p class="ln"><b>연결</b>22:30은 예레미야의 "정의를 행하는 자를 한 사람이라도 찾으면 내가 이 성읍을 용서하리라"(렘 5:1)와 짝을 이룬다. 이사야는 그 빈자리를 하나님이 채우신다고 말한다. "중재자가 없음을 이상히 여기셨으므로 자기 팔로 스스로 구원을 베푸시며"(사 59:16). 무너진 성벽의 틈에 끝내 서실 분, 곧 십자가로 가는 실이다. 21:27 "마땅히 얻을 자"는 창 49:10과 연결해 메시아로 보는 견해가 많다.</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">589경</span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+      <p class="ttl"><strong>시드기야의 배반 — 하나님의 이름으로 한 맹세를 깨뜨림</strong> <span class="ref">왕하 24:20; 대하 36:12-13</span></p>
+      <blockquote class="w">"선지자 예레미야가 여호와의 말씀으로 일러도 그 앞에서 겸손하지 아니하였으며 또한 느부갓네살 왕이 그를 그의 하나님을 가리켜 맹세하게 하였으나 그가 왕을 배반하고 목을 곧게 하며 마음을 완악하게 하여 이스라엘 하나님 여호와께로 돌아오지 아니하였고" <span class="ref">대하 36:12-13</span></blockquote>
+      <p class="bg"><b>배경</b>589년 애굽에 새 바로 호브라(렘 44:30)가 즉위해 반바벨론 동맹을 부추겼다. 시드기야는 애굽을 믿고 조공을 끊었다.</p>
+      <p class="ln"><b>연결</b>1년 뒤 포위가 시작된다. 겔 17:15 "언약을 배반하고야 피하겠느냐."</p>
+    </div></div>
+  </article>
+  <p class="empty" hidden>이 시기에는 고른 말씀이 없습니다.</p>
+</section>
+
+<!-- Ⅴ -->
+<section id="e5" class="era siege">
+  <div class="era-head"><span class="num">Ⅴ</span><h2>포위 18개월</h2><span class="span">BC 588.1.15 – 586.7.18 · 왕하 25:1-3</span><p class="gist">하나님이 가장 많이 말씀하신 시간. 한 손으로는 마지막 문을 열어 두셨고, 다른 손으로는 무너진 뒤에 지킬 약속을 쓰셨다.</p></div>
+  <div class="cols-head" aria-hidden="true"><span></span><span class="lane l-jer">예루살렘 · 예레미야</span><span class="lane l-ezk">바벨론 · 에스겔</span></div>
+  <article class="row key">
+    <div class="when"><span class="date">588.1.15<small>시드기야 9년 10월 10일</small></span><span class="c c-fix">확정</span><span class="c c-key">설교 본문</span></div>
+    <div class="what">
+      <div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+        <p class="ttl"><strong>포위 시작</strong> <span class="ref">왕하 25:1; 렘 39:1; 52:4</span></p>
+        <blockquote class="w">"시드기야 제구년 열째 달 십일에 바벨론의 왕 느부갓네살이 그의 모든 군대를 거느리고 예루살렘을 치러 올라와서 그 성에 대하여 진을 치고 주위에 토성을 쌓으매" <span class="ref">25:1</span></blockquote>
+        <p class="bg"><b>배경</b>느부갓네살의 본진은 시리아의 립나에 있었다(25:6). '토성'은 성벽에 붙여 쌓는 공격용 흙 경사로와 포위 둑이다. 예루살렘은 지형상 북쪽이 가장 약해 포위군이 북쪽에 진을 쳤을 것으로 본다.</p>
+        <p class="ln"><b>연결</b>이 날은 70년 동안 '열째 달 금식'이 되었다(슥 8:19). 유대인들은 지금도 테벳월 10일에 금식한다. 600년 뒤 예수님: "네 원수들이 토둔을 쌓고 너를 둘러 사면으로 가두고"(눅 19:43).</p>
+      </div>
+      <div class="sameday">같은 날 · 1,300km 떨어진 곳에서</div>
+      <div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+        <p class="ttl"><strong>"오늘의 이름을 기록하라"</strong> <span class="ref">겔 24:1-14</span></p>
+        <blockquote class="w">"아홉째 해 열째 달 열째 날에… 인자야 너는 날짜 곧 오늘의 이름을 기록하라 바벨론 왕이 오늘 예루살렘에 가까이 왔느니라" <span class="ref">24:1-2</span><br>"가마 하나를 걸라… 피를 흘린 성읍, 녹슨 가마 곧 그 속의 녹을 없이하지 아니한 가마여 화 있을진저… 내가 너를 깨끗하게 하나 네가 깨끗하여지지 아니하니" <span class="ref">24:3, 6, 13</span></blockquote>
+        <p class="bg"><b>배경</b>소식이 오가려면 넉 달이 넘게 걸리는 거리다(실제로 함락 소식은 약 5개월 뒤 도착, 33:21). 아무도 모르는 그날, 하나님이 바벨론에서 날짜를 받아 적게 하셨다.</p>
+        <p class="ln"><b>연결</b>가마 비유는 예루살렘 고관들의 자랑 "이 성읍은 가마요 우리는 고기"(11:3)를 뒤집는다. 가마가 지켜 주는 줄 알았는데, 가마째 불에 달궈진다.</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">포위 초</span><span class="c c-est">추정</span></div>
+    <div class="what">
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>"혹시 기적으로…" → "생명의 길과 사망의 길"</strong> <span class="ref">렘 21:1-10</span></p>
+        <blockquote class="w">"바벨론의 느부갓네살 왕이 우리를 치니 청컨대 너는 우리를 위하여 여호와께 간구하라 여호와께서 혹시 그의 모든 기적으로 우리를 도와 행하시면 그가 우리를 떠나리라" <span class="ref">21:2</span><br>"내가 든 손과 강한 팔 곧 진노와 분노와 대노로 친히 너희를 칠 것이며" <span class="ref">21:5</span><br>"보라 내가 너희 앞에 생명의 길과 사망의 길을 두었노라… 너희를 에워싼 갈대아인에게 나가서 항복하는 자는 살 것이나" <span class="ref">21:8-9</span></blockquote>
+        <p class="bg"><b>배경</b>대표단은 말기야의 아들 바스훌과 제사장 스바냐였다. 이 바스훌은 나중에 예레미야를 진창 구덩이에 넣자고 한 고관 중 하나가 된다(38:1). 스바냐는 함락 후 립나에서 처형된다(왕하 25:18-21). 그들이 바란 것은 히스기야 때 같은 기적(왕하 19:35)이었다.</p>
+        <p class="ln"><b>연결</b>"강한 팔"은 출애굽 때 이스라엘을 건지신 바로 그 팔이다(출 6:6 "편 팔… 너희를 속량하여"; 신 4:34). 그 팔이 이번에는 거꾸로 향한다. "생명과 사망을 네 앞에 두었다"는 모세의 말 그대로다(신 30:15, 19).</p>
+      </div>
+      <div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+        <p class="ttl"><strong>에스겔 아내의 죽음 — "네 눈에 기뻐하는 것"</strong> <span class="ref">겔 24:15-27</span> <span class="c c-est">날짜 없음</span></p>
+        <blockquote class="w">"인자야 내가 네 눈에 기뻐하는 것을 한 번 쳐서 빼앗으리니 너는 슬퍼하거나 울거나 눈물을 흘리거나 하지 말며" <span class="ref">24:16</span> · "내가 아침에 백성에게 말하였더니 저녁에 내 아내가 죽었으므로" <span class="ref">24:18</span><br>"내 성소는 너희 세력의 영광이요 너희 눈의 기쁨이요 너희 마음에 아낌이 되거니와 내가 더럽힐 것이며… 너희가 에스겔이 행한 바와 같이 행하여… 슬퍼하지도 아니하며 울지도 아니하되 죄악 중에 패망하여 피차 바라보고 탄식하리라" <span class="ref">24:21-23</span></blockquote>
+        <p class="bg"><b>배경</b>가장 사랑하는 사람을 잃고도 울지 못하게 하셨다. 성전을 잃는 충격이 너무 커서 울 수조차 없게 되리라는 표징이다. 24:1-14와 같은 날인지는 본문이 확정하지 않는다.</p>
+        <p class="ln"><b>연결</b>예레미야에게는 아예 결혼하지 말고 초상집에도 잔칫집에도 가지 말라 하셨다(렘 16:2-9). 두 선지자의 결혼(과 결혼하지 않음)이 그대로 말씀이 되었다.</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">588</span><span class="c c-est">추정</span></div>
+    <div class="what">
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>시드기야에게 직접 · "라기스와 아세가만 남았음이더라"</strong> <span class="ref">렘 34:1-7</span></p>
+        <blockquote class="w">"네가 그의 손에서 벗어나지 못하고 반드시 사로잡혀 그의 손에 넘겨져서 네 눈은 바벨론 왕의 눈을 볼 것이며 그의 입은 네 입을 마주 대하여 말할 것이요 너는 바벨론으로 가리라. 그러나… 네가 칼에 죽지 아니하고 평안히 죽을 것이며" <span class="ref">34:3-5</span><br>"그 때에 바벨론의 왕의 군대가 예루살렘과 유다의 남은 모든 성읍들을 쳤으니 곧 라기스와 아세가라 유다의 견고한 성읍 중에 이것들만 남았음이더라" <span class="ref">34:7</span></blockquote>
+        <p class="bg"><b>배경</b>라기스와 아세가는 예루살렘 남서쪽 평지(쉐펠라)의 요새다. 1935년 라기스 성문에서 군 장교들의 편지 토편이 발굴되었다. 4번 편지: "우리는 라기스의 신호를 지켜보고 있습니다… 아세가는 보이지 않습니다." 아세가가 먼저 무너진 순간의 기록으로 보는 견해가 있다.</p>
+        <p class="ln"><b>연결</b>"바벨론 왕의 눈을 볼 것"은 립나에서 이루어진다(왕하 25:6-7). "평안히 죽을 것"은 조건부 약속이었다고 보는 견해가 있다(<a href="#diff">본문 차이</a>).</p>
+      </div>
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>위기 속의 계약 — 히브리 노비를 해방</strong> <span class="ref">렘 34:8-10</span></p>
+        <blockquote class="w">"시드기야 왕이 예루살렘에 있는 모든 백성과 한 가지로 하나님 앞에서 계약을 맺고 자유를 선포한 후에… 그 계약은 사람마다 각기 히브리 남녀 노비를 놓아 자유롭게 하고 그의 동족 유다인을 종으로 삼지 못하게 한 것이라" <span class="ref">34:8-9</span></blockquote>
+        <p class="bg"><b>배경</b>율법은 동족 종을 7년째에 놓아 주라고 했다(신 15:12). 오랫동안 지키지 않다가 성이 포위되자 성전에서 하나님 앞에 계약을 맺었다. 회개였을 수도 있고, 성을 지킬 사람을 늘리려는 계산이었을 수도 있다(견해).</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">588/587</span><span class="c c-est">추정</span></div>
+    <div class="what">
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>애굽 군대가 오자 포위가 잠시 풀림</strong> <span class="ref">렘 37:5-10</span></p>
+        <blockquote class="w">"바로의 군대가 애굽에서 나오매 예루살렘을 에워쌌던 갈대아인이 그 소문을 듣고 예루살렘에서 떠났더라" <span class="ref">37:5</span><br>"너희는 스스로 속여 말하기를 갈대아인이 반드시 우리를 떠나리라 하지 말라… 가령 너희가… 그 중에 부상자만 남긴다 할지라도 그들이 각기 장막에서 일어나 이 성을 불사르리라" <span class="ref">37:9-10</span></blockquote>
+        <p class="bg"><b>배경</b>바로 호브라의 구원군이 올라오자 바벨론 군대가 남쪽으로 내려가 맞섰다. 예루살렘은 "살았다"고 환호했다.</p>
+        <p class="ln"><b>연결</b>110여 년 전 앗수르 장군 랍사게도 같은 말을 했다. "네가 애굽을 믿는도다 그것은 상한 갈대 지팡이와 같은 것이라 사람이 그것을 의지하면 손이 찔리리니"(사 36:6).</p>
+      </div>
+      <div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+        <p class="ttl"><strong>같은 몇 달, 바벨론에서 — "갈대 지팡이", "바로의 팔을 꺾었다"</strong> <span class="ref">겔 29:1-16 (587.1.7); 30:20-26 (587.4.29); 31 (587.6.21)</span> <span class="c c-fix">확정</span></p>
+        <blockquote class="w">"애굽의 바로 왕이여… 스스로 이르기를 나의 이 강은 내 것이라 내가 나를 위하여 만들었다 하는도다… 애굽은 본래 이스라엘 족속에게 갈대 지팡이라. 그들이 너를 손으로 잡은즉 네가 부러져서 그들의 모든 어깨를 찢었고" <span class="ref">29:3, 6-7</span><br>"인자야 내가 애굽의 바로 왕의 팔을 꺾었더니 칼을 잡을 힘이 있도록 그것을 아주 싸매지도 못하였고" <span class="ref">30:21</span></blockquote>
+        <p class="bg"><b>배경</b>예루살렘이 애굽 구원군에 희망을 걸던 바로 그 몇 달 동안, 1,300km 밖의 에스겔은 날짜를 박아 그 희망이 꺾였다고 선언했다. 31장은 하늘까지 솟았던 백향목(앗수르)도 쓰러졌으니 애굽도 그리되리라는 비유다.</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">같은 때</span><span class="c c-est">추정</span></div>
+    <div class="what">
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>노비를 다시 끌어옴 — "쪼갠 송아지 사이로 지나며" 맺은 맹세</strong> <span class="ref">렘 34:11-22</span></p>
+        <blockquote class="w">"후에 그들의 뜻이 변하여 자유를 주었던 노비를 끌어다가 복종시켜 다시 노비로 삼았더라" <span class="ref">34:11</span><br>"너희가 나에게 순종하지 아니하고… 자유를 선포한 것을 실행하지 아니하였은즉 내가 너희를 대적하여 칼과 전염병과 기근에게 자유를 주리라" <span class="ref">34:17</span><br>"송아지를 둘로 쪼개고 그 두 조각 사이로 지나매 내 앞에 언약을 맺었으나 그 말을 실행하지 아니하여 내 계약을 어긴 그들을… 내가 그들의 원수의 손과… 넘기리니 그들의 시체가 공중의 새와 땅의 짐승의 먹이가 될 것이며" <span class="ref">34:18-20</span></blockquote>
+        <p class="bg"><b>배경</b>포위가 풀리자 마음도 풀렸다. 계약할 때 그들은 송아지를 반으로 쪼개 놓고 그 사이를 걸어 지나갔다. 고대 근동의 맹세 의식으로, "이 약속을 깨면 내가 이 송아지처럼 쪼개지리라"는 뜻이다. 하나님은 그 맹세대로 하시겠다고 하신다.</p>
+        <p class="ln"><b>연결</b>창세기 15장의 그 의식이다. 그때는 아브람이 잠든 사이 "타는 횃불이 쪼갠 고기 사이로 지나더라"(창 15:17). <strong>하나님만 지나가셨다.</strong> 사람이 지나간 언약은 사람이 깨뜨렸고, 하나님이 홀로 지나가신 언약은 하나님이 지키신다. 34:20의 "공중의 새"는 창 15:11의 사체 위로 내려오던 솔개와 같은 그림이다.</p>
+      </div>
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>예레미야 체포 — "성중에 떡이 떨어질 때까지"</strong> <span class="ref">렘 37:11-21</span></p>
+        <blockquote class="w">"네가 갈대아인에게 항복하려 하는도다. 예레미야가 이르되 거짓이다" <span class="ref">37:13-14</span><br>"시드기야 왕이 사람을 보내어 그를 이끌어내고 왕궁에서 그에게 비밀히 물어 이르되 여호와께로부터 받은 말씀이 있느냐 예레미야가 대답하되 있나이다 또 이르되 왕이 바벨론의 왕의 손에 넘겨지리이다" <span class="ref">37:17</span><br>"떡 만드는 자의 거리에서 매일 떡 한 개씩 그에게 주게 하매 성중에 떡이 떨어질 때까지 이르니라" <span class="ref">37:21</span></blockquote>
+        <p class="bg"><b>배경</b>포위가 풀린 틈에 예레미야는 고향 베냐민 땅으로 "분깃(기업)을 받으려고" 가다가 베냐민 문에서 붙잡혔다. 맞고 웅덩이 감옥에 갇혔다가, 왕이 비밀히 불러 낸 뒤 시위대 뜰로 옮겨졌다.</p>
+        <p class="ln"><b>연결</b>"떡이 떨어질 때까지"는 왕하 25:3 "성 중에 기근이 심하여 그 땅 백성의 양식이 떨어졌더라"로 이어진다.</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">587<small>시드기야 10년 = 느부갓네살 18년</small></span><span class="c c-fix">확정</span></div>
+    <div class="what">
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>갇힌 채 아나돗의 밭을 삼 — "다시 사게 되리라"</strong> <span class="ref">렘 32</span></p>
+        <blockquote class="w">"보라 네 숙부 살룸의 아들 하나멜이 네게 와서 말하기를 너는 아나돗에 있는 내 밭을 사라 이 기업을 무를 권리가 네게 있느니라 하리라" <span class="ref">32:7</span> · "내가 이것이 여호와의 말씀인 줄 알았으므로… 은 십칠 세겔을 달아 주되" <span class="ref">32:8-9</span><br>"이 증서… 를 가지고 토기에 담아 오랫동안 보존하게 하라… 사람이 이 땅에서 집과 밭과 포도원을 다시 사게 되리라" <span class="ref">32:14-15</span><br>(예레미야의 기도) "주 여호와여 주께서 내게 은으로 밭을 사며 증인을 세우라 하셨으나 이 성은 갈대아인의 손에 넘기신 바 되었나이다" <span class="ref">32:25</span><br>"나는 여호와요 모든 육체의 하나님이라 내게 할 수 없는 일이 있겠느냐" <span class="ref">32:27</span> · "내가 그들에게 복을 주기 위하여 그들을 떠나지 아니하리라 하는 영원한 언약을 그들에게 세우고 나를 경외함을 그들의 마음에 두어 나를 떠나지 않게 하고… 나의 마음과 정성을 다하여 그들을 이 땅에 심으리라" <span class="ref">32:40-41</span></blockquote>
+        <p class="bg"><b>배경</b>성이 포위되어 땅값이 '0'이 된 때였다. 친척의 땅이 남에게 넘어가지 않게 가까운 친족이 사 주는 '기업 무르기' 법(레 25:25)을 따랐다. 증서는 봉인한 것과 봉인하지 않은 것 두 벌이었고, 바룩이 토기에 담아 보관했다. 아나돗은 예레미야를 죽이려 했던 고향이다(11:21). 예레미야 자신도 이해가 안 되어 기도했다(32:25). 하나님의 대답이 32:27이다.</p>
+        <p class="ln"><b>연결</b>51년 뒤 귀환자 명단에 "아나돗 사람이 백이십팔 명"(스 2:23)이 있다. '기업 무를 자'(고엘)는 룻기의 보아스, 그리고 우리를 값 주고 사신 예수님으로 이어진다. 32:40 "나를 떠나지 않게 하고"는 사람 쪽의 신실함까지 하나님이 책임지신다는 새 언약의 핵심이다.</p>
+      </div>
+    </div>
+  </article>
+  <article class="row key">
+    <div class="when"><span class="date">같은 시기<small>"아직 갇혀 있을 때에… 두 번째로"</small></span><span class="c c-fix">확정</span></div>
+    <div class="what">
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>★ 포위 중의 두 번째 말씀 — 신랑·신부의 소리가 다시, 낮과 밤의 언약</strong> <span class="ref">렘 33</span></p>
+        <blockquote class="w">"너는 내게 부르짖으라 내가 네게 응답하겠고 네가 알지 못하는 크고 은밀한 일을 네게 보이리라" <span class="ref">33:3</span><br>"무리가 이 성읍의 가옥과 유다 왕궁을 헐어서 갈대아인의 참호와 칼을 대항하여 싸우려 하였으나" <span class="ref">33:4</span> → "그러나 보라 내가 이 성읍을 치료하며 고쳐 낫게 하고" <span class="ref">33:6</span><br>"황폐하여 사람도 없고… 짐승도 없던 유다 성읍들과 예루살렘 거리에서 즐거워하는 소리, 기뻐하는 소리, 신랑의 소리, 신부의 소리와 및 만군의 여호와께 감사하라, 여호와는 선하시니 그 인자하심이 영원하다 하는 소리와… 감사제를 드리는 자들의 소리가 다시 들리리니" <span class="ref">33:10-11</span><br>"너희가 능히 낮에 대한 나의 언약과 밤에 대한 나의 언약을 깨뜨려 주야로 그 때를 잃게 할 수 있을진대 내 종 다윗에게 세운 나의 언약도 깨뜨려… 하늘의 만상은 셀 수 없으며 바다의 모래는 측량할 수 없나니 내가 그와 같이 내 종 다윗의 자손과… 번성하게 하리라" <span class="ref">33:20-22</span></blockquote>
+        <p class="bg"><b>배경</b>사람들은 성벽을 막으려고 자기 집과 왕궁까지 헐어 돌을 날랐다(33:4; 사 22:10 참고). 그리고 "여호와께서… 두 가계를 버리셨다"고 말했다(33:24). 예레미야는 7:34, 16:9, 25:10에서 "신랑의 소리, 신부의 소리를 끊어지게 하리라"를 세 번이나 전했다. 그 같은 입으로 "다시 들리리라"를 전한다.</p>
+        <p class="ln"><b>연결</b>시 89:49의 질문 "다윗에게 맹세하신 그 전의 인자하심이 어디 있나이까"에 대한 답이 여기 있다. "하늘의 만상… 바다의 모래"는 아브라함에게 하신 약속의 말이다(창 15:5; 22:17). 그리고 51년 뒤, 성전 기초가 놓일 때 백성이 정말 이 노래를 불렀다. "주는 지극히 선하시므로 그의 인자하심이 이스라엘에게 영원하시도다"(스 3:11).</p>
+      </div>
+    </div>
+  </article>
+  <article class="row key">
+    <div class="when"><span class="date">이 묶음</span><span class="c c-unk">불명</span></div>
+    <div class="what">
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>★ "위로의 책" — 새 언약 "내가 그들의 남편이 되었어도"</strong> <span class="ref">렘 30–31</span></p>
+        <blockquote class="w">"네 상처는 고칠 수 없고 네 부상은 중하도다… 내가 너의 상처로부터 새 살이 돋아나게 하여 너를 고쳐 주리라" <span class="ref">30:12, 17</span><br>"내가 영원한 사랑으로 너를 사랑하기에 인자함으로 너를 이끌었다" <span class="ref">31:3</span> · "에브라임은 나의 사랑하는 아들 기뻐하는 자식이 아니냐… 그를 위하여 내 창자가 들끓으니 내가 반드시 그를 불쌍히 여기리라" <span class="ref">31:20</span><br>"보라 날이 이르리니 내가 이스라엘 집과 유다 집에 새 언약을 맺으리라. 이 언약은 내가 그들의 조상들의 손을 잡고 애굽 땅에서 인도하여 내던 날에 맺은 것과 같지 아니할 것은 내가 그들의 남편이 되었어도 그들이 내 언약을 깨뜨렸음이라… 내가 나의 법을 그들의 속에 두며 그들의 마음에 기록하여 나는 그들의 하나님이 되고 그들은 내 백성이 될 것이라… 내가 그들의 악행을 사하고 다시는 그 죄를 기억하지 아니하리라" <span class="ref">31:31-34</span></blockquote>
+        <p class="bg"><b>배경</b>"너는… 모든 말을 책에 기록하라"(30:2). 30–31장에는 날짜가 없다. 포위 중 말씀(32–33장, 확정)과 한 묶음으로 놓였지만, 요시야 때 북이스라엘에 주신 말씀이 포위 때 확장되었다는 견해도 있다. 새 언약 문단에서 동사의 주어는 처음부터 끝까지 "내가"다. "만일 너희가"가 한 번도 없다.</p>
+        <p class="ln"><b>연결</b>시내산 결혼(#4)이 깨졌고(586) 그래서 "같지 아니한" 새 언약을 주신다. 예수님이 마지막 만찬에서 이 약속을 이루셨다. "이 잔은 내 피로 세우는 새 언약이니"(눅 22:20). 히브리서는 이 구절을 그대로 인용한다(히 8:8-12; 10:16-18). 라마의 라헬(31:15)은 마 2:18에서 다시 들린다.</p>
+      </div>
+    </div>
+  </article>
+  <article class="row key">
+    <div class="when"><span class="date">586 상반기</span><span class="c c-est">추정</span></div>
+    <div class="what">
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>진창 구덩이 → 마지막 밀담: "항복하면 이 성이 불사름을 당하지 아니하겠고"</strong> <span class="ref">렘 38</span></p>
+        <blockquote class="w">(고관들) "이 사람이 백성의 평안을 구하지 아니하고 재난을 구하오니 청하건대 이 사람을 죽이소서" <span class="ref">38:4</span> · (시드기야) "보라 그가 너희 손 안에 있느니라 왕은 조금도 너희를 거스를 수 없느니라" <span class="ref">38:5</span><br>"그 구덩이에는 물이 없고 진창뿐이므로 예레미야가 진창 속에 빠졌더라" <span class="ref">38:6</span><br>"네가 만일 바벨론의 왕의 고관들에게 항복하면 네 생명이 살겠고 이 성이 불사름을 당하지 아니하겠고 너와 네 가족이 살려니와… 항복하지 아니하면… 그들이 이 성을 불사를 것이며" <span class="ref">38:17-18</span><br>(시드기야) "나는 갈대아인에게 항복한 유다인을 두려워하노라 염려하건대… 그들이 나를 조롱할까 하노라" <span class="ref">38:19</span> · "원하옵나니 내가 왕에게 아뢴 바 여호와의 목소리에 순종하소서" <span class="ref">38:20</span> · "네 친구들이 너를 꾀어 이기고 네 발이 진흙에 빠짐을 보고 물러갔도다" <span class="ref">38:22</span></blockquote>
+        <p class="bg"><b>배경</b>식량이 바닥나 가던 때다. 고관 넷이 예레미야를 왕자 말기야의 구덩이에 줄로 달아 내렸다. 왕궁 내시인 구스(에티오피아) 사람 에벳멜렉이 왕에게 호소해, 30명과 함께 헝겊과 낡은 옷을 겨드랑이에 대고 밧줄로 끌어올렸다. 그 뒤 왕이 성전 셋째 문으로 비밀히 불렀다. 기록된 둘의 만남은 이것이 마지막이다.</p>
+        <p class="ln"><b>연결</b><strong>성이 불타지 않을 수도 있었다.</strong> 문을 닫은 것은 하나님이 아니라 "조롱할까" 하는 두려움이었다. 몸이 진흙에 빠진 예레미야는 살았고, 마음이 진흙에 빠진 왕은 무너졌다. 애가의 고백과 같은 장면이다. "그들이 내 생명을 끊으려고 나를 구덩이에 넣고… 여호와여 내가 심히 깊은 구덩이에서 주의 이름을 불렀나이다"(애 3:53-55).</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">그 무렵</span><span class="c c-est">추정</span></div>
+    <div class="what">
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>에벳멜렉에게 — "네가 나를 믿었음이라"</strong> <span class="ref">렘 39:15-18</span></p>
+        <blockquote class="w">"내가 이 성에 재난을 내리고 복을 내리지 아니하리라 한 나의 말이 그 날에 네 눈 앞에 이루리라. 여호와의 말씀이니라 내가 그 날에 너를 구원하리니 네가 그 두려워하는 사람들의 손에 넘겨지지 아니하리라… 이는 네가 나를 믿었음이라" <span class="ref">39:16-18</span></blockquote>
+        <p class="bg"><b>배경</b>예레미야가 시위대 뜰에 갇혀 있을 때(39:15), 곧 구덩이 사건 직후 주신 말씀이다. 왕도 제사장도 아닌 외국인 종이 무너지는 성에서 구원의 약속을 받았다.</p>
+        <p class="ln"><b>연결</b>사도행전에서 복음을 받은 사람도 "에디오피아 사람… 내시"였다(행 8:27).</p>
+      </div>
+    </div>
+  </article>
+  <p class="empty" hidden>이 시기에는 고른 말씀이 없습니다.</p>
+</section>
+
+<!-- Ⅵ -->
+<section id="e6" class="era siege">
+  <div class="era-head"><span class="num">Ⅵ</span><h2>무너진 한 달</h2><span class="span">BC 586.7.18 – 8.17 · 왕하 25:4-21</span><p class="gist">40년 동안 들은 말씀이 한 달 사이에 하나씩 그대로 이루어졌다. 성벽, 왕, 성전 순서로.</p></div>
+  <article class="row key">
+    <div class="when"><span class="date">586.7.18<small>시드기야 11년 4월 9일</small></span><span class="c c-fix">확정</span><span class="c c-key">설교 본문</span></div>
+    <div class="what">
+      <div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+        <p class="ttl"><strong>① 성벽이 무너지다 — 기근, 성벽 파괴, 밤의 도주</strong> <span class="ref">왕하 25:2-4; 렘 39:2; 52:5-7</span></p>
+        <blockquote class="w">"그 해 넷째 달 구일에 성 중에 기근이 심하여 그 땅 백성의 양식이 떨어졌더라. 그 성벽이 파괴되매 모든 군사가 밤중에 두 성벽 사이 왕의 동산 곁문 길로 도망하여… 그가 아라바 길로 가더니" <span class="ref">25:3-4</span></blockquote>
+        <p class="bg"><b>배경</b>18개월 만이다. 성 안에서는 어머니들이 자녀를 먹는 일까지 일어났다(애 4:10; 신 28:53). '두 성벽 사이 문'은 다윗성 남쪽 끝(실로암 못 부근)으로 보인다. '아라바'는 여리고와 요단 골짜기로 내려가는 광야 길이다.</p>
+        <p class="ln"><b>연결</b>'넷째 달 금식'(슥 8:19)의 날이다.</p>
+      </div>
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>바벨론 고관들이 중문에 앉음</strong> <span class="ref">렘 39:3</span></p>
+        <blockquote class="w">"바벨론의 왕의 모든 고관이 나타나 중문에 앉으니 곧 네르갈사레셀과 삼갈네부와 내시장 살스김이니" <span class="ref">39:3</span></blockquote>
+        <p class="bg"><b>배경</b>네르갈사레셀은 바벨론 기록에도 나오는 인물(네리글리살)로, 훗날 바벨론 왕이 된다(BC 560–556).</p>
+        <p class="ln"><b>연결</b>40년 전 소명 때 들은 그대로다. "그들이 와서 예루살렘 성문 어귀에 각기 자리를 정하고"(1:15).</p>
+      </div>
+      <div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+        <p class="ttl"><strong>6년 전에 연기한 그대로</strong> <span class="ref">겔 12:12</span></p>
+        <p class="bg"><b>배경</b>밤에, 성벽 틈으로, 짐을 메고. 바벨론에 있던 에스겔이 592년경 몸으로 보여 준 장면이 그대로 일어났다.</p>
+      </div>
+    </div>
+  </article>
+  <article class="row key">
+    <div class="when"><span class="date">7월 하순</span><span class="c c-fix">확정</span><span class="c c-key">설교 본문</span></div>
+    <div class="what">
+      <div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+        <p class="ttl"><strong>② 왕이 무너지다 — 여리고 평지 → 립나 → 두 눈</strong> <span class="ref">왕하 25:5-7; 렘 39:5-7; 52:8-11</span></p>
+        <blockquote class="w">"갈대아 군대가 그 왕을 뒤쫓아가서 여리고 평지에서 그를 따라 잡으매 왕의 모든 군대가 그를 떠나 흩어진지라. 그들이 왕을 사로잡아 그를 립나에 있는 바벨론 왕에게로 끌고 가매 그들이 그를 심문하니라. 그들이 시드기야의 아들들을 그의 눈앞에서 죽이고 시드기야의 두 눈을 빼고 놋 사슬로 그를 결박하여 바벨론으로 끌고 갔더라" <span class="ref">25:5-7</span></blockquote>
+        <p class="bg"><b>배경</b>여리고는 이스라엘이 처음 가나안에 들어와 무너뜨린 성이다. 땅을 얻기 시작한 곳에서 땅을 잃었다(견해). 립나까지는 북쪽으로 약 350km다. 예레미야 52:11은 "그가 죽는 날까지 옥에 가두었더라"를 덧붙인다.</p>
+        <p class="ln"><b>연결</b>서로 모순처럼 보이던 두 예언이 동시에 이루어졌다. "네 눈은 바벨론 왕의 눈을 볼 것이며"(렘 34:3)와 "바벨론에 이르리니… 그 땅을 보지 못하리라"(겔 12:13)다. 립나에서 느부갓네살을 보고, 눈을 잃은 채 바벨론으로 갔다.</p>
+      </div>
+      <div class="item" data-lane="other"><span class="lane l-other">그 밖의 말씀</span>
+        <p class="ttl"><strong>애가가 기억한 그 추격</strong> <span class="ref">애 4:19-20</span></p>
+        <blockquote class="w">"우리를 뒤쫓는 자들이 하늘의 독수리들보다 빠름이여 산 꼭대기까지도 뒤쫓으며 광야에서도 우리를 잡으려고 매복하였도다. 우리의 콧김 곧 여호와께서 기름 부으신 자가 그들의 함정에 빠졌음이여 우리가 그를 가리키며 전에 이르기를 우리가 그의 그늘 아래에서 이방인들 중에 살겠다 하던 자로다" <span class="ref">4:19-20</span></blockquote>
+        <p class="ln"><b>연결</b>"독수리"는 모세의 경고 그대로다. "여호와께서 멀리 땅 끝에서 한 민족을 독수리가 날아오는 것 같이 너를 치러 오게 하시리니"(신 28:49).</p>
+      </div>
+    </div>
+  </article>
+  <article class="row key">
+    <div class="when"><span class="date">586.8.14<small>19년 5월 7일 · 렘 52:12은 10일</small></span><span class="c c-fix">확정</span><span class="c c-key">설교 본문</span></div>
+    <div class="what">
+      <div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+        <p class="ttl"><strong>③ 성전이 무너지다 — 불, 그리고 두 기둥</strong> <span class="ref">왕하 25:8-17; 대하 36:19</span></p>
+        <blockquote class="w">"바벨론 왕의 신복 시위대장 느부사라단이 예루살렘에 이르러 여호와의 성전과 왕궁을 불사르고 예루살렘의 모든 집을 귀인의 집까지 불살랐으며… 예루살렘 주위의 성벽을 헐었으며" <span class="ref">25:8-10</span><br>"갈대아 사람이 또 여호와의 성전의 두 놋 기둥과 받침들과… 놋 바다를 깨뜨려 그 놋을 바벨론으로 가져가고… 이 모든 기구의 놋 무게를 헤아릴 수 없었으니" <span class="ref">25:13, 16</span></blockquote>
+        <p class="bg"><b>배경</b>성벽이 뚫린 지 약 한 달 뒤, 립나에서 내려온 느부사라단이 불을 질렀다. 두 놋기둥은 높이 18규빗(약 8m), 속이 빈 기둥이었다. 솔로몬이 이름을 붙였다. 오른쪽 기둥은 <strong>야긴</strong>("그가 세우리라"), 왼쪽 기둥은 <strong>보아스</strong>("그에게 능력이 있다")였다(왕상 7:21).</p>
+        <p class="ln"><b>연결</b>'다섯째 달 금식'(슥 8:19)이다. 유대 전통은 아브월 9일에 첫 성전과 둘째 성전(AD 70)의 파괴를 함께 기억하며 애가를 읽는다. "그가 세우리라"는 이름의 기둥이 깨져 실려 갔다. 시리즈 #1 기둥 모형이 무너지는 바로 그 장면이다. 예레미야는 이 기둥들이 실려 갈 것도, "내가 이것을 돌보는 날까지 거기에 있을 것이니라 그 후에 내가… 이 곳에 그것들을 되돌려 두리라"는 것도 미리 말했다(렘 27:19-22).</p>
+      </div>
+      <div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+        <p class="ttl"><strong>영광은 6년 전에 이미 떠났다</strong> <span class="ref">겔 10:18-19; 11:23</span></p>
+        <p class="bg"><b>배경</b>592년 환상에서 영광은 동쪽 산으로 떠났다. 바벨론 군대가 태운 것은 하나님이 떠나신 건물이었다.</p>
+      </div>
+      <div class="item" data-lane="other"><span class="lane l-other">그 밖의 말씀</span>
+        <p class="ttl"><strong>불탄 성소를 노래한 시들</strong> <span class="ref">시 74:4-9; 79:1-3; 애 2:6-7</span></p>
+        <blockquote class="w">"이제 그들이 도끼와 철퇴로 성소의 모든 조각품을 쳐서 부수고 주의 성소를 불사르며 주의 이름이 계신 곳을 더럽혀 땅에 엎었나이다… 우리의 표적은 보이지 아니하며 선지자도 더 이상 없으며 이런 일이 얼마나 오랠는지 우리 중에 아는 자도 없나이다" <span class="ref">시 74:6-9</span><br>"하나님이여 이방 나라들이 주의 기업의 땅에 들어와서 주의 성전을 더럽히고 예루살렘이 돌무더기가 되게 하였나이다" <span class="ref">시 79:1</span><br>"여호와께서 또 자기 제단을 버리시며 자기 성소를 미워하시며… 그들이 여호와의 전에서 떠들기를 절기의 날과 같이 하였도다" <span class="ref">애 2:7</span></blockquote>
+      </div>
+    </div>
+  </article>
+  <article class="row key">
+    <div class="when"><span class="date">8월</span><span class="c c-fix">확정</span><span class="c c-key">설교 본문</span></div>
+    <div class="what">
+      <div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+        <p class="ttl"><strong>"이와 같이 유다가 사로잡혀 본토에서 떠났더라"</strong> <span class="ref">왕하 25:11-12, 18-21; 렘 52:24-27</span></p>
+        <blockquote class="w">"시위대장이 그 땅의 비천한 자를 남겨 두어 포도원을 다스리는 자와 농부가 되게 하였더라" <span class="ref">25:12</span><br>"시위대장이 대제사장 스라야와 부제사장 스바냐와 성전 문지기 세 사람을 사로잡고… 바벨론 왕이 하맛 땅 립나에서 다 쳐죽였더라 이와 같이 유다가 사로잡혀 본토에서 떠났더라" <span class="ref">25:18, 21</span></blockquote>
+        <p class="bg"><b>배경</b>성전의 대제사장도 립나에서 처형되었다. 예레미야서는 같은 장면을 이렇게 적는다. 빈민에게 "그 날에 포도원과 밭을 그들에게 주었더라"(렘 39:10). 땅이 없던 사람들이 땅을 받았다.</p>
+        <p class="ln"><b>연결</b>처형된 대제사장 스라야의 후손이 약 130년 뒤(BC 458) 율법을 가르치러 돌아온 학사 <strong>에스라</strong>다. "그는 스라야의 아들이요…"(스 7:1, 여기서 '아들'은 후손이라는 뜻). 21절은 열왕기가 이 사건을 닫는 한 문장이자 10/18 설교 본문의 마지막 절이다.</p>
+      </div>
+      <div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+        <p class="ttl"><strong>라마에서 풀린 사슬 — 바벨론 사령관의 고백</strong> <span class="ref">렘 40:1-6</span></p>
+        <blockquote class="w">"네 하나님 여호와께서 이 곳에 이 재난을 선포하시더니 여호와께서 그가 말씀하신 대로 행하셨으니 이는 너희가 여호와께 범죄하고 그의 목소리에 순종하지 아니하였으므로 이제 이루어졌도다… 보라 내가 오늘 네 손의 사슬을 풀어 너를 풀어 주노니… 보라 온 땅이 네 앞에 있나니" <span class="ref">40:2-4</span></blockquote>
+        <p class="bg"><b>배경</b>라마는 예루살렘 북쪽 약 8km, 포로들의 집결지였다. 예레미야는 사슬에 묶인 채 행렬에 섞여 있다가 풀려났다. 하나님을 모르는 이방 장군이 선지자에게 하나님이 약속을 지키셨다고 설교한 셈이다.</p>
+        <p class="ln"><b>연결</b>"라마에서 슬퍼하며 통곡하는 소리가 들리니 라헬이 그 자식 때문에 애곡하는 것이라"(렘 31:15). 바로 이 라마의 장면이다. 마태는 베들레헴 아기들의 죽음에서 이 울음을 다시 듣는다(마 2:17-18).</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">그 무렵</span><span class="c c-est">추정</span></div>
+    <div class="what">
+      <div class="item" data-lane="other"><span class="lane l-other">그 밖의 말씀</span>
+        <p class="ttl"><strong>에돔 — 형제가 네거리에서 길을 막다</strong> <span class="ref">옵 1:10-14; 시 137:7; 애 4:21-22</span></p>
+        <blockquote class="w">"네가 네 형제 야곱에게 행한 포학으로 말미암아 부끄러움을 당하고 영원히 멸절되리라. 네가 멀리 섰던 날 곧 이방인이 그의 재물을 빼앗아 가며… 예루살렘을 얻기 위하여 제비 뽑던 날에 너도 그들 중 한 사람 같았느니라" <span class="ref">옵 10-11</span><br>"네거리에 서서 그 도망하는 자를 막지 않을 것이며 고난의 날에 그 남은 자를 원수에게 넘기지 않을 것이니라" <span class="ref">옵 14</span><br>"여호와여 예루살렘이 멸망하던 날을 기억하시고 에돔 자손을 치소서 그들의 말이 헐어 버리라 헐어 버리라 그 기초까지 헐어 버리라 하였나이다" <span class="ref">시 137:7</span></blockquote>
+        <p class="bg"><b>배경</b>에돔은 야곱의 형 에서의 후손이다. 형제 나라가 피난민의 길목을 막고 넘겨주었다. 오바댜의 시점은 586년 직후로 보는 견해가 다수다.</p>
+        <p class="ln"><b>연결</b>쌍둥이가 태 속에서부터 다투던 이야기(창 25:23)가 천 년도 더 지나 이렇게 이어진다. "헐어 버리라 그 기초까지"라고 외쳤지만 기초는 헐리지 않았다.</p>
+      </div>
+    </div>
+  </article>
+  <p class="empty" hidden>이 시기에는 고른 말씀이 없습니다.</p>
+</section>
+
+<!-- Ⅶ -->
+<section id="e7" class="era">
+  <div class="era-head"><span class="num">Ⅶ</span><h2>그 후 · 남은 자들</h2><span class="span">BC 586–582</span><p class="gist">무너진 뒤에도 하나님은 "머물라", "돌이키라"고 말씀하셨다. 사람들은 또 반대로 갔다.</p></div>
+  <article class="row">
+    <div class="when"><span class="date">7월<small>586 또는 582</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+      <p class="ttl"><strong>그달리야 암살 · 불탄 성전으로 가던 80명</strong> <span class="ref">왕하 25:22-26; 렘 40:7–41:18</span></p>
+      <blockquote class="w">"일곱째 달에 왕의 종친… 이스마엘이 열 사람과 함께 미스바로 가서 아히감의 아들 그달리야에게 이르러 미스바에서 함께 떡을 먹다가… 일어나서… 그달리야를 칼로 쳐죽였고" <span class="ref">렘 41:1-2</span><br>"그 때에 사람 팔십 명이 자기들의 수염을 깎고 옷을 찢고 몸에 상처를 내고 손에 소제물과 유향을 가지고 세겜과 실로와 사마리아로부터 와서 여호와의 성전으로 나아가려 한지라. 느다냐의 아들 이스마엘이 그들을 영접하러 미스바에서 나와 울면서 가다가" <span class="ref">41:5-6</span></blockquote>
+      <p class="bg"><b>배경</b>총독 그달리야는 사반의 손자, 아히감의 아들이다. 예레미야를 지켜 온 집안이다. 그는 "바벨론 왕을 섬기면 평안하리라"며 흩어진 사람들을 모았고, 그해 포도주와 여름 과일을 많이 거두었다(렘 40:12). 왕족 이스마엘은 암몬 왕의 사주를 받았다(40:14). 북쪽에서 온 80명은 불탄 성전 터에라도 제물을 드리러 오던 순례자들이었다.</p>
+      <p class="ln"><b>연결</b>'일곱째 달 금식'(슥 7:5; 8:19)이다. 오늘날 '그달리야 금식'으로 지킨다.</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">586 말</span><span class="c c-est">추정</span></div>
+    <div class="what"><div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+      <p class="ttl"><strong>"좋든지 좋지 않든지 순종하겠다" → "내가 뜻을 돌이킴이라" → 애굽행</strong> <span class="ref">렘 42–43</span></p>
+      <blockquote class="w">"우리가 당신을 우리 하나님 여호와께 보냄은 그의 목소리가 우리에게 좋든지 좋지 않든지를 막론하고 순종하려 함이라" <span class="ref">42:6</span><br>(열흘 후) "너희가 이 땅에 눌러 앉아 산다면 내가 너희를 세우고 헐지 아니하며 너희를 심고 뽑지 아니하리니 이는 내가 너희에게 내린 재난에 대하여 뜻을 돌이킴이라… 내가 너희를 불쌍히 여기리니" <span class="ref">42:10-12</span><br>"우리는 전쟁도 보이지 아니하며 나팔 소리도 들리지 아니하며 양식의 궁핍도 당하지 아니하는 애굽 땅으로 들어가 살리라" <span class="ref">42:14</span> · "네가 거짓을 말하는도다… 네리야의 아들 바룩이 너를 부추겨서" <span class="ref">43:2-3</span></blockquote>
+      <p class="bg"><b>배경</b>총독이 살해되자 남은 사람들은 바벨론의 보복이 두려워 베들레헴 근처에 모였다. 기도를 부탁하며 무조건 순종하겠다고 맹세했지만, 답이 마음에 들지 않자 예레미야와 바룩까지 끌고 애굽 다바네스로 내려갔다.</p>
+      <p class="ln"><b>연결</b>무너진 직후에도 하나님은 "뜻을 돌이킨다", "불쌍히 여기리라"고 하셨다. 하나님의 본심이 보이는 장면이다(애 3:33). 애굽행은 모세가 금한 길(신 17:16 "그 길로 다시 돌아가지 말 것")이자 마지막 저주(신 28:68 "너를 배에 싣고… 그 길로 너를 애굽으로")였다. 출애굽의 역방향이다.</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">585.1.8<small>포로 12년 10월 5일</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+      <p class="ttl"><strong>"그 성이 함락되었다" — 소식이 바벨론에 닿다</strong> <span class="ref">겔 33:21-33</span></p>
+      <blockquote class="w">"우리가 사로잡힌 지 열두째 해 열째 달 다섯째 날에 예루살렘에서부터 도망하여 온 자가 내게 나아와 말하기를 그 성이 함락되었다 하였는데 그 도망한 자가 내게 나아오기 전날 저녁에 여호와의 손이 내게 임하여 내 입을 여시더니" <span class="ref">33:21-22</span><br>"백성이 모이는 것 같이 네게 나아오며… 네 말을 들으나 그대로 행하지 아니하니… 그들은 네가 고운 음성으로 사랑의 노래를 하며 음악을 잘하는 자 같이 여겼나니" <span class="ref">33:31-32</span></blockquote>
+      <p class="bg"><b>배경</b>함락 약 5개월 뒤다(바벨론–예루살렘 여정은 약 4개월, 스 7:9). 에스겔은 소명 무렵부터 "혀가 입천장에 붙어" 하나님이 주실 때만 말했다(3:26). 그 입이 소식이 오기 전날 밤에 열렸다. 미리 말씀하신 대로다(24:26-27).</p>
+      <p class="ln"><b>연결</b>사람들은 설교를 '좋은 노래'처럼 들었다. 듣는 것과 행하는 것은 다르다(약 1:22와 같은 경고).</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">그 직후</span><span class="c c-est">추정</span></div>
+    <div class="what"><div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+      <p class="ttl"><strong>"돌이키고 돌이키라" · "아브라함은 한 사람이라도…"</strong> <span class="ref">겔 33:10-11, 24-26</span></p>
+      <blockquote class="w">"너희가 말하여 이르되 우리의 허물과 죄가 이미 우리에게 있어 우리로 그 가운데에서 쇠퇴하게 하니 어찌 능히 살리요 하거니와… 나의 삶을 두고 맹세하노니 나는 악인이 죽는 것을 기뻐하지 아니하고 악인이 그의 길에서 돌이켜 떠나 사는 것을 기뻐하노라 이스라엘 족속아 돌이키고 돌이키라… 어찌 죽고자 하느냐" <span class="ref">33:10-11</span><br>"이 황폐한 땅에 거주하는 자들이 말하여 이르기를 아브라함은 오직 한 사람이라도 이 땅을 기업으로 얻었나니 우리가 많은즉 더욱 이 땅을 우리에게 기업으로 주신 것이 되느니라 하는도다… 너희가 고기를 피째 먹으며… 그 땅이 너희의 기업이 될까보냐" <span class="ref">33:24-25</span></blockquote>
+      <p class="bg"><b>배경</b>함락 소식 뒤 포로들은 절망했다("어찌 능히 살리요"). 반대로 땅에 남은 자들은 아브라함 언약을 방패 삼아 "그래도 우리 땅"이라고 큰소리쳤다.</p>
+      <p class="ln"><b>연결</b>무조건적 약속(기초)은 '죄를 지어도 괜찮다'는 면허가 아니다. 세례 요한도 같은 경고를 했다. "속으로 아브라함이 우리 조상이라고 생각하지 말라"(마 3:9).</p>
+    </div></div>
+  </article>
+  <article class="row key">
+    <div class="when"><span class="date">586 이후</span><span class="c c-est">추정</span></div>
+    <div class="what">
+      <div class="item" data-lane="other"><span class="lane l-other">그 밖의 말씀</span>
+        <p class="ttl"><strong>★ 예레미야애가 — "본심이 아니시로다"</strong> <span class="ref">애 1–5</span></p>
+        <blockquote class="w">"슬프다 이 성이여 전에는 사람들이 많더니 이제는 어찌 그리 적막하게 앉았는고 전에는 열국 중에 크던 자가 이제는 과부 같이 되었고" <span class="ref">1:1</span> · "지나가는 모든 사람들이여 너희에게는 관계가 없는가 나의 고통과 같은 고통이 있는가 볼지어다" <span class="ref">1:12</span><br>"여호와께서 이미 정하신 일을 행하시고 옛날에 명령하신 말씀을 다 이루셨음이여" <span class="ref">2:17</span><br>"이것을 내가 내 마음에 담아 두었더니 그것이 오히려 나의 소망이 되었사옴은 여호와의 인자와 긍휼이 무궁하시므로 우리가 진멸되지 아니함이니이다 이것들이 아침마다 새로우니 주의 성실하심이 크시도소이다" <span class="ref">3:21-23</span><br>"이는 주께서 영원하도록 버리지 아니하실 것임이며 그가 비록 근심하게 하시나 그의 풍부한 인자하심에 따라 긍휼히 여기실 것임이라 주께서 인생으로 고생하게 하시며 근심하게 하심은 본심이 아니시로다" <span class="ref">3:31-33</span><br>"여호와여 우리를 주께로 돌이키소서 그리하시면 우리가 주께로 돌아가겠사오니… 주께서 우리를 아주 버리셨사오며 우리에게 진노하심이 참으로 크시니이다" <span class="ref">5:21-22</span></blockquote>
+        <p class="bg"><b>배경</b>다섯 편의 시다. 1·2·4장은 22절로, 히브리어 알파벳 22자를 한 자씩 시작 글자로 쓴 답관체다. 3장은 66절(한 글자에 세 절씩)이다. 소망의 고백(3:21-33)은 책 한가운데 놓여 있다. "본심이 아니다"(3:33)를 직역하면 "그분은 마음으로부터 사람을 괴롭히지 않으신다"다. 그런데 바로 뒤에 "주께서 사하지 아니하시고"(3:42)라고 다시 울고, 책은 "아주 버리셨사오며"(5:22)로 끝난다. 폐허 한가운데서 울며 붙잡은 고백이다. 전통적으로 예레미야의 작품으로 본다(대하 35:25 참고).</p>
+        <p class="ln"><b>연결</b>"우리를 돌이키소서 그리하시면 돌아가겠사오니"(5:21)는 렘 31:18의 에브라임의 기도와 같은 문장이다. 사람이 스스로 돌아갈 수 없다는 고백이 곧 새 언약의 자리다. 찬송가 "오 신실하신 주"가 3:22-23에서 나왔다. 유대인들은 지금도 아브월 9일에 회당에서 애가를 읽는다.</p>
+      </div>
+      <div class="item" data-lane="other"><span class="lane l-other">그 밖의 말씀</span>
+        <p class="ttl"><strong>바벨론 강변에서 · "그 전의 인자하심이 어디 있나이까"</strong> <span class="ref">시 137:1-6; 89:30-52</span> <span class="c c-est">추정</span></p>
+        <blockquote class="w">"우리가 바벨론의 여러 강변 거기에 앉아서 시온을 기억하며 울었도다 그 중의 버드나무에 우리가 우리의 수금을 걸었나니… 우리가 이방 땅에서 어찌 여호와의 노래를 부를까" <span class="ref">137:1-4</span><br>"만일 그의 자손이 내 법을 버리며… 내가 회초리로 그들의 죄를 다스리며… 그러나 나의 인자함을 그에게서 다 거두지는 아니하며 나의 성실함도 폐하지 아니하며 내 언약을 깨뜨리지 아니하고" <span class="ref">89:30-34</span><br>"그러나 주께서 주의 기름 부음 받은 자에게 노하사 물리치셔서 버리셨으며… 그의 관을 땅에 던져 욕되게 하셨으며… 주여 주의 성실하심으로 다윗에게 맹세하신 그 전의 인자하심이 어디 있나이까" <span class="ref">89:38-39, 49</span></blockquote>
+        <p class="bg"><b>배경</b>시 89의 저작 시기는 포로기설이 유력하지만 이견이 있다. 앞부분(30-34절)은 하나님의 약속이고, 뒷부분(38절 이하)은 무너진 현실 앞의 탄식이다.</p>
+        <p class="ln"><b>연결</b>시리즈 제목 "하나님, 왜 약속을 안 지키세요?"가 성경 안에 그대로 있다. 30-34절은 #1의 '기둥(조건)과 기초(무조건)' 구조를 하나님이 직접 말씀하신 것이다. 답은 포위 중에 이미 주어졌다(렘 33:20-26).</p>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">580년대</span><span class="c c-est">추정</span></div>
+    <div class="what"><div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+      <p class="ttl"><strong>애굽의 유대인들 — 같은 재난, 정반대의 해석</strong> <span class="ref">렘 44</span></p>
+      <blockquote class="w">"우리가 본래 하던 것 곧 우리와 우리 선조와 우리 왕들과 우리 고관들이 유다 성읍들과 예루살렘 거리에서 하던 대로 하늘의 여왕에게 분향하고… 그 때에는 우리가 먹을 것이 풍부하며 복을 받고 재난을 당하지 아니하였더니 우리가 하늘의 여왕에게 분향하고 그 앞에 전제 드리던 것을 폐한 후부터는 모든 것이 궁핍하고 칼과 기근에 멸망을 당하였느니라" <span class="ref">44:17-18</span><br>"애굽 땅에 들어가서 거기에 머물러 사는 유다의 모든 남은 자가 내 말과 그들의 말 가운데서 누구의 말이 진리인지 알리라" <span class="ref">44:28</span></blockquote>
+      <p class="bg"><b>배경</b>'하늘의 여왕'은 메소포타미아의 여신(이슈타르 계열로 보는 견해)이다. 렘 7:18에서 이미 "자식들은 나무를 줍고 아버지들은 불을 피우며 부녀들은 가루를 반죽하여 하늘의 여왕을 위하여 과자를"이라고 책망하셨다. 그들의 논리는 이랬다. 요시야가 우상을 없앤 뒤로 일이 꼬였으니, 망한 이유는 우상을 버렸기 때문이라는 것이다.</p>
+      <p class="ln"><b>연결</b>같은 고난을 겪고도 해석이 갈린다. 애가의 시인은 "여호와는 의로우시도다 그러나 내가 거역하였도다"(애 1:18)라고 했다. 고난을 어떻게 읽느냐가 신앙을 가른다.</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">582/581<small>느부갓네살 23년</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="jer"><span class="lane l-jer">예레미야</span>
+      <p class="ttl"><strong>3차 포로 745명 — 포로 숫자 총계</strong> <span class="ref">렘 52:28-30</span></p>
+      <blockquote class="w">"제칠년에 유다인이 삼천이십삼 명이요 느부갓네살의 열여덟째 해에 예루살렘에서 사로잡아 간 자가 팔백삼십이 명이요 느부갓네살의 제이십삼년에 사령관 느부사라단이 사로잡아 간 유다 사람이 칠백사십오 명이니 그 총수가 사천육백 명이더라" <span class="ref">52:28-30</span></blockquote>
+      <p class="bg"><b>배경</b>왕하 24:14의 "만 명"과 숫자가 다르다. 성인 남자만 센 숫자, 또는 특정 집단만 센 숫자로 보는 견해가 있다. 3차 포로는 그달리야 암살에 대한 보복으로 보기도 한다.</p>
+    </div></div>
+  </article>
+  <p class="empty" hidden>이 시기에는 고른 말씀이 없습니다.</p>
+</section>
+
+<!-- Ⅷ -->
+<section id="e8" class="era">
+  <div class="era-head"><span class="num">Ⅷ</span><h2>긴 기다림과 문이 열리는 날</h2><span class="span">BC 573–518</span><p class="gist">떠난 영광이 같은 문으로 돌아오고, 끊어진 노래가 다시 불리고, 까만 날들이 잔치로 바뀐다.</p></div>
+  <article class="row">
+    <div class="when"><span class="date">573.4.28<small>함락 후 14년</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+      <p class="ttl"><strong>새 성전 환상 — 영광이 동문으로 돌아오고, 강이 아라바로</strong> <span class="ref">겔 40–48</span></p>
+      <blockquote class="w">"이스라엘 하나님의 영광이 동쪽에서부터 오는데 하나님의 음성이 많은 물 소리 같고 땅은 그 영광으로 말미암아 빛나니… 여호와의 영광이 동문을 통하여 성전으로 들어가고… 여호와의 영광이 성전에 가득하더라" <span class="ref">43:2-5</span><br>"이는 내 보좌의 처소, 내 발을 두는 처소, 내가 이스라엘 족속 가운데에 영원히 있을 곳이라" <span class="ref">43:7</span><br>"이 물이 동쪽으로 향하여 흘러 아라바로 내려가서 바다에 이르리니 이 흘러 내리는 물로 그 바다의 물이 되살아나리라… 이 강이 이르는 각처에 모든 것이 살 것이며" <span class="ref">47:8-9</span> · "그 날 후로는 그 성읍의 이름을 여호와삼마라 하리라" <span class="ref">48:35</span></blockquote>
+      <p class="bg"><b>배경</b>"우리가 사로잡힌 지 스물다섯째 해, 성이 함락된 후 열넷째 해"(40:1). 성전 문지방에서 흘러나온 물이 발목, 무릎, 허리를 넘어 건널 수 없는 강이 되고, 죽은 바다(사해)를 살린다. '여호와삼마'는 "여호와께서 거기 계시다"라는 뜻이다.</p>
+      <p class="ln"><b>연결</b>떠날 때의 동문(10:19)으로 돌아오신다. 강이 흘러가는 '아라바'는 시드기야가 도망친 바로 그 길이다(왕하 25:4). 도망의 길이 생명의 강이 된다(해석). 예수님: "나를 믿는 자는… 그 배에서 생수의 강이 흘러나오리라"(요 7:38). 요한계시록: "수정 같이 맑은 생명수의 강… 강 좌우에 생명나무가… 그 나무 잎사귀들은 만국을 치료하기 위하여"(계 22:1-2; 겔 47:12와 같은 그림).</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">571.4.26<small>에스겔서의 가장 늦은 날짜</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="ezk"><span class="lane l-ezk">에스겔</span>
+      <p class="ttl"><strong>느부갓네살의 "품삯"</strong> <span class="ref">겔 29:17-21</span></p>
+      <blockquote class="w">"바벨론의 느부갓네살 왕이 그의 군대로 두로를 치게 할 때에 크게 수고하여 모든 머리털이 무지러졌고 모든 어깨가 벗어졌으나 그와 군대가 그 수고한 대가를 두로에서 얻지 못하였느니라… 그들의 수고는 나를 위하여 함인즉 그 대가로 내가 애굽 땅을 그에게 주었느니라" <span class="ref">29:18, 20</span></blockquote>
+      <p class="bg"><b>배경</b>느부갓네살은 섬 도시 두로를 13년 동안 포위했다(요세푸스 기록). 그런데도 전리품을 거의 얻지 못했다. 하나님은 그 수고를 "나를 위한" 일로 보시고 애굽을 품삯으로 주셨다. 실제로 568/567년에 애굽 원정 기록(바벨론 토판 BM 33041)이 있다.</p>
+      <p class="ln"><b>연결</b>"내 종 느부갓네살"(렘 25:9; 27:6). 이방 제국의 왕도 하나님의 일꾼이었다. 하나님은 아무에게도 빚지지 않으신다.</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">561<small>포로 37년</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+      <p class="ttl"><strong>여호야긴 석방 — 죄수의 옷을 벗고 왕의 식탁으로</strong> <span class="ref">왕하 25:27-30; 렘 52:31-34</span></p>
+      <blockquote class="w">"바벨론의 왕 에윌므로닥이 즉위한 원년 십이월 그 달 이십칠일에 유다의 왕 여호야긴을 옥에서 내놓아 그 머리를 들게 하고 그에게 좋게 말하고 그의 지위를… 모든 왕의 지위보다 높이고 그 죄수의 의복을 벗게 하고 그의 일평생에 항상 왕의 앞에서 양식을 먹게 하였고" <span class="ref">25:27-29</span></blockquote>
+      <p class="bg"><b>배경</b>느부갓네살이 죽고 아들 에윌므로닥(아멜-마르둑)이 왕이 되었다. 바벨론 궁정의 배급 토판에 "유다 왕 야우킨(여호야긴)과 그 아들들"의 기름 배급량이 적혀 있다(발굴 자료).</p>
+      <p class="ln"><b>연결</b>열왕기는 불탄 성전으로 끝나지 않고, 왕의 식탁에 앉은 다윗의 자손으로 끝난다. 희미하지만 꺼지지 않은 등불이다(삼하 7:16). 그 아들 스알디엘, 손자 스룹바벨로 족보가 이어진다(마 1:12).</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">539.10월</span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="other"><span class="lane l-other">그 밖의 말씀</span>
+      <p class="ttl"><strong>바벨론 함락 — 벨사살이 죽던 밤</strong> <span class="ref">단 5:30-31</span></p>
+      <blockquote class="w">"그 날 밤에 갈대아 왕 벨사살이 죽임을 당하였고 메대 사람 다리오가 나라를 얻었는데 그 때에 다리오는 육십이 세였더라" <span class="ref">5:30-31</span></blockquote>
+      <p class="bg"><b>배경</b>벽에 쓰인 글씨 "메네 메네 데겔 우바르신"(단 5:25)의 밤이다. 예레미야가 유브라데에 던지게 한 책의 말씀(렘 51:63-64)이 이루어졌다. 70년의 끝이 다가왔다.</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">539/538<small>다리오 원년</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="other"><span class="lane l-other">그 밖의 말씀</span>
+      <p class="ttl"><strong>다니엘이 예레미야의 책을 읽고 — "맹세대로 이루셨사오니"</strong> <span class="ref">단 9:1-19</span></p>
+      <blockquote class="w">"나 다니엘이 책을 통해 여호와께서 말씀으로 선지자 예레미야에게 알려 주신 그 연수를 깨달았나니 곧 예루살렘의 황폐함이 칠십 년만에 그치리라 하신 것이니라. 내가 금식하며 베옷을 입고 재를 덮어쓰고 주 하나님께 기도하며 간구하기를 결심하고" <span class="ref">9:2-3</span><br>"크시고 두려워할 주 하나님, 주를 사랑하고 주의 계명을 지키는 자를 위하여 언약을 지키시고 그에게 인자를 베푸시는 이시여" <span class="ref">9:4</span> · "곧 하나님의 종 모세의 율법에 기록된 맹세대로 되었사오니… 주께서 큰 재앙을 우리에게 내리사… 하신 말씀을 이루셨사오니" <span class="ref">9:11-12</span><br>"우리가 주 앞에 간구하옵는 것은 우리의 공의를 의지하여 하는 것이 아니요 주의 큰 긍휼을 의지하여 함이니이다. 주여 들으소서 주여 용서하소서" <span class="ref">9:18-19</span></blockquote>
+      <p class="bg"><b>배경</b>605년에 소년으로 끌려온 다니엘은 이제 80대다. 66년 전 예레미야가 예루살렘에서 쓴 두루마리(렘 25; 29)가 바벨론에서 읽히고 있었다.</p>
+      <p class="ln"><b>연결</b>다니엘은 레위기 26장이 말한 그대로 했다. "그들이… 자기의 죄악과 그들의 조상의 죄악을 자복하고… 그 할례 받지 아니한 그들의 마음이 낮아져서… 내가 야곱과 맺은 내 언약과… 아브라함과 맺은 내 언약을 기억하고"(레 26:40-42). 그리고 기도 중에 가브리엘이 와서 "일흔 이레"를 알려 준다(단 9:24). 회복 너머의 메시아다.</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">538<small>고레스 원년</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+      <p class="ttl"><strong>고레스 칙령 "올라갈지어다" · 돌아온 그릇 5,400개 · 아나돗 사람 128명</strong> <span class="ref">대하 36:22-23; 스 1–2</span></p>
+      <blockquote class="w">"바사 왕 고레스 원년에 여호와께서 예레미야의 입을 통하여 하신 말씀을 이루게 하시려고 바사 왕 고레스의 마음을 감동시키시매" <span class="ref">스 1:1</span> · "너희 중에 그의 백성된 자는 다 올라갈지어다" <span class="ref">대하 36:23</span><br>"고레스 왕이 또 여호와의 성전 그릇을 꺼내니 옛적에 느부갓네살이 예루살렘에서 옮겨다가 자기 신들의 신당에 두었던 것이라… 금, 은 그릇이 모두 오천사백 개라" <span class="ref">스 1:7, 11</span> · "아나돗 사람이 백이십팔 명이요" <span class="ref">스 2:23</span></blockquote>
+      <p class="bg"><b>배경</b>150년 전 이사야가 고레스의 이름을 불렀다. "고레스에 대하여는 이르기를 내 목자라… 성전에 대하여는 네 기초가 놓여지리라"(사 44:28). '올라갈지어다'는 히브리 성경(타나크)의 맨 마지막 말이다.</p>
+      <p class="ln"><b>연결</b>"그것들이 바벨론으로 옮겨지고 내가 이것을 돌보는 날까지 거기에 있을 것이니라 그 후에 내가 그것을 올려 와 이 곳에 그것들을 되돌려 두리라"(렘 27:22). 그릇이 돌아왔다. 포위 중 예레미야가 밭을 사며 "다시 사게 되리라"(렘 32:15)고 한 아나돗에 사람이 돌아왔다.</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">536<small>귀환 둘째 해 둘째 달</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="hist"><span class="lane l-hist">역사서</span>
+      <p class="ttl"><strong>성전 기초 — 렘 33:11의 노래가 다시 불리다</strong> <span class="ref">스 3:10-13</span></p>
+      <blockquote class="w">"찬양으로 화답하며 여호와께 감사하여 이르되 주는 지극히 선하시므로 그의 인자하심이 이스라엘에게 영원하시도다 하니 모든 백성이 여호와의 성전 기초가 놓임을 보고 여호와를 찬송하며 큰 소리로 즐거이 부르며" <span class="ref">3:11</span><br>"제사장들과 레위 사람들과 나이 많은 족장들은 첫 성전을 보았으므로 이제 이 성전의 기초가 놓임을 보고 대성통곡하였으나 여러 사람은 기쁨으로 크게 함성을 지르니… 즐거이 부르는 소리와 통곡하는 소리를 백성들이 분간하지 못하였더라" <span class="ref">3:12-13</span></blockquote>
+      <p class="bg"><b>배경</b>불탄 지 50년, 무너진 기둥 자리에 기초가 다시 놓였다. 첫 성전을 본 노인들은 울었고 젊은이들은 소리쳤다.</p>
+      <p class="ln"><b>연결</b>포위 중 갇힌 예레미야가 받은 약속이 이루어졌다. "여호와는 선하시니 그 인자하심이 영원하다 하는 소리와… 감사제를 드리는 자들의 소리가 다시 들리리니"(렘 33:11). 기둥은 무너져도 기초는 남는다(시리즈 #1).</p>
+    </div></div>
+  </article>
+  <article class="row">
+    <div class="when"><span class="date">520<small>다리오 2년</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="other"><span class="lane l-other">그 밖의 말씀</span>
+      <p class="ttl"><strong>학개 — "나중 영광이 이전 영광보다 크리라" · "너를 인장으로 삼으리니"</strong> <span class="ref">학 2</span></p>
+      <blockquote class="w">"너희 가운데에 남아 있는 자 중에서 이 성전의 이전 영광을 본 자가 누구냐 이제 이것이 너희에게 어떻게 보이느냐 이것이 너희 눈에 보잘것없지 아니하냐" <span class="ref">2:3</span> · "이 성전의 나중 영광이 이전 영광보다 크리라" <span class="ref">2:9</span><br>"스알디엘의 아들 내 종 스룹바벨아… 그 날에 내가 너를 세우고 너를 인장으로 삼으리니 이는 내가 너를 택하였음이니라" <span class="ref">2:23</span></blockquote>
+      <p class="bg"><b>배경</b>기초만 놓고 16년 동안 멈춰 있던 공사를 학개와 스가랴가 다시 일으켰다. 유다 총독 스룹바벨은 여호야긴의 손자다(대상 3:17-19).</p>
+      <p class="ln"><b>연결</b>할아버지에게 "인장반지라 할지라도 내가 빼어"(렘 22:24) 하신 하나님이 손자에게 인장을 다시 끼우셨다. "나중 영광"은 이 성전에 친히 오실 분, 곧 "이 성전을 헐라 내가 사흘 동안에 일으키리라… 성전된 자기 육체"(요 2:19-21)로 읽는 견해가 많다.</p>
+    </div></div>
+  </article>
+  <article class="row key">
+    <div class="when"><span class="date">518.12.7<small>다리오 4년 9월 4일</small></span><span class="c c-fix">확정</span></div>
+    <div class="what"><div class="item" data-lane="other"><span class="lane l-other">그 밖의 말씀</span>
+      <p class="ttl"><strong>★ 스가랴 — 네 금식이 잔치로</strong> <span class="ref">슥 7–8</span></p>
+      <blockquote class="w">(벧엘 사람들의 질문) "내가 여러 해 동안 행한 대로 오월 중에 울며 근신하리이까" <span class="ref">7:3</span><br>"너희가 칠십 년 동안 다섯째 달과 일곱째 달에 금식하고 애통하였거니와 그 금식이 나를 위하여, 나를 위하여 한 것이냐" <span class="ref">7:5</span> · "그 마음을 금강석 같게 하여… 듣지 아니하므로 큰 진노가… 나왔도다" <span class="ref">7:12</span><br>"내가 시온에 돌아와 예루살렘 가운데에 거하리니" <span class="ref">8:3</span> · "너희 조상들이 나를 격노하게 하였을 때에 내가 그들에게 재앙을 내리기로 뜻하고 뉘우치지 아니하였으나 이제 내가 다시 예루살렘과 유다 족속에게 은혜를 베풀기로 뜻하였나니 너희는 두려워하지 말지니라" <span class="ref">8:14-15</span><br>"넷째 달의 금식과 다섯째 달의 금식과 일곱째 달의 금식과 열째 달의 금식이 변하여 유다 족속에게 기쁨과 즐거움과 희락의 절기들이 되리니 오직 너희는 진리와 화평을 사랑할지니라" <span class="ref">8:19</span></blockquote>
+        <div class="tbl"><table>
+          <thead><tr><th>금식</th><th>왕하 25장의 그 날</th></tr></thead>
+          <tbody>
+            <tr><td>열째 달</td><td>25:1 포위 시작 (10월 10일)</td></tr>
+            <tr><td>넷째 달</td><td>25:3-4 기근, 성벽 파괴 (4월 9일)</td></tr>
+            <tr><td>다섯째 달</td><td>25:8-9 성전 방화 (5월 7일/10일)</td></tr>
+            <tr><td>일곱째 달</td><td>25:25 그달리야 암살 (7월)</td></tr>
+          </tbody>
+        </table></div>
+      <p class="bg"><b>배경</b>성전이 다시 지어지는 중이라 "이제도 울어야 합니까?"라고 물었다. 하나님은 먼저 되물으셨다. 70년 동안 운 것이 하나님을 위해서였느냐는 것이다. 그리고 그 슬픈 날들 자체를 잔치로 바꾸겠다고 하셨다.</p>
+      <p class="ln"><b>연결</b>왕하 25장의 네 날짜가 그대로 네 금식이 되었다. 하나님은 그 넷을 다 잔치로 바꾸겠다고 하셨다. 달력의 까만 날들이 잔칫날로 바뀌는 소품으로 쓸 수 있다.</p>
+    </div></div>
+  </article>
+  <p class="empty" hidden>이 시기에는 고른 말씀이 없습니다.</p>
+</section>
+
+<!-- Ⅸ -->
+<section id="e9" class="era">
+  <div class="era-head"><span class="num">Ⅸ</span><h2>신약에서 다시 들리는 소리</h2><span class="span">AD</span><p class="gist">같은 장면이 예수님 앞에서 다시 펼쳐진다. 그리고 "새 언약"이 예수님의 피로 세워진다.</p></div>
+  <ul class="nt">
+    <li><span class="ref">마 1:11-12, 17</span><span><strong>족보의 두 번째 꺾임 "바벨론으로 사로잡혀 갈 때"</strong><br><span class="mini">"바벨론으로 사로잡혀 간 후에 여고냐는 스알디엘을 낳고 스알디엘은 스룹바벨을 낳고." 인장반지를 빼앗긴 여고냐의 줄에서 예수님이 오신다. 다윗부터 포로까지 14대, 포로부터 그리스도까지 14대다.</span></span></li>
+    <li><span class="ref">마 2:17-18</span><span><strong>라마의 라헬</strong><br><span class="mini">586년 포로들이 사슬에 묶여 모였던 라마(렘 40:1)의 울음(렘 31:15)이 헤롯이 베들레헴 아기들을 죽일 때 다시 들린다. 렘 31장은 그 울음 바로 뒤에 "네 울음 소리와 네 눈물을 멈추어라… 너의 장래에 소망이 있을 것이라"(31:16-17), 그리고 새 언약(31:31)을 말한다.</span></span></li>
+    <li><span class="ref">마 21:13</span><span><strong>"강도의 소굴"</strong><br><span class="mini">"내 집은 기도하는 집이라… 너희는 강도의 소굴을 만드는도다." 예레미야의 성전 설교(렘 7:11)를 인용하시며 성전을 정결하게 하셨다. 성전이 있으니 안전하다는 600년 된 착각을 다시 깨뜨리셨다.</span></span></li>
+    <li><span class="ref">마 23:37-38</span><span><strong>"몇 번이더냐"</strong><br><span class="mini">"예루살렘아 예루살렘아 선지자들을 죽이고 네게 파송된 자들을 돌로 치는 자여 암탉이 그 새끼를 날개 아래에 모음 같이 내가 네 자녀를 모으려 한 일이 몇 번이더냐 그러나 너희가 원하지 아니하였도다 보라 너희 집이 황폐하여 버려진 바 되리라." 대하 36:15-16 "부지런히… 보내셨으나 … 비웃고"의 예수님 판이다.</span></span></li>
+    <li><span class="ref">눅 19:41-44</span><span><strong>"성을 보시고 우시며… 토둔을 쌓고"</strong><br><span class="mini">"너도 오늘 평화에 관한 일을 알았더라면 좋을 뻔하였거니와… 네 원수들이 토둔을 쌓고 너를 둘러 사면으로 가두고… 돌 하나도 돌 위에 남기지 아니하리니 이는 네가 보살핌 받는 날을 알지 못함을 인함이니라." 감람산(영광이 떠나 머문 동쪽 산, 겔 11:23)에서 우시며, 왕하 25:1의 '토성'이 다시 올 것을 말씀하셨다. AD 70에 성전이 다시 불탔다. 하나님의 본심(애 3:33)이 눈물로 보인 장면이다.</span></span></li>
+    <li><span class="ref">눅 22:20; 마 26:28</span><span><strong>"이 잔은 내 피로 세우는 새 언약"</strong><br><span class="mini">"저녁 먹은 후에 잔도 그와 같이 하여 이르시되 이 잔은 내 피로 세우는 새 언약이니 곧 너희를 위하여 붓는 것이라." "죄 사함을 얻게 하려고 많은 사람을 위하여 흘리는 바 나의 피 곧 언약의 피니라." 렘 31:31-34 "다시는 그 죄를 기억하지 아니하리라"가 이루어진다. 사람이 깨뜨린 언약을 하나님이 홀로 지키신다. 횃불(창 15:17)의 약속이 십자가로 이어진다.</span></span></li>
+    <li><span class="ref">히 8:8-13; 10:16-18</span><span><strong>렘 31장을 그대로 인용한 히브리서</strong><br><span class="mini">"주께서 이르시되 볼지어다 날이 이르리니 내가… 새 언약을 맺으리라… 그들의 죄와 그들의 불법을 내가 다시 기억하지 아니하리라 하셨으니 이것들을 사하셨은즉 다시 죄를 위하여 제사 드릴 것이 없느니라." 불탄 성전의 제사를 다시 세울 필요가 없게 되었다.</span></span></li>
+    <li><span class="ref">요 2:19-21</span><span><strong>"이 성전을 헐라"</strong><br><span class="mini">"내가 사흘 동안에 일으키리라… 성전된 자기 육체를 가리켜 말씀하신 것이라." 무너지는 성전 대신, 무너졌다가 다시 일어나는 성전이다.</span></span></li>
+    <li><span class="ref">롬 1:17</span><span><strong>"오직 의인은 믿음으로 말미암아 살리라"</strong><br><span class="mini">바벨론이 몰려오기 직전 하박국이 받은 대답(합 2:4)이 복음의 중심 문장이 된다.</span></span></li>
+    <li><span class="ref">고후 1:20</span><span><strong>"하나님의 약속은 얼마든지 그리스도 안에서 예가 되니"</strong><br><span class="mini">"하나님, 왜 약속을 안 지키세요?"(시 89:49)에 대한 성경의 마지막 대답이다.</span></span></li>
+    <li><span class="ref">계 21:3, 22</span><span><strong>성전이 필요 없는 성</strong><br><span class="mini">"보라 하나님의 장막이 사람들과 함께 있으매… 성 안에서 내가 성전을 보지 못하였으니 이는 주 하나님 곧 전능하신 이와 및 어린 양이 그 성전이심이라." 에스겔의 '여호와삼마'(겔 48:35)가 완성된다.</span></span></li>
+  </ul>
+</section>
+
+<!-- 대하 36 -->
+<section id="toc" class="part">
+  <h2>역대하 36장을 목차로 놓으면</h2>
+  <p class="sub prose">역대기는 50년을 23절로 압축했다. 한 절 한 절을 선지서가 풀어 쓴다.</p>
+  <dl class="toc">
+    <div><dt><span class="ref">대하 36:12</span>선지자 예레미야가 일러도 그 앞에서 겸손하지 아니하였으며</dt><dd>시드기야와 예레미야가 만난 기록이 <strong>일곱 번</strong>이다 <span class="ref">렘 21:1-7 · 27:12-15 · 32:3-5 · 34:2-7 · 37:3-10 · 37:17-21 · 38:14-28</span>. 마지막 대답은 "조롱할까 두려워하노라"<span class="ref">38:19</span></dd></div>
+    <div><dt><span class="ref">36:13</span>하나님을 가리켜 맹세하게 하였으나 배반하고</dt><dd>하나님은 그 맹세를 "<strong>내</strong> 맹세, <strong>내</strong> 언약"이라 부르셨다 <span class="ref">겔 17:13-19</span></dd></div>
+    <div><dt><span class="ref">36:14</span>제사장 우두머리들이 성전을 더럽힘</dt><dd>70 장로, 담무스, 태양에 절하는 25명 <span class="ref">겔 8</span>. "내 집에서도 그들의 악을" <span class="ref">렘 23:11</span></dd></div>
+    <div><dt><span class="ref">36:15</span>그의 백성과 그 거하시는 곳을 아끼사 부지런히 사신들을 보내어</dt><dd>"새벽부터 / 끊임없이 보내었으나" <span class="ref">렘 7:13, 25; 25:3-4; 26:5; 29:19; 35:14-15; 44:4</span>. "<strong>이십삼 년 동안</strong>" <span class="ref">렘 25:3</span>. "아껴서… 내 이름을 위하여" <span class="ref">겔 20:9-22</span></dd></div>
+    <div><dt><span class="ref">36:16</span>사신들을 비웃고 선지자를 욕하여 회복할 수 없게</dt><dd>종일 조롱 <span class="ref">렘 20:7-8</span> · 칼로 베어 불에 <span class="ref">36:23</span> · 진창 구덩이 <span class="ref">38:6</span> · 우리야 처형 <span class="ref">26:23</span> · "<strong>뜻을 돌이키기에 지쳤음이로다</strong>" <span class="ref">15:6</span> · "토기장이의 그릇을 한 번 깨뜨리면 다시 완전하게 할 수 없나니" <span class="ref">19:11</span></dd></div>
+    <div><dt><span class="ref">36:17</span>성전에서 칼로 청년들을 죽이며 긍휼히 여기지 아니하였으며</dt><dd>"<strong>내 성소에서 시작할지니라</strong>" <span class="ref">겔 9:6</span> (586년보다 6년 앞선 환상) · <span class="ref">애 2:20-21</span></dd></div>
+    <div><dt><span class="ref">36:18–19</span>기구 탈취, 성전 방화, 성벽을 헐음</dt><dd>남은 기구도 가져가리라, 그러나 "<strong>돌보는 날까지</strong>… 되돌려 두리라" <span class="ref">렘 27:19-22</span> · <span class="ref">렘 52:17-23 · 시 74:3-8 · 시 79:1</span></dd></div>
+    <div><dt><span class="ref">36:20</span>바사국이 통치할 때까지</dt><dd>"그와 그의 아들과 <strong>손자</strong>를… 그 땅의 기한이 이르기까지" <span class="ref">렘 27:7</span></dd></div>
+    <div><dt><span class="ref">36:21</span>땅이 안식년을 누림 같이 칠십 년</dt><dd>안식을 못 지킨 땅이 쉼 <span class="ref">레 26:34-35, 43</span> · 안식일을 거룩히 하지 않으면 "<strong>성문에 불을 놓아</strong>… 꺼지지 아니하리라" <span class="ref">렘 17:19-27</span> · <span class="ref">렘 25:11; 29:10</span></dd></div>
+    <div><dt><span class="ref">36:22–23</span>올라갈지어다</dt><dd><span class="ref">스 1:1-4 · 단 9:2</span> · "평안이요 재앙이 아니니라" <span class="ref">렘 29:10-14</span></dd></div>
+  </dl>
+</section>
+
+<!-- 발견 -->
+<section id="finds" class="part">
+  <h2>시간순으로 놓고 보니 보이는 것들</h2>
+  <p class="sub prose">노트에 정리한 발견 열 가지. 사실(본문)과 해석을 함께 표시했다.</p>
+  <div class="finds">
+    <article class="find">
+      <span class="n">①</span><div><h3>포위 18개월은 하나님이 가장 많이 말씀하신 시간이었다</h3><p class="kind">본문 + 해석</p></div>
+      <div class="body">
+        <ul>
+          <li>날짜가 분명한 말씀만 해도 렘 21, 32, 33, 34, 37, 38 · 겔 24, 29, 30, 31. "위로의 책" 가운데 32–33장이 이 기간에 확정 날짜로 주어졌다.</li>
+          <li>33장은 갇혀 있을 때 "두 번째로" 주신 말씀이다. 끊어진다던 신랑·신부의 소리가 다시 들리리라<span class="ref">33:11</span>, 다윗 언약은 낮과 밤처럼 깨지지 않는다<span class="ref">33:20-26</span>.</li>
+        </ul>
+        <p class="use"><b>해석</b>성벽이 무너져 가던 바로 그때, 하나님은 무너진 뒤에 지킬 약속(기초)을 쓰고 계셨다. 시리즈 #1의 "기둥은 무너져도 기초는 남는다"가 포위 한가운데서 하나님 입으로 선포된 셈이다.</p>
+      </div>
+    </article>
+    <article class="find">
+      <span class="n">②</span><div><h3>같은 날, 두 장소, 한 분 하나님</h3><p class="kind">본문</p></div>
+      <div class="body">
+        <ul>
+          <li>588년 1월 15일, 예루살렘에서 포위가 시작된 날 바벨론의 에스겔은 "오늘의 이름을 기록하라"는 말씀을 받았다<span class="ref">겔 24:1-2</span>. 함락 소식은 약 5개월 뒤에야 도착했다<span class="ref">겔 33:21</span>.</li>
+          <li>애굽 구원군이 실패하던 무렵에도 에스겔은 바벨론에서 "바로의 팔을 꺾었다"고 선언했다<span class="ref">겔 30:20-21, 587.4.29</span>.</li>
+        </ul>
+        <p class="use"><b>설교 활용</b>"하나님은 예루살렘에만 계신 분이 아니었다. 끌려간 사람들 곁에도, 갇힌 예레미야 곁에도 같은 날 계셨다." → "내가 잠깐 그들에게 성소가 되리라"<span class="ref">겔 11:16</span></p>
+      </div>
+    </article>
+    <article class="find">
+      <span class="n">③</span><div><h3>성전이 불타기 6년 전에 영광은 이미 떠났다</h3><p class="kind">본문 + 해석</p></div>
+      <div class="body">
+        <ul>
+          <li>592.9.18 환상에서 영광이 문지방 → 동문 → 성읍 동쪽 산으로 떠난다<span class="ref">겔 8–11</span>. 방화(586.8.14)는 그 6년 뒤다.</li>
+          <li>영광은 같은 동쪽 문으로 돌아온다<span class="ref">겔 43:2-5, 573년 환상</span>.</li>
+        </ul>
+        <p class="use"><b>해석</b>바벨론 군대가 태운 것은 하나님이 이미 떠나신 집이었다. 초안 대지 3 "하나님과의 관계가 끊어지면 성전은 그저 건물"에 본문 근거가 생긴다. 예수님이 성을 보며 우신 곳<span class="ref">눅 19:41</span>도 같은 동쪽 산이다.</p>
+      </div>
+    </article>
+    <article class="find">
+      <span class="n">④</span><div><h3>문은 끝까지 열려 있었다. 그 문을 닫은 것은 두려움이었다</h3><p class="kind">본문</p></div>
+      <div class="body">
+        <ul>
+          <li>렘 38:17-18이 마지막 기회였다. 성이 불타지 않을 수 있었다. 시드기야의 대답은 "조롱할까 두려워하노라"<span class="ref">38:19</span>. 하나님보다 사람의 눈을 더 두려워했다.</li>
+          <li>기록된 만남만 일곱 번. 마지막 두 번은 아예 비밀로 불렀다<span class="ref">37:17; 38:16, 24</span>. 듣고 싶었지만 들킬까 두려웠다.</li>
+          <li>한 집안 세 사람이 같은 말씀 앞에서 세 가지로 반응했다. 아버지 요시야는 옷을 찢었고<span class="ref">왕하 22:11, 19</span>, 형 여호야김은 칼로 베어 불에 넣고 옷을 찢지 않았고<span class="ref">렘 36:23-24</span>, 시드기야는 비밀히 묻고는 따르지 못했다.</li>
+          <li>"내가 뜻을 돌이키기에 지쳤음이로다"<span class="ref">렘 15:6</span>. 하나님은 이미 여러 번 뜻을 돌이키셨다<span class="ref">사 38; 렘 26:19</span>. 문을 닫은 것은 하나님의 변덕이 아니라 오래 거절당하신 끝이었다.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="find">
+      <span class="n">⑤</span><div><h3>왕하 25장의 네 날짜가 70년 동안 금식일이 되었고, 하나님은 그것을 잔치로 바꾸겠다고 하셨다</h3><p class="kind">본문 + 유대 전통</p></div>
+      <div class="body">
+        <div class="tbl"><table>
+          <thead><tr><th>슥 8:19의 금식</th><th>왕하 25장에서 그 달에 일어난 일</th></tr></thead>
+          <tbody>
+            <tr><td>열째 달</td><td>25:1 포위 시작 (10월 10일)</td></tr>
+            <tr><td>넷째 달</td><td>25:3-4 기근, 성벽 파괴 (4월 9일)</td></tr>
+            <tr><td>다섯째 달</td><td>25:8-9 성전 방화 (5월 7일/10일)</td></tr>
+            <tr><td>일곱째 달</td><td>25:25 그달리야 암살 (7월)</td></tr>
+          </tbody>
+        </table></div>
+        <ul>
+          <li>월 숫자는 왕하 25장 본문에 적혀 있다. 네 금식과 사건을 잇는 것은 유대 전통의 일치된 이해다. 오늘날에도 테벳월 10일, 탐무즈월 17일, 아브월 9일, 그달리야 금식으로 지킨다.</li>
+          <li>"그 금식이 나를 위하여 한 것이냐"<span class="ref">슥 7:5</span> → "변하여… 기쁨과 즐거움과 희락의 절기들이 되리니"<span class="ref">슥 8:19</span></li>
+        </ul>
+        <p class="use"><b>소품</b>18개월 달력 위에 네 날을 까맣게 칠해 두고, 마지막에 "이 까만 날들을 하나님이 나중에 무엇으로 바꾸겠다고 하셨을까?" → 잔치 스티커. 십자가 없이도 "약속은 무너지지 않았다"를 보여 줄 수 있다.</p>
+      </div>
+    </article>
+    <article class="find">
+      <span class="n">⑥</span><div><h3>원수와 시인과 선지자가 같은 말을 했다: "말씀하신 대로 행하셨다"</h3><p class="kind">본문</p></div>
+      <div class="body">
+        <ul>
+          <li><strong>바벨론 사령관</strong>: "네 하나님 여호와께서… 말씀하신 대로 행하셨으니"<span class="ref">렘 40:2-3</span></li>
+          <li><strong>애가의 시인</strong>: "옛날에 명령하신 말씀을 다 이루셨음이여"<span class="ref">애 2:17</span></li>
+          <li><strong>다니엘</strong>: "모세의 율법에 기록된 맹세대로 되었사오니"<span class="ref">단 9:11-12</span></li>
+          <li>그 맹세는 800년 전 신명기 28장이었다. 왕과 함께 끌려감<span class="ref">28:36</span>, 알지 못하는 언어의 민족<span class="ref">28:49</span>, 성벽을 에워쌈<span class="ref">28:52</span>, 자녀를 먹음<span class="ref">28:53-57 → 애 2:20; 4:10</span>, 애굽으로 되돌아감<span class="ref">28:68 → 렘 43</span>. 레위기 26장의 떡을 저울에 닮<span class="ref">26:26 → 겔 4:16</span>, 땅의 안식<span class="ref">26:34 → 대하 36:21</span>.</li>
+          <li>그리고 같은 장 끝에: "내 언약을 폐하지 아니하리니"<span class="ref">레 26:44</span>, "아브라함과 맺은 내 언약을 기억하고"<span class="ref">26:42</span>. 경고(기둥)와 기초가 시내산에서부터 한 장 안에 함께 있었다.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="find">
+      <span class="n">⑦</span><div><h3>시리즈 제목이 성경 안에 그대로 있다 — 시편 89편</h3><p class="kind">본문 + 해석</p></div>
+      <div class="body">
+        <ul>
+          <li>"만일 그의 자손이 내 법을 버리며… 회초리로 벌하리로다. <strong>그러나</strong> 나의 인자함을 다 거두지는 아니하며… 내 언약을 깨뜨리지 아니하고"<span class="ref">시 89:30-35</span> — 기둥과 기초의 구조를 하나님이 직접 말씀하심.</li>
+          <li>"그의 관을 땅에 던져… 그의 왕위를 땅에 엎으셨으며"<span class="ref">89:38-39, 44</span> — 왕하 25:7의 장면처럼 읽힌다 (저작 시기는 포로기설이 유력하나 이견 있음).</li>
+          <li><strong>"주여 주의 성실하심으로 다윗에게 맹세하신 그 전의 인자하심이 어디 있나이까"</strong><span class="ref">89:49</span> = "하나님, 왜 약속을 안 지키세요?"</li>
+        </ul>
+        <p class="use"><b>해석</b>시편은 답 없이 "여호와를 영원히 찬송할지어다 아멘 아멘"<span class="ref">89:52</span>으로 끝난다. 답은 포위 중에 주신 렘 33:20-26에 있다.</p>
+      </div>
+    </article>
+    <article class="find">
+      <span class="n">⑧</span><div><h3>렘 31:32 한 절이 결혼 설교(#4), 이번 설교(#5), 다음 설교(#6)를 잇는다</h3><p class="kind">본문 + 해석</p></div>
+      <div class="body">
+        <ul>
+          <li>"내가 그들의 남편이 되었어도(<span class="he" lang="he">בָּעַלְתִּי</span>) 그들이 내 언약을 깨뜨렸음이라" — 시내산은 결혼이었다(#4), 그 결혼이 깨졌다(#5, 586), 그래서 "같지 아니한" 새 언약을 맺겠다(#6).</li>
+          <li>같은 "깨뜨렸다"(<span class="he" lang="he">הֵפֵרוּ</span>)가 렘 11:10, 14:21, 33:20-21, 레 26:44로 이어진다. <strong>사람은 깨뜨렸고, 하나님은 깨뜨리지 않으셨다.</strong></li>
+        </ul>
+        <p class="flow"><span>신혼 <i class="ref">렘 2:2</i></span> → <span>이혼서 <i class="ref">3:8</i></span> → <span>"나는 너희 남편" <i class="ref">3:14</i></span> → <span>아내가 남편을 속임 <i class="ref">3:20</i></span> → <span>버려진 아기를 신부로 <i class="ref">겔 16:8</i></span> → <span>두 자매 <i class="ref">겔 23</i></span> → <span>과부 같이 된 성 <i class="ref">애 1:1</i></span> → <span>끊어진 신랑·신부의 소리 <i class="ref">렘 7:34</i></span> → <span><strong>다시 들리는 소리</strong> <i class="ref">33:11</i></span> → <span>영원한 언약 <i class="ref">겔 16:60</i></span> → <span><strong>새 언약</strong> <i class="ref">렘 31:31-34</i></span></p>
+        <p class="use"><b>정리</b>출애굽기 주해의 기존 검토 노트(렘 31:32는 시내산과 "대조")와 충돌하지 않는다. 31:32는 시내산이 결혼이었음을 확인하고, 31:33은 그 결혼과 다른 새 언약을 약속한다.</p>
+      </div>
+    </article>
+    <article class="find">
+      <span class="n">⑨</span><div><h3>포위 중에 쪼갠 송아지 사이로 지나간 사람들</h3><p class="kind">본문</p></div>
+      <div class="body">
+        <ul>
+          <li>"송아지를 둘로 쪼개고 그 두 조각 사이로 지나매 내 앞에 언약을 맺었으나"<span class="ref">렘 34:18</span> — 창 15:10, 17과 같은 의식이다.</li>
+          <li>창세기 15장에서는 <strong>하나님만</strong> 횃불로 지나가셨다. 예레미야 34장에서는 <strong>유다 고관들이</strong> 지나가며 맹세했고, 포위가 잠시 풀리자 곧 깨뜨렸다.</li>
+        </ul>
+        <p class="use"><b>설교 활용</b>시리즈 #6 "혼자 지나가신 하나님"의 결정적 대조 본문. 이번 설교에 쓰지 않더라도 #6의 도입으로 아껴 둘 것.</p>
+      </div>
+    </article>
+    <article class="find">
+      <span class="n">⑩</span><div><h3>아이들 설교에 바로 쓸 만한 작은 장면들</h3><p class="kind">본문</p></div>
+      <div class="body">
+        <ul>
+          <li><strong>진흙 구덩이와 진흙 발</strong> — 예레미야는 진짜 진흙에 빠졌고<span class="ref">렘 38:6</span>, 시드기야는 "네 발이 진흙에 빠짐을"<span class="ref">38:22</span> 듣는다. 몸이 빠진 사람은 살았고, 마음이 빠진 사람은 무너졌다.</li>
+          <li><strong>토기에 넣은 밭 문서</strong> — 무너질 성 안에서 산 밭<span class="ref">32:14</span>. 52년 뒤 아나돗 사람 128명이 돌아왔다<span class="ref">스 2:23</span>.</li>
+          <li><strong>에벳멜렉의 헝겊과 낡은 옷</strong><span class="ref">38:11-12</span> — 외국인 종이 "나를 믿었음이라"<span class="ref">39:18</span>는 칭찬을 들었다.</li>
+          <li><strong>토판 위의 포위 놀이</strong><span class="ref">겔 4:1-3</span> — 에스겔이 진흙판에 예루살렘을 그리고 포위 모형을 만들었다. 기둥 모형과 같은 방식이다.</li>
+          <li><strong>갈림길의 점괘</strong><span class="ref">겔 21:21-22</span> — 느부갓네살이 화살을 흔들어 "랍바냐, 예루살렘이냐" 점을 쳤다. 그 점괘조차 하나님이 쥐고 계셨다.</li>
+          <li><strong>말랑한 진흙과 구운 옹기</strong> — 진흙일 때는 다시 빚을 수 있지만<span class="ref">렘 18:4, 8</span>, 구운 옹기는 깨지면 다시 완전하게 할 수 없다<span class="ref">19:11</span>.</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 본문 차이 -->
+<section id="diff" class="part">
+  <h2>꼼꼼히 읽다 보인 본문 사이의 차이</h2>
+  <p class="sub prose">설교 중에 질문이 나오면 참고할 표. 설명은 해석(견해)이다.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>항목</th><th>열왕기하</th><th>다른 본문</th><th>설명</th></tr></thead>
+    <tbody>
+      <tr><td>방화 날짜</td><td class="num">25:8 · 5월 7일</td><td class="num">렘 52:12 · 5월 10일</td><td>7일 도착·10일 방화로 보거나 사본 전승 차이. 유대 전통은 아브월 9일</td></tr>
+      <tr><td>기둥 머리 높이</td><td class="num">25:17 · 3규빗</td><td class="num">렘 52:22 · 5규빗 (왕상 7:16도 5)</td><td>장식 부분 포함 여부</td></tr>
+      <tr><td>왕의 시종</td><td class="num">25:19 · 5명</td><td class="num">렘 52:25 · 7명</td><td>필사 차이</td></tr>
+      <tr><td>여호야긴 석방일</td><td class="num">25:27 · 12월 27일</td><td class="num">렘 52:31 · 12월 25일</td><td>명령일과 시행일</td></tr>
+      <tr><td>여호야긴 즉위 나이</td><td class="num">24:8 · 18세</td><td class="num">대하 36:9 · 8세 (석 달 열흘)</td><td>대하의 필사 오류 가능성이 높다는 견해 다수</td></tr>
+      <tr><td>함락 해</td><td class="num">25:8 · 느부갓네살 19년</td><td class="num">렘 52:29 · 18년 (832명)</td><td>즉위년 계산 방식 차이</td></tr>
+      <tr><td>27장 머리</td><td>—</td><td class="num">렘 27:1 · "여호야김"</td><td>27:3, 12, 20과 28:1 "그 해… 시드기야 4년"으로 보아 시드기야가 맞다는 견해 다수</td></tr>
+      <tr><td>시드기야의 죽음</td><td class="num">25:7 · 바벨론으로</td><td>렘 34:4-5 "칼에 죽지 아니하고 평안히" · 52:11 "죽는 날까지 옥에"</td><td>칼에 죽지 않은 점은 성취. "평안히"는 조건부 약속이었다는 견해도 있음</td></tr>
+      <tr><td>스룹바벨의 아버지</td><td>—</td><td>마 1:12; 스 3:2; 학 1:1 스알디엘 · 대상 3:19 브다야</td><td>수혼(형사취수) 또는 법적 아버지 설</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 style="margin-top:2rem;font-size:1.1rem">어제 계획에서 바로잡은 것</h3>
+  <ol class="fix prose">
+    <li>"포위가 시작된 그날 저녁 에스겔의 아내가 죽었다"고 썼지만, 본문을 다시 읽으니 날짜가 없다. 24:1-14(같은 날)와 24:15-27(아내의 죽음)은 별개의 말씀으로 시작한다. 같은 날로 보는 주석가도 있지만 본문이 확정하지 않으므로 <span class="c c-est">추정</span>으로 낮췄다.</li>
+    <li>같은 대목에서 "결혼 언약 그대로"라고 쓴 것도 과했다. 24:21이 비유하는 것은 백성의 눈의 기쁨인 성전이다. 다만 하나님이 가장 아끼는 것을 잃는 사람의 자리에 선지자를 세우셨다는 점은 본문이 분명히 보여 준다.</li>
+    <li>"렘 30–33장이 포위 중의 말씀일 가능성이 크다" — 32–33장은 <span class="c c-fix">확정</span>(32:1; 33:1). 30–31장은 같은 묶음이지만 원래 시점은 <span class="c c-unk">불명</span>.</li>
+  </ol>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>출처: 위키 노트 <span class="ref">1_Bible_Exegesis/0_Study_Notes/2026-10-16_유다멸망_선지서시간순재배열.md</span> · 본문은 개역개정. 연대는 Thiele / Parker–Dubberstein 기준(586년 함락설, 율리우스력)이며, 에스겔의 날짜는 여호야긴이 사로잡힌 해(겔 1:2) 기준이다.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var hidden = new Set();
+  var keyOnly = false;
+  var laneBtns = document.querySelectorAll('.filters button[data-lane]');
+  var keyBtn = document.getElementById('f-key');
+
+  function apply() {
+    document.querySelectorAll('.item').forEach(function (it) {
+      it.hidden = hidden.has(it.dataset.lane);
+    });
+    document.querySelectorAll('.row').forEach(function (row) {
+      var anyItem = Array.prototype.some.call(row.querySelectorAll('.item'), function (i) { return !i.hidden; });
+      var show = anyItem && (!keyOnly || row.classList.contains('key'));
+      row.hidden = !show;
+      var sd = row.querySelector('.sameday');
+      if (sd) sd.hidden = hidden.has('ezk');
+    });
+    document.querySelectorAll('section.era').forEach(function (sec) {
+      var rows = sec.querySelectorAll('.row');
+      var empty = sec.querySelector('.empty');
+      if (!rows.length || !empty) return;
+      var anyRow = Array.prototype.some.call(rows, function (r) { return !r.hidden; });
+      empty.hidden = anyRow;
+    });
+  }
+
+  laneBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var lane = btn.dataset.lane;
+      var on = btn.getAttribute('aria-pressed') === 'true';
+      btn.setAttribute('aria-pressed', on ? 'false' : 'true');
+      if (on) hidden.add(lane); else hidden.delete(lane);
+      apply();
+    });
+  });
+  keyBtn.addEventListener('click', function () {
+    keyOnly = !keyOnly;
+    keyBtn.setAttribute('aria-pressed', keyOnly ? 'true' : 'false');
+    apply();
+  });
+})();
+</script>
+
+</body></html>
