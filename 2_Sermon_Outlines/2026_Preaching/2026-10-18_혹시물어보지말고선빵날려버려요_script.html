@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>선빵 설교 원고</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+:root {
+  --bg: #f4f5f1; --surface: #fbfbf8; --ink: #1d221f; --muted: #5a635d; --rule: #d9dcd3;
+  --screen: #2a4b8d; --screen-bg: #e7ecf7;
+  --prop: #85641a; --prop-bg: #f5ecd8;
+  --verse-bg: #ffffff; --verse-bar: #6b4c7c;
+  --ember: #a3342a; --ember-bg: #f6e8e3;
+  --spice: #2d7a4d; --spice-bg: #e3f1e8;
+  --f-display: "Hahmlet", "Noto Serif KR", "Nanum Myeongjo", serif;
+  --f-body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --fs: 18px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121513; --surface: #191d1a; --ink: #e6e9e3; --muted: #a2aaa4; --rule: #2d342f;
+    --screen: #9db6ee; --screen-bg: #1b2436; --prop: #dcb862; --prop-bg: #2b2414;
+    --verse-bg: #1c201d; --verse-bar: #c7aad9; --ember: #ec9584; --ember-bg: #2c1d1a;
+    --spice: #74c99a; --spice-bg: #15271d;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121513; --surface: #191d1a; --ink: #e6e9e3; --muted: #a2aaa4; --rule: #2d342f;
+  --screen: #9db6ee; --screen-bg: #1b2436; --prop: #dcb862; --prop-bg: #2b2414;
+  --verse-bg: #1c201d; --verse-bar: #c7aad9; --ember: #ec9584; --ember-bg: #2c1d1a;
+  --spice: #74c99a; --spice-bg: #15271d;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 4.5rem; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: var(--fs); line-height: 1.85; word-break: keep-all; overflow-wrap: break-word; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.35; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+
+/* header */
+header.top { padding: 2.2rem 0 1.4rem; }
+.eyebrow { font-size: .78em; color: var(--muted); letter-spacing: .04em; }
+h1 { font-size: 1.65em; margin-top: .5rem; }
+h1 .q { color: var(--ember); }
+.meta { margin-top: .6rem; color: var(--muted); font-size: .85em; }
+.plan { margin-top: 1.2rem; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: .9rem 1rem; font-size: .88em; }
+.plan ol { margin: .3rem 0 0; padding-left: 1.2rem; display: grid; gap: .2rem; }
+.plan b { font-weight: 600; }
+.legend { margin-top: .9rem; display: flex; flex-wrap: wrap; gap: .4rem .8rem; font-size: .78em; color: var(--muted); align-items: center; }
+
+/* sticky bar */
+nav.bar { position: sticky; top: 0; z-index: 5; background: var(--surface); border-block: 1px solid var(--rule); }
+nav.bar .wrap { display: flex; gap: .4rem; align-items: center; padding-block: .45rem; }
+.jump { display: flex; gap: .35rem; overflow-x: auto; flex: 1; scrollbar-width: none; }
+.jump::-webkit-scrollbar { display: none; }
+.jump a { flex: none; font-size: .78rem; text-decoration: none; color: var(--ink); border: 1px solid var(--rule); background: var(--bg); padding: .15rem .6rem; border-radius: 6px; white-space: nowrap; }
+.jump a.k { border-color: var(--ember); color: var(--ember); }
+.size { display: flex; gap: .25rem; flex: none; }
+.size button { font: inherit; font-size: .78rem; cursor: pointer; border: 1px solid var(--rule); background: var(--bg); color: var(--ink); border-radius: 6px; padding: .15rem .5rem; }
+.size button:focus-visible, .jump a:focus-visible { outline: 2px solid var(--screen); outline-offset: 2px; }
+
+/* sections */
+section { padding: 2.2rem 0 .6rem; }
+section > h2 { font-size: 1.3em; display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .7rem; padding-bottom: .55rem; border-bottom: 2px solid var(--ink); }
+section.key > h2 { border-bottom-color: var(--ember); }
+section > h2 .no { color: var(--ember); }
+.time { font-family: var(--f-body); font-size: .62em; font-weight: 500; color: var(--muted); border: 1px solid var(--rule); border-radius: 99px; padding: 0 .55em; }
+h3 { font-size: 1.05em; margin: 1.6rem 0 .5rem; }
+h3.turn { color: var(--ember); }
+.lines { display: grid; gap: .55rem; margin-top: .6rem; }
+.lines p.gap { margin-top: .4rem; }
+strong { font-weight: 600; }
+.em { color: var(--ember); font-weight: 600; }
+
+/* cues */
+.cue { display: flex; gap: .55rem; align-items: baseline; font-size: .82em; line-height: 1.6; padding: .4rem .7rem; border-radius: 6px; margin: .3rem 0; }
+.cue b { flex: none; font-weight: 600; font-size: .9em; letter-spacing: .03em; }
+.cue.screen { background: var(--screen-bg); color: var(--screen); }
+.cue.prop { background: var(--prop-bg); color: var(--prop); }
+.dir { font-size: .85em; color: var(--muted); font-style: italic; }
+.dir::before { content: "▸ "; font-style: normal; }
+.spice { display: inline-block; font-size: .7em; font-weight: 600; color: var(--spice); background: var(--spice-bg); border-radius: 4px; padding: 0 .45em; margin-right: .35em; vertical-align: .12em; font-style: normal; }
+.tag { display: inline-block; font-size: .72em; font-weight: 600; border-radius: 4px; padding: 0 .45em; }
+.tag.s { color: var(--screen); background: var(--screen-bg); }
+.tag.p { color: var(--prop); background: var(--prop-bg); }
+.tag.d { color: var(--muted); border: 1px solid var(--rule); }
+.tag.c { color: var(--spice); background: var(--spice-bg); }
+
+/* verses */
+blockquote.v { margin: .35rem 0; padding: .7rem .9rem .6rem 1rem; background: var(--verse-bg); border: 1px solid var(--rule); border-left: 4px solid var(--verse-bar); border-radius: 0 8px 8px 0; font-family: var(--f-display); font-weight: 500; font-size: .98em; line-height: 1.8; }
+blockquote.v cite { display: block; margin-top: .25rem; font-family: var(--f-body); font-style: normal; font-size: .72em; color: var(--muted); text-align: right; }
+blockquote.v.big { font-size: 1.15em; text-align: center; border-left-color: var(--ember); }
+blockquote.v.big cite { text-align: center; }
+.callout { margin: .6rem 0; padding: .7rem .9rem; border-radius: 8px; background: var(--ember-bg); color: var(--ink); font-weight: 500; }
+.callout.c { text-align: center; font-family: var(--f-display); font-size: 1.05em; }
+
+/* prayer */
+section.prayer .lines p { font-family: var(--f-display); font-weight: 500; }
+
+/* notes */
+section.notes { font-size: .88em; }
+.tbl { overflow-x: auto; margin-top: .4rem; }
+table { border-collapse: collapse; width: 100%; min-width: 460px; }
+th, td { text-align: left; vertical-align: top; padding: .45rem .6rem .45rem 0; border-bottom: 1px solid var(--rule); }
+th { font-size: .82em; color: var(--muted); font-weight: 600; }
+.notes ol, .notes ul { padding-left: 1.2rem; display: grid; gap: .45rem; margin: .4rem 0; }
+footer { padding: 2rem 0 3rem; color: var(--muted); font-size: .8em; border-top: 1px solid var(--rule); margin-top: 2rem; }
+@media (max-width: 520px) { :root { --fs: 17px; } h1 { font-size: 1.45em; } }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+@media print { nav.bar { display: none; } body { background: #fff; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">2026.10.18 주일 · 어린이지구 · 시리즈 "하나님! 왜 약속을 안 지키세요?!" #5</p>
+    <h1>하나님! <span class="q">"혹시?"</span> 물어보지 말고, 그냥 선빵 날려버려요!</h1>
+    <p class="meta">본문 열왕기하 25:1-12, 21 · 예상 22–25분 · 구연 원고 v1</p>
+    <div class="plan">
+      <b>설교 흐름</b>
+      <ol>
+        <li><b>도입</b> — 제목 선포, 지난 이야기 (2분)</li>
+        <li><b>대지 1</b> — 하나님은 "혹시?"로 약속하셨다 (5분)</li>
+        <li><b>대지 2</b> — 끝까지 "혹시?"를 거절한 왕 + 새 언약·횃불·예수님 (8–9분)</li>
+        <li><b>대지 3</b> — 왜 선빵 대신 "혹시?"일까 — 청혼이니까 (6–7분)</li>
+        <li><b>결단 → 기도</b> (2분)</li>
+      </ol>
+    </div>
+    <div class="legend">
+      <span class="tag s">화면</span> PPT 슬라이드
+      <span class="tag p">소품</span> 실물
+      <span class="tag d">▸ 동작</span> 목자님 동작·어조
+      <span class="tag c">조미료</span> 시간 모자라면 뺄 수 있는 곳
+    </div>
+  </div>
+</header>
+
+<nav class="bar" aria-label="원고 이동">
+  <div class="wrap">
+    <div class="jump">
+      <a href="#intro">도입</a>
+      <a href="#p1">대지 1</a>
+      <a href="#p2" class="k">대지 2</a>
+      <a href="#newcov" class="k">새 언약</a>
+      <a href="#p3">대지 3</a>
+      <a href="#decide">결단</a>
+      <a href="#prayer">기도</a>
+      <a href="#notes">메모</a>
+    </div>
+    <div class="size" role="group" aria-label="글자 크기">
+      <button type="button" id="smaller" aria-label="글자 작게">가−</button>
+      <button type="button" id="bigger" aria-label="글자 크게">가+</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- 도입 -->
+<section id="intro">
+  <h2>🎬 도입 <span class="time">2분</span></h2>
+  <div class="lines">
+    <div class="cue screen"><b>화면</b>제목: 하나님! "혹시?" 물어보지 말고, 그냥 선빵 날려버려요!</div>
+    <p>얘들아, 오늘 설교 제목 좀 봐.</p>
+    <p class="dir">제목을 손으로 가리키며, 십대 말투로</p>
+    <p class="callout c">"하나님! '혹시?' 물어보지 말고, 그냥 선빵 날려버려요!"</p>
+    <p>목사님 설교 제목이 이래도 되나 싶지? ㅎㅎ</p>
+    <p>근데 오늘 말씀을 읽다 보면, 너희도 진짜 이런 말이 튀어나올 거야.</p>
+    <p class="gap">오늘 본문은 열왕기하 25장이야.</p>
+    <p>이스라엘 역사에서 가장 슬픈 날, <strong>예루살렘 성이 무너지고 성전이 불타던 날</strong>의 이야기야.</p>
+    <div class="cue screen"><b>화면</b>시리즈 연대표 (기둥 모형 사진 + 지난 설교 제목들)</div>
+    <p>그동안 목자님이 "하나님! 왜 약속을 안 지키세요?!" 시리즈를 했었지?</p>
+    <p>솔로몬 성전, 출애굽, 시내산 결혼식… 오늘이 그 이야기의 마지막 장면이야.</p>
+    <p>같이 따라가 보자.</p>
+  </div>
+</section>
+
+<!-- 대지 1 -->
+<section id="p1">
+  <h2><span class="no">대지 1</span> 하나님은 "혹시?"로 약속하셨다 <span class="time">5분</span></h2>
+
+  <h3>① 솔로몬의 성전과 하늘의 불</h3>
+  <div class="lines">
+    <div class="cue screen"><b>화면</b>하늘에서 불이 내려오는 그림 (대하 7:1)</div>
+    <p>솔로몬이 성전을 다 짓고 기도를 마쳤을 때 무슨 일이 있었지?</p>
+    <blockquote class="v">불이 하늘에서부터 내려와서… 여호와의 영광이 그 성전에 가득하니<cite>대하 7:1</cite></blockquote>
+    <p>하나님이 "참 잘했어요!" 도장을 하늘에서 불로 꽝 찍어 주신 거야.</p>
+    <p class="gap">그리고 하나님이 솔로몬에게 약속을 주셨어. 그 약속을 잘 들어 봐.</p>
+    <div class="cue screen"><b>화면</b>"만일 ~하면"에 동그라미</div>
+    <blockquote class="v"><strong>네가 만일</strong> 내 앞에서… 내 율례와 법규를 지키면, 내가 네 나라 왕위를 견고하게 하리라.<cite>대하 7:17-18</cite></blockquote>
+    <blockquote class="v"><strong>그러나 너희가 만일</strong> 돌아서서… 다른 신들을 섬기면, 내가… 그 뿌리를 뽑아내고 이 성전을 내 앞에서 버리리라.<cite>대하 7:19-20</cite></blockquote>
+    <p>"만일"… 다른 말로 하면 <span class="em">"혹시?"</span>야.</p>
+    <p>"혹시 너희가 나를 사랑하고 내 말을 지키면… 혹시 너희가 떠나가면…"</p>
+    <p>하나님은 이렇게 <strong>선택할 수 있게</strong> 약속하셨어.</p>
+    <p>이게 오늘 이야기의 열쇠야. 기억해 두자. <span class="em">혹시?</span></p>
+  </div>
+
+  <h3>② 말을 안 듣는 왕들, 계속 찾아오는 선지자들</h3>
+  <div class="lines">
+    <p>그런데 그 뒤로 왕들 이야기가 쭉 이어지는데… 어땠을까?</p>
+    <p>하나님 말씀을 안 들어. 다른 신들을 섬겨. 나쁜 짓을 계속해.</p>
+    <p class="gap">그때마다 하나님은 어떻게 하셨을까? 벌을 확 주셨을까?</p>
+    <p>아니야. <strong>선지자들을 보내셨어.</strong> 엘리야, 엘리사, 이사야, 호세아, 아모스…</p>
+    <p>"얘들아, 그 약속 기억나? 돌아와. 지금 돌아오면 돼."</p>
+    <p>성경은 이렇게 말해.</p>
+    <blockquote class="v">여호와께서 그의 백성을… <strong>아끼사 부지런히</strong> 그의 사신들을 보내어 이르셨으나, 그의 백성이… 비웃고 그의 말씀을 멸시하며…<cite>대하 36:15-16</cite></blockquote>
+  </div>
+
+  <h3>③ 언니가 먼저 무너지다 — BC 722 북이스라엘</h3>
+  <div class="lines">
+    <div class="cue screen"><b>화면</b>지도: 사마리아 → 앗수르</div>
+    <p>그래서 결국 어떻게 됐어?</p>
+    <p>솔로몬 뒤에 나라가 둘로 갈라졌지? 북쪽 이스라엘, 남쪽 유다.</p>
+    <p>먼저 북이스라엘이 무너졌어.</p>
+    <p><strong>BC 722년, 앗수르가 쳐들어와서 다 포로로 잡아가 버렸어.</strong></p>
+    <p class="dir">잠깐 멈추고</p>
+    <p>얘들아, 이건 하나님이 약속을 안 지키신 걸까?</p>
+    <p>아니야. <strong>하나님은 약속을 지키셨어.</strong> "만일 너희가 떠나가면…"이라고 하신 그 약속을.</p>
+    <p class="callout">하나님은 좋은 약속만 지키시는 분이 아니라, 경고하신 약속도 정확히 지키시는 분이야.</p>
+  </div>
+</section>
+
+<!-- 대지 2 -->
+<section id="p2" class="key">
+  <h2><span class="no">대지 2</span> 끝까지 "혹시?"를 거절한 왕 <span class="time">8–9분</span></h2>
+
+  <h3>④ 다 보고도 같은 길로 간 동생, 남유다</h3>
+  <div class="lines">
+    <div class="cue screen"><b>화면</b>두 자매 그림 — 언니(북)가 끌려가는 걸 보는 동생(남)</div>
+    <p>자, 그럼 남유다는 이제 정신 차려야겠지?</p>
+    <p>언니가 망하는 걸 눈앞에서 봤잖아.</p>
+    <p>"아, 하나님 말씀은 진짜구나! 우리는 말씀대로 살자!" 해야 하잖아?</p>
+    <p class="gap">근데… 그걸 다 보고도 <strong>똑같은 길</strong>로 걸어갔어.</p>
+    <p>하나님이 예레미야를 통해 이렇게 말씀하셨어.</p>
+    <blockquote class="v">배역한 이스라엘이… <strong>이혼서</strong>까지 받았으되, 그의 반역한 자매 유다가 <strong>두려워하지 아니하고</strong> 자기도 가서…<cite>렘 3:8</cite></blockquote>
+    <p>그래서 하나님은 <strong>예레미야</strong>를 보내셨어. 40년 동안이나!</p>
+    <p>그리고 마지막 왕 <strong>시드기야</strong>에게 말하게 하셨어.</p>
+    <p>"곧 바벨론이 쳐들어온다. 바벨론에게 항복하는 게 하나님의 뜻이다. 그러면 너도 살고, 이 성도 안 탄다."</p>
+    <p class="gap">그랬더니 왕과 고관들이 뭐라고 했을까?</p>
+    <p>"너 바벨론 편이냐! 이 나라 팔아먹는 나쁜 놈!"</p>
+    <div class="cue screen"><b>화면</b>진흙 구덩이 그림 (렘 38:6)</div>
+    <p>그리고 예레미야를 <strong>물 없는 우물(구덩이)</strong>에 줄로 달아 내려 버렸어.</p>
+    <p>거기서 예레미야는… <strong>진흙 속에 푹 빠져 버렸어.</strong> <small>(렘 38:6)</small></p>
+    <p>굶어 죽을 뻔했는데, 왕궁에서 일하던 <strong>에티오피아 사람 에벳멜렉</strong>이 헌 옷이랑 밧줄로 끌어올려 줬지. <small>(38:11-13)</small></p>
+  </div>
+
+  <h3>시드기야의 진짜 문제 — 사람의 눈</h3>
+  <div class="lines">
+    <p>그런데 재미있는 게 있어. 시드기야 왕도 사실 궁금했나 봐.</p>
+    <p>예레미야를 <strong>몰래</strong> 불러서 물어봐. "하나님이 무슨 말씀 하셨어?"</p>
+    <p>예레미야가 마지막으로 대답했어.</p>
+    <blockquote class="v"><strong>네가 만일</strong> 바벨론에게 항복하면… <strong>이 성이 불사름을 당하지 아니하겠고</strong> 너와 네 가족이 살려니와…<cite>렘 38:17</cite></blockquote>
+    <p>또 나왔지? "만일"… <span class="em">혹시?</span></p>
+    <p>하나님은 <strong>마지막 순간까지 문을 열어 두셨어.</strong></p>
+    <p class="gap">그런데 시드기야가 뭐라고 했을까?</p>
+    <blockquote class="v">나는… 두려워하노라… 그들이 나를 <strong>조롱할까</strong> 하노라.<cite>렘 38:19</cite></blockquote>
+    <p class="callout">알고 보니 시드기야는 하나님보다 사람의 눈을 더 무서워했던 거야.</p>
+    <p>"사람들이 나를 비웃으면 어떡하지?" 그래서 <strong>하나님 말씀을 알면서도 따르지 못했어.</strong></p>
+  </div>
+
+  <h3>🔁 대비 — 100년 전 히스기야 왕</h3>
+  <div class="lines">
+    <div class="cue screen"><b>화면</b>히스기야가 성전에서 편지를 펴 놓고 기도하는 그림</div>
+    <p>얘들아, 100년 전에도 예루살렘이 포위된 적이 있었어.</p>
+    <p>그때는 <strong>앗수르 왕 산헤립</strong>이 쳐들어와서 "항복해라! 너희 하나님도 너희 못 구한다!" 하는 협박 편지를 보냈어.</p>
+    <p>그때 왕 <strong>히스기야</strong>는 어떻게 했을까?</p>
+    <blockquote class="v">히스기야가… 편지를 받아 보고 <strong>여호와의 성전에 올라가서</strong> 그 편지를 <strong>여호와 앞에 펴 놓고</strong> 기도하여…<cite>왕하 19:14-15</cite></blockquote>
+    <p>똑같이 무서웠어. 둘 다 성이 포위됐어.</p>
+    <p>그런데 <strong>히스기야는 무서울 때 하나님께 달려갔고,</strong></p>
+    <p><strong>시드기야는 무서울 때 사람 눈치를 보며 숨었어.</strong></p>
+    <p>그리고 하나님은 히스기야를 위해 하룻밤에 앗수르 군대를 물리치셨어. <small>(왕하 19:35)</small></p>
+    <p class="dir">멈춤</p>
+    <p class="callout">무서운 건 똑같아. 무서울 때 누구한테 가느냐가 달랐던 거야.</p>
+  </div>
+
+  <h3>⑤ 애굽에 줄 섰다가 — 포위 18개월</h3>
+  <div class="lines">
+    <p>시드기야는 하나님 대신 어디에 기댔을까?</p>
+    <p><strong>애굽</strong>에게 "말이랑 군대 좀 보내 주세요!" 하고 <strong>도움을 요청하면서</strong> 바벨론을 배신했어. <small>(겔 17:15)</small></p>
+    <p>바벨론 입장에서는 어때? <strong>뚜껑이 확 열린 거지!</strong></p>
+    <div class="cue screen"><b>화면</b>왕하 25:1 — 토성으로 둘러싸인 예루살렘</div>
+    <blockquote class="v">시드기야 제구년 열째 달 십일에 바벨론의 왕 느부갓네살이… 예루살렘을 치러 올라와서… 주위에 토성을 쌓으매<cite>왕하 25:1</cite></blockquote>
+    <p>성을 빙 둘러서 흙으로 둑을 쌓았어. 아무도 나갈 수도, 들어올 수도 없어.</p>
+    <p>그렇게 <strong>1년 반, 18개월</strong>이 지나갔어.</p>
+    <div class="cue prop"><b>소품</b>18개월 달력 — 넘기며</div>
+    <p>점점 먹을 게 없어졌어.</p>
+    <p>예레미야는 감옥에서 하루에 빵 한 개씩 받았는데, 그것도 <strong>"성중에 떡이 떨어질 때까지"</strong>였어. <small>(렘 37:21)</small></p>
+    <blockquote class="v">그 해 넷째 달 구일에 성 중에 기근이 심하여 그 땅 백성의 양식이 떨어졌더라.<cite>왕하 25:3</cite></blockquote>
+    <p>너무 배가 고파서, 성경은 <strong>말로 하기도 힘든 끔찍한 일까지</strong> 일어났다고 기록해. <small>(애 4:10)</small></p>
+    <p class="dir">어린이 앞이라 구체적으로 말하지 않음</p>
+  </div>
+
+  <h3>⑥ 왕이 무너지다</h3>
+  <div class="lines">
+    <div class="cue screen"><b>화면</b>밤, 성벽 틈으로 도망치는 왕</div>
+    <blockquote class="v">그 성벽이 파괴되매 모든 군사가 <strong>밤중에</strong>… 왕의 동산 곁문 길로 도망하여…<cite>왕하 25:4</cite></blockquote>
+    <p>시드기야는 왕인데, 백성을 버리고 밤에 몰래 도망갔어.</p>
+    <p>하지만 여리고 평지에서 붙잡혔어. 같이 있던 군사들은 다 흩어져 버렸지. <small>(25:5)</small></p>
+    <p>그리고 바벨론 왕 앞에 끌려갔어.</p>
+    <blockquote class="v">그들이 시드기야의 <strong>아들들을 그의 눈앞에서</strong> 죽이고 시드기야의 <strong>두 눈을 빼고</strong> 놋 사슬로 그를 결박하여 바벨론으로 끌고 갔더라.<cite>왕하 25:7</cite></blockquote>
+    <p class="dir">천천히</p>
+    <p>사람의 눈이 그렇게 무서웠던 왕은…</p>
+    <p>마지막으로 자기 아들들이 죽는 것을 보고, 두 눈을 잃었어.</p>
+    <p>그리고 다시는 이스라엘로 돌아오지 못하고 바벨론 감옥에서 죽었어. <small>(렘 52:11)</small></p>
+    <p class="gap"><span class="spice">조미료</span>예레미야는 "네 눈이 바벨론 왕의 눈을 보리라"<small>(렘 34:3)</small> 했고, 에스겔은 "그가 바벨론에 가도 그 땅을 보지 못하리라"<small>(겔 12:13)</small> 했어. 둘이 반대말 같지? 그런데 <strong>둘 다 그대로 이루어졌어.</strong> 바벨론 왕 얼굴은 봤지만, 바벨론 땅은 못 봤지.</p>
+  </div>
+
+  <h3>⑦ 성전이 무너지다</h3>
+  <div class="lines">
+    <div class="cue screen"><b>화면</b>불타는 성전 (왕하 25:9)</div>
+    <p>그리고 <strong>한 달쯤</strong> 지난 뒤, 바벨론 왕의 <strong>경호대장(시위대장) 느부사라단</strong>이 예루살렘에 들어왔어.</p>
+    <blockquote class="v">여호와의 성전과 왕궁을 불사르고 예루살렘의 모든 집을… 불살랐으며… 성벽을 헐었으며<cite>왕하 25:9-10</cite></blockquote>
+    <div class="cue prop"><b>소품</b>기둥 모형 — 기둥을 넘어뜨린다</div>
+    <p><span class="spice">조미료</span>솔로몬 성전 앞에는 큰 놋기둥 두 개가 있었어. 이름이 뭐였는지 알아?</p>
+    <p><strong>야긴</strong>("그가 세우리라"), <strong>보아스</strong>("그에게 능력이 있다"). <small>(왕상 7:21)</small></p>
+    <p>그 기둥도… 깨져서 바벨론으로 실려 갔어. <small>(25:13)</small></p>
+    <p>그리고 본문은 이렇게 끝나.</p>
+    <div class="cue screen"><b>화면</b>큰 글씨</div>
+    <blockquote class="v big">이와 같이 유다가 사로잡혀 본토에서 떠났더라.<cite>왕하 25:21</cite></blockquote>
+    <p class="dir">조용히, 잠깐 침묵</p>
+    <p>솔로몬 때 하늘에서 불이 내려왔던 그 성전에… 이번에는 <strong>원수의 불</strong>이 붙었어.</p>
+    <p>하나님은 약속을 지키셨어. "만일 너희가 떠나가면… 이 성전을 버리리라."</p>
+  </div>
+
+  <h3 class="turn" id="newcov">✨ 그런데… 무너지는 그 한가운데서</h3>
+  <div class="lines">
+    <div class="cue prop"><b>소품</b>기둥은 쓰러졌지만, 바닥(기초)은 그대로 — 기초를 가리키며</div>
+    <p>얘들아, 그런데 이 무너지는 이야기 한가운데서 하나님이 몰래 하신 일이 있어.</p>
+    <p class="gap">성이 포위돼 있던 그때, 예레미야가 감옥에 갇혀 있던 그때,</p>
+    <p>하나님이 예레미야에게 이런 말씀을 주셨어.</p>
+    <div class="cue screen"><b>화면</b>렘 31:31-34</div>
+    <blockquote class="v">보라 날이 이르리니 내가… <strong>새 언약</strong>을 맺으리라. 이 언약은… 애굽 땅에서 인도하여 내던 날에 맺은 것과 <strong>같지 아니할 것은</strong>, 내가 그들의 <strong>남편</strong>이 되었어도 그들이 내 언약을 <strong>깨뜨렸음이라</strong>… 내가 나의 법을 그들의 <strong>마음에 기록하여</strong>… 내가 그들의 악행을 사하고 다시는 그 죄를 <strong>기억하지 아니하리라</strong>.<cite>렘 31:31-34</cite></blockquote>
+    <p class="dir">강조</p>
+    <p>이 약속에는 "만일"이 없어. <span class="em">"혹시?"가 없어.</span></p>
+    <p>처음부터 끝까지 <strong>"내가… 내가… 내가… 하리라"</strong>야.</p>
+    <p><span class="spice">조미료</span>그리고 같은 때 이렇게도 말씀하셨어.</p>
+    <blockquote class="v">너희가 <strong>낮과 밤의 약속</strong>을 깨뜨릴 수 있다면, 내 언약도 깨뜨릴 수 있으리라.<cite>렘 33:20-21</cite></blockquote>
+    <p>해가 안 뜨는 날 봤어? 없지? <strong>이 약속은 그렇게 안 깨진다는 거야.</strong></p>
+    <p class="callout">성벽이 무너지고 있을 때, 하나님은 무너진 뒤에 지키실 약속을 이미 쓰고 계셨어.</p>
+
+    <div class="cue screen"><b>화면</b>창세기 15장 — 쪼갠 고기 사이를 지나가는 횃불</div>
+    <p>이 약속, 어디서 본 것 같지 않아?</p>
+    <p>아주 옛날 아브라함 때, 하나님이 고기를 반으로 쪼개 놓게 하시고,</p>
+    <p>아브라함이 잠든 사이에 <strong>하나님만 혼자 횃불로 그 사이를 지나가셨지?</strong> <small>(창 15:17)</small></p>
+    <p>그건 "이 약속이 깨지면, <strong>내가</strong> 이 쪼개진 고기처럼 되겠다"는 뜻이었어.</p>
+    <p class="gap">그런데 포위된 예루살렘에서 유다 사람들도 송아지를 쪼개고 그 사이를 지나가며 약속했다가, 금방 깨뜨려 버렸어. <small>(렘 34:18)</small></p>
+    <p class="callout">사람이 지나간 약속은 사람이 깨뜨렸고, 하나님 혼자 지나가신 약속은 하나님이 지키셔.</p>
+    <p>새 언약은 바로 그 <strong>횃불 약속</strong>을 하나님이 끝까지 지키시는 방법이었어.</p>
+
+    <div class="cue screen"><b>화면</b>마지막 만찬 — 잔을 드신 예수님</div>
+    <p>그리고 600년 뒤, 이 약속을 지키러 누가 오셨을까?</p>
+    <p class="callout c">예수님!</p>
+    <p>예수님은 십자가 지시기 전날 밤에 잔을 드시고 이렇게 말씀하셨어.</p>
+    <blockquote class="v">이 잔은 <strong>내 피로 세우는 새 언약</strong>이니 곧 너희를 위하여 붓는 것이라.<cite>눅 22:20</cite></blockquote>
+    <p>예레미야가 감옥에서 받았던 그 "새 언약"! 예수님이 그걸 이루러 오신 거야.</p>
+    <p>쪼개진 고기 사이를 혼자 지나가셨던 하나님이, 십자가에서 <strong>정말로 우리 대신 찢기셨어.</strong></p>
+    <blockquote class="v">하나님의 약속은 얼마든지 <strong>그리스도 안에서 예</strong>가 되니<cite>고후 1:20</cite></blockquote>
+  </div>
+</section>
+
+<!-- 대지 3 -->
+<section id="p3">
+  <h2><span class="no">대지 3</span> 왜 선빵 대신 "혹시?"일까 — 청혼이니까 <span class="time">6–7분</span></h2>
+
+  <h3>목자님의 질문</h3>
+  <div class="lines">
+    <div class="cue screen"><b>화면</b>제목 다시</div>
+    <p>그런데 목자님은 이 이야기를 읽으면서 한 가지 궁금한 게 생겼어.</p>
+    <p>오늘 설교 제목이랑 똑같은 거야.</p>
+    <p class="dir">십대 말투로, 답답한 듯</p>
+    <p class="callout">"하나님, 왜 '혹시?' 하면서 물어봐요? 그냥 '내 말 들어!!' 하면서 선빵을 날려서 말을 듣게 하면 안 돼요?"</p>
+    <p>너희도 그런 생각 들지 않아?</p>
+    <p class="gap">왜 하필 <strong>힘없는 선지자</strong>를 보내셨을까?</p>
+    <p>왕이 "나는 왕이고 너는 힘없는 선지자잖아? 마음에 안 드는 소리 하는 너는 그냥 꺼져!" 할 수 있게 말이야.</p>
+    <p>그냥 하나님이 백성들 다 모아 놓고 딱 나타나서 "너희들, 내 말 안 들을래, 죽을래?!" 하면 다 따라올 텐데, 그치??</p>
+  </div>
+
+  <h3>같은 말씀, 다른 마음 — 요시야와 여호야김</h3>
+  <div class="lines">
+    <div class="cue screen"><b>화면</b>왼쪽: 옷을 찢는 요시야 / 오른쪽: 두루마리를 칼로 자르는 여호야김</div>
+    <p>그런데 참 신기한 게 있어.</p>
+    <p>시드기야의 아버지 <strong>요시야 왕</strong>은 성전에서 발견된 하나님의 말씀을, <strong>서기관(사반)이 읽어 주는 책</strong>으로 듣기만 했어.</p>
+    <p>그런데 그 말씀을 듣고 <strong>옷을 찢고 울면서</strong> 하나님께 돌아왔어. <small>(왕하 22:10-11)</small></p>
+    <p>하나님은 "네가 듣고 <strong>마음이 부드러워져서</strong>… 나도 네 말을 들었노라" 하셨어. <small>(22:19)</small></p>
+    <p class="gap">그런데 시드기야의 형 <strong>여호야김 왕</strong>은 어땠을까?</p>
+    <p>예레미야가 전한 하나님의 말씀을 신하가 읽어 주는데, <strong>서너 쪽 읽을 때마다 칼로 잘라서 불에 던져 버렸어.</strong> <small>(렘 36:23)</small></p>
+    <p>그리고 성경은 이렇게 써. "듣고도 두려워하거나 <strong>옷을 찢지 아니하였고</strong>." <small>(36:24)</small></p>
+    <p><span class="spice">조미료</span>신기하게도 여호야김 앞에서 그 두루마리가 처음 읽힌 방은, 요시야에게 율법책을 읽어 줬던 <strong>바로 그 사반의 아들 방</strong>이었어. <small>(렘 36:10)</small> 같은 집안이, 같은 방법으로, 같은 말씀을 전했어. 아버지는 옷을 찢었고, 아들은 말씀을 찢었어.</p>
+    <p class="gap">그러니까… <strong>전달하는 방법에 문제가 있었던 게 아니야.</strong></p>
+    <p class="callout">말씀을 들을 마음이 있는지 없는지가 문제였어. 마음의 문이 열려 있는지, 닫혀 있는지의 차이였던 거지.</p>
+  </div>
+
+  <h3>문 밖의 예수님</h3>
+  <div class="lines">
+    <div class="cue screen"><b>화면</b>문 밖에서 노크하시는 예수님 그림 (계 3:20)</div>
+    <p>자, 이제 우리가 잘 아는 그림이 하나 그려지지?</p>
+    <p>마음의 문은 닫혀 있고, 예수님이 문 밖에 서서 노크하고 계신 모습.</p>
+    <blockquote class="v">볼지어다 내가 <strong>문 밖에 서서 두드리노니</strong> 누구든지 내 음성을 듣고 문을 열면 내가 그에게로 들어가 그와 더불어 먹고 그는 나와 더불어 먹으리라.<cite>계 3:20</cite></blockquote>
+    <p class="dir">강대상을 똑똑똑</p>
+    <p>왜 그러실까? 그냥 문을 부수고 들어가면 되는데. <strong>선빵 날리면</strong> 되는데.</p>
+    <p>왜 밖에 서서 노크만 하고 계실까?</p>
+  </div>
+
+  <h3>시내산 결혼식, 기억나?</h3>
+  <div class="lines">
+    <p>지난번 목자님 설교 기억나는 사람?</p>
+    <p class="dir">손 들어 보게</p>
+    <p>…아무도 없지? ㅎㅎㅎ</p>
+    <div class="cue screen"><b>화면</b>시내산 결혼식 (지난 설교 슬라이드 재사용)</div>
+    <p>지난번에 목자님이 시내산에서 하나님이 십계명을 주신 장면을 <strong>하나님과 이스라엘 백성의 결혼식</strong>이라고 설명했었지?</p>
+    <p class="gap">그때도 잘 생각해 보면…</p>
+    <p>하나님이 먼저 <strong>모세만</strong> 산 위로 따로 부르셨어. 백성들은 절대 들을 수 없을 만큼 멀리.</p>
+    <p>그리고 모세에게 먼저 말씀하셨어.</p>
+    <blockquote class="v">너희가 내 말을 잘 듣고 내 언약을 지키면… 너희는 모든 민족 중에서 <strong>내 소유(보물)</strong>가 되겠고<cite>출 19:5</cite></blockquote>
+    <p>"이제 내려가서, 백성들이 이 약속을 하겠는지 가서 <strong>물어봐라.</strong>"</p>
+    <p class="gap">그래서 모세가 내려가서 설명했더니, 백성들이 다 같이 대답했어.</p>
+    <blockquote class="v">여호와께서 명령하신 대로 우리가 다 <strong>행하리이다</strong>.<cite>출 19:8</cite></blockquote>
+    <p>모세가 다시 산에 올라가서 하나님께 전했지.</p>
+    <p>그랬더니 하나님이 "그래! 그럼 이제 내가 백성들 앞에 직접 가겠다. <strong>오늘과 내일</strong> 성결하게 준비하고, 옷도 깨끗이 빨아 입고, <strong>셋째 날</strong>에 만나자." <small>(19:10-11)</small></p>
+    <p class="gap">셋째 날 아침, 번개와 우레 소리와 함께 하나님이 시내산 꼭대기에 내려오셨어.</p>
+    <p>백성들이 산 아래 다 모였고, 하나님이 큰 음성으로 모두가 다 들을 수 있게 말씀하셨어.</p>
+    <blockquote class="v">나는 너를 애굽 땅, 종 되었던 집에서 인도하여 낸 네 하나님 여호와니라.<cite>출 20:2</cite></blockquote>
+    <p>그런데 하나님 음성을 처음 들은 백성들이 너무너무 무서워서 모세에게 말했어.</p>
+    <blockquote class="v">하나님이 우리에게 말씀하시지 말게 하소서. <strong>우리가 죽을까</strong> 하나이다.<cite>출 20:19</cite></blockquote>
+    <p><span class="spice">조미료</span>봐, 하나님이 진짜로 "선빵"처럼 직접 나타나셨을 때, 사람들은 사랑하기는커녕 무서워서 도망가려고 했어!</p>
+    <p class="gap">그래서 모세만 산에 올라가서 하나님 말씀을 다 받아 적어 왔고, 백성들에게 읽어 주고 물었어. 그랬더니?</p>
+    <blockquote class="v">여호와의 모든 말씀을 우리가 <strong>준행하리이다</strong>.<cite>출 24:7</cite></blockquote>
+    <p>이 장면을 목자님이 <strong>하나님과 백성의 결혼식</strong>이라고 했었지.</p>
+  </div>
+
+  <h3>Will you marry me?</h3>
+  <div class="lines">
+    <div class="cue screen"><b>화면</b>무릎 꿇은 신랑 — "Will you marry me?" "Will you be my bride?"</div>
+    <p>자, 그럼 하나님은 모세를 통해서 백성들에게 <strong>뭘 물어보신 걸까?</strong></p>
+    <p class="callout c">"Will you marry me?" "Will you be my bride?"<br>"나랑 결혼해 줄래?"</p>
+    <p>라고 물어보신 거야.</p>
+    <p class="gap">그런데… "나랑 결혼해 줄래?"를 정상적으로 물어보는 방법은 뭐야?</p>
+    <p class="dir">직접 무릎 꿇는 시늉</p>
+    <p>신랑이 신부 앞에 무릎을 꿇고… <strong>"혹시… 나랑 결혼해 줄래?"</strong> 이렇게 물어보지?</p>
+    <p class="dir">벌떡 일어나 주먹을 쥐며</p>
+    <p><strong>선빵을 날리고 "나랑 결혼하자!"</strong> 이러는 건 아니지? 그치? ㅎㅎ</p>
+    <p>그건 결혼이 아니라 납치야!</p>
+    <p class="gap">하나님이 선지자, 곧 <strong>사람을 통해서</strong> 마음을 물어보신 건, <strong>"거절"할 수 있게</strong> 물어보신 거야.</p>
+    <p>하나님은 말만 듣는 <strong>로봇</strong>을 만들지 않으셨어.</p>
+    <p>"싫어요"라고 말할 수도 있게 우리를 만드셔서, <strong>"너 나를 사랑하니?"</strong>라고 그 마음을 물어보실 수 있게 하셨어.</p>
+    <p class="gap">그래서 하나님은 우리 마음의 문을 <strong>두드리셔.</strong></p>
+    <p>그걸 알게 된 사람은 "나는 하나님을 <strong>인격적으로 만났다</strong>"고 말할 수 있어.</p>
+    <p class="gap">열왕기 내내 하나님은 왕들의 마음에 선지자를 보내서 물으셨어.</p>
+    <p class="callout c">"너도 내 신부가 되어 줄래?"</p>
+    <p>요시야는 <strong>"I will!"</strong> 했고, 다른 왕들은 <strong>"꺼져!"</strong> 했던 거야.</p>
+  </div>
+
+  <h3 class="turn">하나님의 진짜 선빵</h3>
+  <div class="lines">
+    <p class="dir">마무리 반전</p>
+    <p>그리고 얘들아, 하나님은 결국 진짜 <strong>선빵</strong>을 날리셨어.</p>
+    <p>그런데 우리를 때리신 게 아니야.</p>
+    <blockquote class="v">우리가 <strong>아직 죄인 되었을 때에</strong> 그리스도께서 우리를 위하여 죽으심으로 하나님께서 우리에 대한 자기의 사랑을 확증하셨느니라.<cite>롬 5:8</cite></blockquote>
+    <p>우리가 아직 "꺼져!" 하고 있을 때, 하나님이 <strong>먼저</strong> 사랑하셨어.</p>
+    <p class="callout c">먼저 맞으셨어. 십자가에서.</p>
+    <p>사람들이 "십자가에서 내려와 봐! 그럼 믿을게!" 하고 소리칠 때도 예수님은 <strong>내려오지 않으셨어.</strong> <small>(마 27:42)</small></p>
+    <p>억지로 믿게 하지 않으시고, <strong>끝까지 문 밖에서 기다리시는 사랑</strong>을 선택하신 거야.</p>
+  </div>
+</section>
+
+<!-- 결단 -->
+<section id="decide">
+  <h2>🙏 결단 <span class="time">2분</span></h2>
+  <div class="lines">
+    <p class="dir">조용한 반주 시작</p>
+    <p>자, 이제 우리 어린이지구 모두 <strong>눈을 감고, 가슴에 손을 얹어</strong> 보자.</p>
+    <p>그리고 내 마음의 문을 두드리시는 예수님을 바라보자.</p>
+    <p class="dir">강대상을 조용히 똑, 똑, 똑</p>
+    <p class="gap">그리고 그 예수님께 대답해 보자.</p>
+    <p>어떤 어린이는 "예수님, 하나님의 모든 말씀을 다 지키겠습니다" 할 수도 있고,</p>
+    <p>"예수님이세요? 저는 아직 잘 모르겠어요. 다음에 또 오세요" 할 수도 있고,</p>
+    <p>"아 귀찮아… 나는 하나님 안 믿으니까 그냥 가세요" 할 수도 있겠지?</p>
+    <p class="gap">예수님은 오늘 한 번만 문을 두드리고 떠나시는 분은 아니야.</p>
+    <p>그래도 오늘, 예수님이 내 마음에 들어오셔서 <strong>같이 먹고 마시는</strong></p>
+    <p>우리 어린이지구 모두가 되기를 소망합니다!</p>
+    <p class="gap">그 모습 그대로, 목자님이 기도할게요.</p>
+  </div>
+</section>
+
+<!-- 기도 -->
+<section id="prayer" class="prayer">
+  <h2>🙏 마무리 기도</h2>
+  <div class="lines">
+    <p>하나님 아버지,</p>
+    <p>오늘 이스라엘 백성들이 하나님과의 약속을 잊어버리고, 결혼한 신부가 다른 남편을 찾아가는 것처럼 하나님께 나쁜 짓을 했는데도,</p>
+    <p>하나님은 수백 년 동안 기다리시며 다시 돌아오기를 바라시고, 선지자들을 보내 마음의 문을 두드리셨습니다.</p>
+    <p class="gap">그러나 우리가 알게 된 것은, 하나님은 정말 오래 참으시지만 <strong>영원히 참으시지는 않는다</strong>는 것입니다.</p>
+    <p>북쪽으로 간 신부는 이혼증서를 받고 멸망하였고, 남쪽의 신부도 끝내 집에서 쫓겨나 바벨론으로 끌려갔습니다.</p>
+    <p class="gap">그런데 하나님은 그 무너지는 날에도 새 언약을 준비하셨고, 예수님의 피로 그 약속을 지키셨습니다.</p>
+    <p class="gap">하나님, 내 인생에 항상 신실하게 내 신랑이 되어 주셨듯이, 나도 오직 하나님만 사랑하고 따를 것을 약속합니다.</p>
+    <p>하나님께서 나를 가장 소중한 보물로 여겨 주신다고 하셨으니,</p>
+    <p>하나님의 소중한 보물로, 가장 명예로운 하나님의 백성이 되게 하시겠다는 그 약속을 내 삶에 지켜 주세요.</p>
+    <p class="gap">감사드리며, 예수님의 이름으로 기도합니다. 아멘!!</p>
+  </div>
+</section>
+
+<!-- 메모 -->
+<section id="notes" class="notes">
+  <h2>📝 원고 메모 <span class="time">목자님 확인용</span></h2>
+
+  <h3>초안의 빈칸(OOO)을 채운 것</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>위치</th><th>채운 말</th><th>근거</th></tr></thead>
+    <tbody>
+      <tr><td>④ 우물에서 예레미야는</td><td><strong>진흙 속에 빠지게</strong> 되었지 (→ 에벳멜렉이 건짐)</td><td>렘 38:6, 11-13</td></tr>
+      <tr><td>④ 사람의 눈이 무서워</td><td><strong>하나님 말씀을 알면서도 따르지 못했던</strong> 거야</td><td>렘 38:19</td></tr>
+      <tr><td>⑤ 애굽에게</td><td><strong>도움을 요청(말과 군대)하면서</strong> 바벨론을 배신</td><td>겔 17:15; 렘 37:5</td></tr>
+      <tr><td>⑤ 심지어 ○○하는 일</td><td><strong>말로 하기도 힘든 끔찍한 일</strong> (어린이용 완곡 표현)</td><td>애 4:10; 신 28:53</td></tr>
+      <tr><td>⑦ 시간이 ○○ 흐른 뒤</td><td><strong>한 달쯤</strong> (성벽 586.7.18 → 방화 8.14)</td><td>왕하 25:3, 8</td></tr>
+      <tr><td>⑦ 바벨론의 사령관?</td><td><strong>경호대장(시위대장) 느부사라단</strong></td><td>왕하 25:8</td></tr>
+      <tr><td>대지 3 요시야는 그 ○○을 통해</td><td><strong>서기관 사반이 읽어 주는 책</strong>(율법책)</td><td>왕하 22:10-11</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>초안에서 본문에 맞게 살짝 고친 것</h3>
+  <ol>
+    <li><strong>솔로몬 언약의 "혹시?"</strong> — 성경 단어는 "만일"(대하 7:17, 19)이라 "만일 = 혹시?"로 연결했다. 예레미야서에는 실제로 "혹시"가 나온다(렘 26:3; 36:3).</li>
+    <li><strong>시드기야의 아들들</strong> — 본문은 립나에서 "그의 눈앞에서" 죽였다고만 한다(25:7). "같이 도망가던 아들들", "너는 이제 더 볼 것도 없다"는 성경에 없는 표현이라 원고에서 뺐다.</li>
+    <li><strong>시내산 순서</strong> — 모세에게 먼저 주신 것은 십계명이 아니라 청혼(출 19:5-6 "내 소유가 되리라") → 백성의 대답(19:8) → 셋째 날 하나님이 직접 십계명 선포(20:1-17) → 백성이 무서워함(20:19) → 모세가 받아 와 낭독, "준행하리이다"(24:7). 원고는 이 순서로 맞췄다.</li>
+    <li><strong>기도의 "남쪽 신부도 이혼 증서를 받고"</strong> — 성경은 이혼서를 북이스라엘에게만 말한다(렘 3:8). 남유다에는 "내가 너희의 어미를 내보낸 이혼 증서가 어디 있느냐… 너희의 죄악으로 말미암아… 내보냄을 받았느니라"(사 50:1). 쫓겨났지만 이혼은 아니었다(그래서 새 언약이 가능). 기도문은 "끝내 집에서 쫓겨나 바벨론으로 끌려갔습니다"로 바꾸고 새 언약 한 문장을 넣었다. 원래 표현을 쓰고 싶으면 되돌려도 된다.</li>
+    <li><strong>"보물·명예"</strong> — 출 19:5 "내 소유(보물)", 신 26:18-19 "보배로운 백성… 칭찬과 명예" 근거로 그대로 살렸다.</li>
+  </ol>
+
+  <h3>시간이 모자라면 (우선순위대로 줄이기)</h3>
+  <ol>
+    <li>⑥의 "예레미야 vs 에스겔 두 예언" <span class="tag c">조미료</span></li>
+    <li>대지 3의 "사반의 아들 방" <span class="tag c">조미료</span></li>
+    <li>⑦의 야긴·보아스 이름 (기둥 모형 동작만 남기기)</li>
+    <li>렘 33:20-21 낮과 밤의 언약 (31장만 남기기)</li>
+  </ol>
+  <p><strong>줄이면 안 되는 것:</strong> 대하 7:17-20 "만일", 렘 38:17-19, 히스기야 대비, 렘 31:31-34, 창 15 횃불, 눅 22:20, 출 19:5·8 + 20:19, Will you marry me, 계 3:20</p>
+
+  <h3>필요한 PPT·소품</h3>
+  <ul>
+    <li><span class="tag s">화면</span> 제목 / 시리즈 연대표 / 하늘의 불(대하 7:1) / "만일" 강조 / 사마리아→앗수르 지도 / 두 자매 / 진흙 구덩이 / 히스기야 편지 기도 / 토성 포위 / 밤의 도주 / 불타는 성전 / 25:21 큰 글씨 / 렘 31:31-34 / 창 15 횃불 / 마지막 만찬 / 요시야 vs 여호야김 / 문 밖의 예수님 / 시내산 결혼식 / 무릎 꿇은 신랑 "Will you marry me?"</li>
+    <li><span class="tag p">소품</span> 18개월 달력, 기둥 모형(기둥은 넘어지고 기초는 남게), 강대상 노크</li>
+  </ul>
+</section>
+
+<footer>
+  원본: 2_Sermon_Outlines/2026_Preaching/2026-10-18_혹시물어보지말고선빵날려버려요_script.md · 성경 인용은 개역개정
+</footer>
+</main>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var size = 18;
+  try { var saved = parseInt(localStorage.getItem('sermonFontSize'), 10); if (saved >= 14 && saved <= 28) size = saved; } catch (e) {}
+  function apply() {
+    root.style.setProperty('--fs', size + 'px');
+    try { localStorage.setItem('sermonFontSize', String(size)); } catch (e) {}
+  }
+  if (size !== 18) apply();
+  document.getElementById('smaller').addEventListener('click', function () { if (size > 14) { size -= 1; apply(); } });
+  document.getElementById('bigger').addEventListener('click', function () { if (size < 28) { size += 1; apply(); } });
+})();
+</script>
+</body>
+</html>
