@@ -147,6 +147,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-10-18_성심당_오래된진심_script_R5]]
 - [[2026-10-18_유다멸망과_바벨론포로]]
 - [[2026-10-18_혹시물어보지말고선빵날려버려요_script]]
+- [[2026-11-15_에스라_말씀을준비하고가르치는사람]]
 - [[TBD_Steve_설교_시글락회복과나의무대]]
 - [[TBD_Steve_설교_시글락회복과나의무대_script]]
 - [[TBD_Steve_설교_애쓰지않아도돼요이미다왔어요]]
