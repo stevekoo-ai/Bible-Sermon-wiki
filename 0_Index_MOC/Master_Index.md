@@ -38,6 +38,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-10-16_유다멸망_관련성경_연관도목록]]
 - [[2026-10-16_유다멸망_선지서시간순재배열]]
 - [[2026-10-17_거절할수있는청혼_왜선지자를통해말씀하셨나]]
+- [[2026-10-18_괜찮다고넘기면안되는것_누룩과옷을찢음]]
 
 
 ## Old Testament Exegesis
