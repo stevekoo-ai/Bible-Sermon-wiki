@@ -116,6 +116,7 @@ Automated index of all research, sermons, and shared assets.
 - [[젊은지구창조론_연대측정방법별_검토]]
 - [[젊은지구창조론_옹호근거_웹조사]]
 - [[출애굽기19-20장_시내산결혼언약_외부자료조사]]
+- [[칼뱅_기독교강요_1권_하나님을아는지식_영상요약]]
 
 
 ## Sermon Outlines
