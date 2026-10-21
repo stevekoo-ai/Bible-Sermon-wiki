@@ -40,6 +40,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-10-17_거절할수있는청혼_왜선지자를통해말씀하셨나]]
 - [[2026-10-18_괜찮다고넘기면안되는것_누룩과옷을찢음]]
 - [[2026-10-20_혀는불이요_가르치는자의입술]]
+- [[2026-10-21_위로부터난지혜_화평을심는자]]
 
 
 ## Old Testament Exegesis
