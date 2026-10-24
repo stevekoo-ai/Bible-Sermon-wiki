@@ -42,6 +42,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-10-20_혀는불이요_가르치는자의입술]]
 - [[2026-10-21_위로부터난지혜_화평을심는자]]
 - [[2026-10-22_간음한여인들아_질투하시는신랑]]
+- [[2026-10-24_에스라7장정독_스라야의후손과마음을준비한사람]]
 - [[2026-10-24_열왕기이후에스라까지_에스라7장의역사적정황]]
 
 
@@ -108,6 +109,7 @@ Automated index of all research, sermons, and shared assets.
 
 ## Theology Terms
 
+- *(No entries found)*
 
 
 ## Reference Research
