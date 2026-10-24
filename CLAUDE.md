@@ -154,6 +154,16 @@
   - **PPT**: 동일 폴더 또는 `3_Shared_Assets/Slides/`에 `.pptx` 파일로 생성.
 - 아웃라인 frontmatter에 `script_file`, `slides_file` 필드로 상호 참조를 남깁니다.
 
+## 4.7 읽기용 HTML 변환 (`scripts/note_to_html.py`)
+> [!IMPORTANT] md만 쓰고 HTML은 도구가 만든다 (2026-10-24, 사용자 명시적 지시)
+> 토큰 낭비를 줄이기 위해, Claude는 **내용을 md로만 작성**하고 HTML을 손으로 쓰지 않는다.
+> 사용자가 "html로 보여줘/읽기 편하게" 등을 요청하면:
+> - `python scripts/note_to_html.py <파일.md 또는 폴더> [--stale]` 실행 → 같은 폴더에 같은 이름의 `.html` 생성.
+> - 변환 규칙: 문장이 끝나거나 문장 부호(`. ? ! … , ; :`)가 나오면 새 줄, `→`·`—` 앞에서 새 줄.
+>   괄호·따옴표 안과 `7:10`·`1,400`처럼 부호 뒤에 공백이 없는 곳은 끊지 않는다. 히브리어는 RTL 처리, 글자 크기·다크모드 버튼 포함.
+> - 내용 수정은 항상 md에서 하고 HTML은 다시 변환한다(HTML 직접 편집 금지).
+> - 변환 규칙을 바꿔야 하면 HTML이 아니라 이 스크립트를 고친다.
+
 ## 5. 지식 그래프 자동 갱신 및 Git 자동화 (Git Automation)
 - 작업 완료 후 다음 명령을 순차 실행하십시오:
   1. `python3 scripts/rebuild_index.py` (Master Index 갱신)
