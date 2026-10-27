@@ -44,6 +44,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-10-22_간음한여인들아_질투하시는신랑]]
 - [[2026-10-24_에스라7장정독_스라야의후손과마음을준비한사람]]
 - [[2026-10-24_열왕기이후에스라까지_에스라7장의역사적정황]]
+- [[2026-10-27_잠잠히주님만나는시간_감사가능력이되다]]
 
 
 ## Old Testament Exegesis
@@ -109,7 +110,6 @@ Automated index of all research, sermons, and shared assets.
 
 ## Theology Terms
 
-- *(No entries found)*
 
 
 ## Reference Research
