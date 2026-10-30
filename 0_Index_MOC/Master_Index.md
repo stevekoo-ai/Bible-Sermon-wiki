@@ -47,6 +47,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-10-27_잠잠히주님만나는시간_감사가능력이되다]]
 - [[2026-10-28_시편18편QT2_아낙자손들사이에서]]
 - [[2026-10-28_시편18편QT_나의힘이되신여호와여]]
+- [[2026-10-30_시드기야의시편_시편18편의거울]]
 
 
 ## Old Testament Exegesis
