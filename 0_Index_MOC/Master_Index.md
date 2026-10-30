@@ -48,6 +48,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-10-28_시편18편QT2_아낙자손들사이에서]]
 - [[2026-10-28_시편18편QT_나의힘이되신여호와여]]
 - [[2026-10-30_시드기야의시편_시편18편의거울]]
+- [[2026-10-30_시편18편QT_시드기야의시편]]
 
 
 ## Old Testament Exegesis
