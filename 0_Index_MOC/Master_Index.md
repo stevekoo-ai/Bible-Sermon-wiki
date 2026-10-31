@@ -114,6 +114,7 @@ Automated index of all research, sermons, and shared assets.
 
 ## Theology Terms
 
+- *(No entries found)*
 
 
 ## Reference Research
@@ -178,4 +179,5 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-08-23_얼룩이_마르기_전에]]
 - [[2026-09-19_조금씩_나눠서_해]]
 - [[2026-10-05_STOP]]
+- [[2026-10-31_감사의렌즈_선악과이전의눈으로]]
 
