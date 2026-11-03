@@ -120,6 +120,7 @@ Automated index of all research, sermons, and shared assets.
 
 ## Reference Research
 
+- [[고린도후서_숲과나무]]
 - [[여로보암_르호보암_이름어원]]
 - [[열왕기상하_시대배경_숲으로보기]]
 - [[열왕기하25장_다시보는열왕기_외부설교3편_외부자료조사]]
