@@ -51,6 +51,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-10-30_시편18편QT_시드기야의시편]]
 - [[2026-11-02_설교리뷰_손절이자랑이었던나]]
 - [[2026-11-02_손절이아니라구별_세상속에서다르게]]
+- [[2026-11-03_고린도후서2장_주요내용과나눔주제]]
 
 
 ## Old Testament Exegesis
