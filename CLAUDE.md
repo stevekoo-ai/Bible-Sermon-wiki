@@ -184,3 +184,7 @@
 - **문체는 사용자 지정을 따릅니다:** 존댓말/반말 등 문체 선택은 목장·나눈 사람의 스타일을 존중하여 사용자가 지정한 대로 유지하십시오.
 - 관련 설교나 주해가 있으면 `related_passage`/`Linked Sermon/Exegesis` 필드로 상호 연결하되, 나눔이 반드시 특정 설교 문서와 1:1로 연결되어야 하는 것은 아닙니다.
 - `scripts/rebuild_index.py`는 `4_Group_Sharing/` 하위의 각 목장 폴더를 동적으로 스캔하여 Master Index에 반영합니다 (연도별 설교 폴더 스캔과 동일한 방식).
+
+## 용어: "오드리 설명 버전"
+- 오드리(Audrey) = Steve의 영어 선생님 페르소나. 정의: stevekoo-ai/Repo_name `wiki/concepts/english-meeting-script-style.md`.
+- "오드리 설명 버전" = 같은 내용을 미국 회사 회의 구어체 영어로 설명(한 문장 한 호흡 ≤20단어, em-dash 금지, 회화 어휘, why don't we ~?) + 끝에 회의에서 쓸 표현 3–4개(한국어 뜻·예문). 성경 인용은 ESV 짧게. 예: [[고린도후서_숲과나무_오드리영어설명]]
