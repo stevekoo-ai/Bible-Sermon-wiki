@@ -56,6 +56,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-11-03_그리스도의향기_개선행렬과제사의냄새]]
 - [[2026-11-03_향기_고린도후서2장나눔]]
 - [[2026-11-04_QT_고린도후서3장_율법과성령]]
+- [[2026-11-07_에스라7장설교구상_조상열거와선한손의의미]]
 
 
 ## Old Testament Exegesis
