@@ -78,7 +78,10 @@ def esc(t):
 
 
 def build_map(events, P, P_NOTE, cats, title, out_dir, basename,
-              default_off=(), bounds=((27.5, 29), (37.5, 49)), kml_desc="", landmarks=()):
+              default_off=(), bounds=((27.5, 29), (37.5, 49)), kml_desc="", landmarks=(), art=None):
+    art = art or {}
+    bad = {e['art'] for e in events if e.get('art') and e['art'] not in art}
+    assert not bad, bad
     color = {c[0]: c[2] for c in cats}
     missing = {w for e in events for w in (e["where"] if isinstance(e["where"], list) else [e["where"]]) if w not in P}
     assert not missing, missing
@@ -109,7 +112,8 @@ def build_map(events, P, P_NOTE, cats, title, out_dir, basename,
                  desc=e["desc"], place=end, pnote=P_NOTE[end], col=col,
                  route=" → ".join(route) if len(route) > 1 else "",
                  lat=lat, lon=lon, flat=flat, flon=flon, fname=fname, fnote=fnote,
-                 hasfine=bool(fa), sz=bool(fa) and mode != "always", folder=e.get("folder", ""))
+                 hasfine=bool(fa), sz=bool(fa) and mode != "always", folder=e.get("folder", ""),
+                 art=e.get("art", ""), act=e.get("act", ""), badge=e.get("badge", ""))
         markers.append(m)
         pts = fpts = None
         tail_start = None
@@ -187,7 +191,8 @@ def build_map(events, P, P_NOTE, cats, title, out_dir, basename,
     kmin, kmax = int(math.floor(ks[0])), int(math.ceil(ks[-1]))
     data = dict(markers=markers,
                 paths=[{x: p[x] for x in ("n", "lab", "cat", "title", "col", "pts", "fpts", "tailStart", "fmode", "detail", "route")} for p in paths],
-                landmarks=[dict(name=a, lat=b, lon=c, note=d) for a, b, c, d in landmarks])
+                landmarks=[dict(name=a, lat=b, lon=c, note=d) for a, b, c, d in landmarks],
+                art={k: v for k, v in art.items() if any(m["art"] == k for m in markers)})
     page = (PAGE.replace("__TITLE__", esc(title))
                 .replace("__KMIN__", str(kmin)).replace("__KMAX__", str(kmax))
                 .replace("__CATS__", json.dumps([list(c) for c in cats], ensure_ascii=False))
@@ -238,9 +243,13 @@ html,body{margin:0;height:100%;background:#141414;font-family:'Malgun Gothic',sa
 @keyframes rise{from{opacity:0;transform:translate(-50%,20px)}to{opacity:1;transform:translate(-50%,0)}}
 #cap .big{flex:none;min-width:58px;height:58px;padding:0 6px;box-sizing:border-box;border-radius:29px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#111}
 #cap .dt{color:#bbb;font-size:12px}#cap .tt{font-size:17px;font-weight:700;margin:4px 0 2px}#cap .ds{font-size:13.5px;line-height:1.55;color:#eee}#cap .nt{color:#999;font-size:11.5px;margin-top:6px}#cap .body{max-height:42vh;overflow:auto}#cap .pl{color:#9fd3ff;font-size:11.5px;margin-top:6px;line-height:1.5;border-top:1px solid #333;padding-top:6px}
+#cap .art{flex:none;width:132px;height:99px;border-radius:10px;background:#f4ecd8;overflow:hidden;display:none}#cap .art.on{display:block}#cap .art svg{width:100%;height:100%;display:block}
+#cap .bdg{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:9px;background:#E8C547;color:#111;font-size:11px;font-weight:700;vertical-align:middle}
+#list .act{padding:7px 10px 4px;color:#F2C14E;font-weight:700;font-size:12px;border-bottom:1px solid #3a3a3a;background:#181818;position:sticky;top:0;z-index:1}
+.pa{width:150px;height:112px;border-radius:8px;background:#f4ecd8;overflow:hidden;margin:4px 0}.pa svg{width:100%;height:100%;display:block}
 #prog{position:absolute;left:320px;right:0;top:0;height:4px;z-index:1000;background:transparent}
 #prog div{height:100%;width:0;background:#F2C14E;transition:width .3s}
-@media (max-width:820px){#side{right:0;bottom:auto;width:auto;height:42%}#map{inset:42% 0 0 0}#prog{left:0;top:42%}#cap{left:50%;bottom:12px;min-width:0;width:calc(100% - 24px);padding:10px 12px}#cap .big{min-width:44px;height:44px;font-size:16px}#cap .tt{font-size:14px}#cap .ds{font-size:12.5px}}
+@media (max-width:820px){#side{right:0;bottom:auto;width:auto;height:42%}#map{inset:42% 0 0 0}#prog{left:0;top:42%}#cap{left:50%;bottom:12px;min-width:0;width:calc(100% - 24px);padding:10px 12px}#cap .big{min-width:44px;height:44px;font-size:16px}#cap .art{width:88px;height:66px}#cap .tt{font-size:14px}#cap .ds{font-size:12.5px}}
 </style></head><body>
 <div id="side">
  <h1>__TITLE__</h1>
@@ -257,7 +266,7 @@ html,body{margin:0;height:100%;background:#141414;font-family:'Malgun Gothic',sa
  <div id="list"></div>
 </div>
 <div id="map"></div><div id="prog"><div></div></div>
-<div id="cap"><div class="big"></div><div class="body"><div class="dt"></div><div class="tx"></div><div class="nt"></div><div class="pl"></div></div></div>
+<div id="cap"><div class="big"></div><div class="art"></div><div class="body"><div class="dt"></div><div class="tx"></div><div class="nt"></div><div class="pl"></div></div></div>
 <script>
 const D=__DATA__;
 const CATS=__CATS__, OFF=__OFF__, KMIN=__KMIN__, KMAX=__KMAX__, FINE_Z=12, LM_Z=13;
@@ -277,10 +286,11 @@ function setPath(it,pts){if(it._st===pts)return;it._st=pts;it.poly.setLatLngs(pt
 D.paths.forEach(p=>{const poly=L.polyline(p.pts,{color:p.col,weight:3,opacity:.9}).bindTooltip(p.lab+' → '+p.route);
   const arrow=L.marker(p.pts[p.pts.length-1],{interactive:false,keyboard:false,icon:arrowIcon(p.col,dirDeg(p.pts[p.pts.length-2],p.pts[p.pts.length-1]))});
   items.push({type:'p',n:p.n,cat:p.cat,layer:L.layerGroup([poly,arrow]),poly,arrow,d:p,_st:p.pts});});
-let curFine=false;
+let curFine=false,lastAct='';
 D.markers.forEach(m=>{const mk=L.marker([m.lat,m.lon],{icon:icon(m,false),zIndexOffset:Math.round(m.n*10)});
-  mk.bindPopup(()=>`<b>${m.lab}. ${m.title}</b><br><small>${m.date}</small><br>${m.desc}<br><small>📍 ${curFine?m.fname:m.place}: ${curFine?m.fnote:m.pnote}<br>📖 ${m.note}</small>`,{maxWidth:340});
-  const el=document.createElement('div');el.className='it';el.innerHTML=`<b style="color:${m.col}">${m.lab}</b> ${m.date} — ${m.title}`;
+  mk.bindPopup(()=>`<b>${m.lab}. ${m.title}</b>${m.badge?' <small style="color:#b8860b">'+m.badge+'</small>':''}<br><small>${m.date}</small>${m.art&&D.art[m.art]?'<div class="pa">'+D.art[m.art]+'</div>':'<br>'}${m.desc}<br><small>📍 ${curFine?m.fname:m.place}: ${curFine?m.fnote:m.pnote}<br>📖 ${m.note}</small>`,{maxWidth:340});
+  if(m.act&&m.act!==lastAct){const h=document.createElement('div');h.className='act';h.textContent=m.act;list.appendChild(h);lastAct=m.act}
+  const el=document.createElement('div');el.className='it';el.innerHTML=`<b style="color:${m.col}">${m.lab}</b> ${m.date} — ${m.title}${m.badge?' <span style="color:#E8C547">'+m.badge+'</span>':''}`;
   el.onclick=()=>startFrom(m.n);list.appendChild(el);
   items.push({type:'m',n:m.n,cat:m.cat,layer:mk,d:m,el});});
 const stepItems=n=>items.filter(it=>it.n===n&&vis[it.cat]);
@@ -348,7 +358,8 @@ function caption(n){const ms=stepItems(n).filter(it=>it.type==='m').map(it=>it.d
   if(!ms.length){c.classList.remove('show');return}
   const m0=ms[0];c.querySelector('.big').textContent=m0.lab;c.querySelector('.big').style.background=m0.col;
   c.querySelector('.dt').textContent=m0.date+' · '+[...new Set(ms.map(m=>m.place))].join(' / ');
-  c.querySelector('.tx').innerHTML=ms.map(m=>`<div class="tt">${m.title}</div><div class="ds">${m.desc}</div>`).join('');
+  const am=ms.find(m=>m.art&&D.art[m.art]),ae=c.querySelector('.art');ae.classList.toggle('on',!!am);ae.innerHTML=am?D.art[am.art]:'';
+  c.querySelector('.tx').innerHTML=ms.map(m=>`<div class="tt">${m.title}${m.badge?'<span class="bdg">'+m.badge+'</span>':''}</div><div class="ds">${m.desc}</div>`).join('');
   c.querySelector('.nt').textContent='📖 '+[...new Set(ms.map(m=>m.note))].join(' · ');
   const seen=new Set();c.querySelector('.pl').innerHTML=ms.filter(m=>{const key=m.place+m.route+m.fname;if(seen.has(key))return false;seen.add(key);return true}).map(m=>`📍 <b>${m.place}</b> — ${m.pnote}`+(m.hasfine?`<br>🔎 <b>정밀 위치: ${m.fname}</b> — ${m.fnote}`:'')+(m.route?`<br><span style="color:#888">경로: ${m.route}</span>`:'')).join('<br>');
   c.classList.remove('show');void c.offsetWidth;c.classList.add('show')}
