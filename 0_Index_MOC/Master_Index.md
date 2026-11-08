@@ -58,6 +58,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-11-04_QT_고린도후서3장_율법과성령]]
 - [[2026-11-07_에스라7장설교구상_조상열거와선한손의의미]]
 - [[2026-11-08_대제사장계승_엘리의집에서사독까지]]
+- [[2026-11-08_에스라8장21절_아하와강가의우리는누구인가]]
 
 
 ## Old Testament Exegesis
