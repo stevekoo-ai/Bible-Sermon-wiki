@@ -65,6 +65,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-11-13_바벨론포로생활_어떤취급을받았나]]
 - [[2026-11-13_에스라가와야했던이유_하나님의관점]]
 - [[2026-11-13_학개스가랴와에스라_시간순표]]
+- [[2026-11-14_에스라설교방향재설정_성전재건이후의에스라]]
 
 
 ## Old Testament Exegesis
