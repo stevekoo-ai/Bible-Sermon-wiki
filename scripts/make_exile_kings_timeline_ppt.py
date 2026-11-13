@@ -504,5 +504,80 @@ text(0.25, 5.7, SW - 0.5, 1.8, [
     ("", 4, WHITE, False),
     ("그리고 58년 뒤 — 건물은 섰다. 이제 그 '마음'을 말씀으로 다시 세울 차례: 에스라 (스 7:10)", 9, RED, True)])
 
+# ════════════════ 요약: 등간격 · 키워드만 (2장 자리로 옮김) ════════════════
+new_slide()
+title("한눈에 보기 — 같은 간격으로 놓은 연대표", "1칸 = 10년 (모든 구간이 같은 간격) · 키워드만 표시")
+E0, E1 = 590, 430
+EX0, EX1 = 0.6, SW - 0.45
+
+
+def EX(bc):
+    return EX0 + (E0 - min(max(bc, E1), E0)) / (E0 - E1) * (EX1 - EX0)
+
+
+# 제국 · 왕
+box(EX(590), 0.85, EX(539) - EX(590), 0.4, fill=BAB)
+text(EX(590), 0.85, EX(539) - EX(590), 0.4, [("바벨론 제국", 12, INK, True)], anchor=MSO_ANCHOR.MIDDLE, wrap=False)
+box(EX(539), 0.85, EX1 - EX(539), 0.4, fill=PER)
+text(EX(539), 0.85, EX1 - EX(539), 0.4, [("페르시아 제국 (바사)", 12, INK, True)], anchor=MSO_ANCHOR.MIDDLE, wrap=False)
+KG = [("느부갓네살", 590, 562, BAB), ("", 562, 556, BAB), ("나보니두스", 556, 539, BAB),
+      ("고레스", 539, 530, PER), ("캄비\n세스", 530, 522, PER), ("다리오", 522, 486, PER),
+      ("아하수에로", 486, 465, PER), ("아닥사스다", 465, 430, PER)]
+for nm, a, b, col in KG:
+    box(EX(a), 1.35, EX(b) - EX(a), 0.55, fill=RGB("2A2A2A"), line=col, lw=1.25)
+    if nm:
+        text(EX(a), 1.35, EX(b) - EX(a), 0.55, [(l, 10 if len(nm) < 6 else 9.5, col, True) for l in nm.split("\n")],
+             align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE, wrap=False, margin=0.01)
+
+# 눈금
+AY = 2.25
+line(EX0, AY, EX1, AY, WHITE, 1.5)
+for yv in range(590, 429, -10):
+    x = EX(yv)
+    line(x, AY - 0.06, x, 5.35, RGB("333333"), 0.5, True)
+    line(x, AY - 0.06, x, AY + 0.06, WHITE, 1.0)
+    text(x - 0.35, AY - 0.3, 0.7, 0.22, [(str(yv), 10, GREY, True)], align=PP_ALIGN.CENTER, wrap=False, margin=0)
+
+# 사건 키워드
+KEV = [(586, "성전 불탐", RED, 0), (539, "바벨론 함락", PER, 1), (538, "1차 귀환\n(고레스)", RET, 0),
+       (536, "성전 기초", RET, 2), (520, "공사 재개\n학개·스가랴", PRO, 1), (515, "성전 완공", RET, 3),
+       (479, "에스더", PRO, 0), (458, "에스라\n2차 귀환", RED, 0), (445, "느헤미야\n성벽", RET, 1)]
+for bc, lab, col, lv in KEV:
+    x = EX(bc)
+    ly = AY + 0.35 + lv * 0.68
+    line(x, AY + 0.08, x, ly, col, 1.0)
+for bc, lab, col, lv in KEV:
+    x = EX(bc)
+    box(x - 0.08, AY - 0.08, 0.16, 0.16, fill=col, shape=MSO_SHAPE.DIAMOND)
+    ly = AY + 0.35 + lv * 0.68
+    lines = lab.split("\n")
+    text(x - 0.02, ly, 1.7, 0.6, [(lines[0], 12, col, True)] + [(l, 9, col, False) for l in lines[1:]] + [(f"BC {bc}", 8, GREY, False)],
+         wrap=False, margin=0.03, bg=BG)
+
+# 간격 (몇 년)
+GAPS = [(586, 538, "48년", "성전 불탐 → 귀환"), (538, 515, "23년", "귀환 → 성전 완공"),
+        (515, 458, "57년", "성전 완공 → 에스라"), (458, 445, "13년", "에스라 → 느헤미야")]
+GY = 5.75
+for a, b, yrs, what in GAPS:
+    xa, xb = EX(a), EX(b)
+    line(xa, GY, xb, GY, WHITE, 1.25)
+    line(xa, GY - 0.1, xa, GY + 0.1, WHITE, 1.25)
+    line(xb, GY - 0.1, xb, GY + 0.1, WHITE, 1.25)
+    text(xa, GY - 0.38, xb - xa, 0.3, [(yrs, 14, WHITE, True)], align=PP_ALIGN.CENTER, wrap=False, margin=0)
+    text(xa, GY + 0.1, xb - xa, 0.25, [(what, 8, GREY, False)], align=PP_ALIGN.CENTER, wrap=False, margin=0)
+GY2 = 6.65
+xa, xb = EX(538), EX(458)
+line(xa, GY2, xb, GY2, PER, 1.75)
+line(xa, GY2 - 0.1, xa, GY2 + 0.1, PER, 1.75)
+line(xb, GY2 - 0.1, xb, GY2 + 0.1, PER, 1.75)
+text(xa, GY2 - 0.4, xb - xa, 0.32, [("80년 — 고레스의 귀환 조서에서 아닥사스다의 에스라까지", 13, PER, True)], align=PP_ALIGN.CENTER, wrap=False, margin=0)
+text(xa, GY2 + 0.1, xb - xa, 0.25, [("고레스와 아닥사스다는 다른 왕 · 아닥사스다는 고레스의 외증손자 (헤로도토스 3.88; 7.2-3)", 8, GREY, False)], align=PP_ALIGN.CENTER, wrap=False, margin=0)
+
+# 이 요약 슬라이드를 2번째 자리로 옮기기
+ids = prs.slides._sldIdLst
+last = ids[-1]
+ids.remove(last)
+ids.insert(1, last)
+
 prs.save(OUT)
 print("saved", OUT)
