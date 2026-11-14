@@ -42,6 +42,7 @@ EZRA_FILES = [
     "1_Bible_Exegesis/0_Study_Notes/2026-11-14_레위의언약_말2장8절과느13장29절.md",
     "1_Bible_Exegesis/0_Study_Notes/2026-11-14_에스라설교_논리사슬과하나님의뜻.md",
     "1_Bible_Exegesis/0_Study_Notes/2026-11-14_에스라설교방향재설정_성전재건이후의에스라.md",
+    "1_Bible_Exegesis/0_Study_Notes/2026-11-14_율법주의란_하나님없이복과구원을얻으려는것.md",
     # 예화
     "3_Shared_Assets/Illustrations/엄마가찾으면나온다_찾고또찾기.md",
     "3_Shared_Assets/Illustrations/자전거설명서_읽기만해서는못타요.md",
