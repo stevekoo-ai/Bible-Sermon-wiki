@@ -30,7 +30,17 @@ except Exception:
 FONT = "맑은 고딕"
 
 
+def office_running() -> bool:
+    r = subprocess.run(["tasklist", "/FI", "IMAGENAME eq POWERPNT.EXE", "/NH"], capture_output=True, text=True)
+    return "POWERPNT.EXE" in r.stdout.upper()
+
+
 def export_slides(pptx: Path, out_dir: Path) -> dict:
+    # ⚠️ 2026-11-14 사고: PowerPoint는 한 프로그램만 뜨기 때문에 COM으로 붙으면 Steve가 작업 중인 창에 붙고,
+    # Quit()이 저장 안 된 작업까지 닫아 버렸다. 그래서 PowerPoint가 켜져 있으면 절대 실행하지 않는다.
+    if office_running():
+        sys.exit("PowerPoint가 켜져 있어 중단합니다 (작업 중인 파일 보호). PowerPoint를 다 닫은 뒤 실행하거나, "
+                 "--slides-dir <PNG 폴더>로 미리 뽑아 둔 그림을 쓰세요.")
     ps = f"""
 $app = New-Object -ComObject PowerPoint.Application
 $p = $app.Presentations.Open('{pptx}', $true, $false, $false)
@@ -75,8 +85,11 @@ def main():
         text = text.split("---", 2)[2]
     text = text.split("\n---\n")[0]  # 꼬리말(관련 링크) 제외
 
-    tmp = Path(tempfile.mkdtemp(prefix="slides_"))
-    slides = export_slides(pptx, tmp)
+    if "--slides-dir" in sys.argv:
+        d = Path(sys.argv[sys.argv.index("--slides-dir") + 1])
+        slides = {int(re.search(r"\d+", f.stem).group()): f for f in d.glob("slide*.png")}
+    else:
+        slides = export_slides(pptx, Path(tempfile.mkdtemp(prefix="slides_")))
 
     doc = Document()
     sec = doc.sections[0]
