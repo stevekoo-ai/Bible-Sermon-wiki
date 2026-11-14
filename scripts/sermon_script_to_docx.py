@@ -74,7 +74,15 @@ def add_line(doc, text, **fmt):
 
 
 def main():
-    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    opts_with_value = {"--img-cm", "--slides-dir"}
+    args, skip = [], False
+    for a in sys.argv[1:]:
+        if skip:
+            skip = False
+        elif a in opts_with_value:
+            skip = True
+        elif not a.startswith("--"):
+            args.append(a)
     if len(args) != 3:
         sys.exit(__doc__)
     md, pptx, out = Path(args[0]), Path(args[1]).resolve(), Path(args[2])
