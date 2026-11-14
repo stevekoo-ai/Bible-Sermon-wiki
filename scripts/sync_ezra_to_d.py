@@ -58,6 +58,7 @@ EZRA_FILES = [
     "4_Reference_Research/에스라느헤미야_숲과나무_오드리브리핑.md",
     "4_Reference_Research/에스라느헤미야_한권의이야기_관계와구조.md",
     "4_Reference_Research/에스라파송의배경_이미율법대로예배하던공동체에왜.md",
+    "4_Reference_Research/제2성전_지성소에는무엇이있었나.md",
 ]
 
 
