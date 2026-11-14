@@ -1,5 +1,16 @@
 # 🧠 성경 연구 및 설교 지식베이스 LLM Wiki 운영 원칙 (v3.2 Kid-Adult Hybrid + Group Sharing)
 
+## 0. 🚨 최우선 규칙 — Steve가 작업 중인 프로그램·파일은 절대 건드리지 않는다
+> [!CAUTION] 2026-11-14 사고. Steve: "다시는 건드리지 마. 각각의 PID를 확인해서 아주 조심스럽게 조작해!!!"
+> 슬라이드 그림을 뽑으려고 PowerPoint를 COM으로 조작하고 `Quit()`을 호출했다. 그 명령이 Steve가 작업 중이던 PowerPoint까지 닫아,
+> 저장하지 않은 설교 PPT 최종본(`Steve_설교_에스라7장_20261114_R0.pptx`)이 날아갔다. 자동 복구 파일도 남지 않았다.
+- **파일은 프로그램 없이 읽는다:** `.pptx`·`.docx`는 python-pptx·python-docx로만 읽는다. 이것이 기본이다.
+- **Office 자동화 전에 PID를 확인한다:** `tasklist /FI "IMAGENAME eq POWERPNT.EXE"`, `tasklist /FI "IMAGENAME eq WINWORD.EXE"`로 지금 떠 있는 PID를 먼저 적어 둔다.
+- **PowerPoint는 한 개만 뜨는 프로그램이다:** COM으로 실행하면 새 창이 아니라 Steve의 PowerPoint에 붙는다. POWERPNT.EXE가 하나라도 떠 있으면 PowerPoint 자동화는 하지 않는다. Steve에게 먼저 묻거나, 이미 뽑아 둔 그림을 쓴다.
+- **내가 띄운 PID만 건드린다:** 원래 떠 있던 PID에는 `Quit()`·`Close()`·종료를 절대 하지 않는다. 작업이 끝나면 PID를 다시 비교해 내가 새로 띄운 것만 닫는다.
+- **잠금 파일이 있으면 손대지 않는다:** 파일 옆에 `~$` 잠금 파일이 있으면 Steve가 작업 중이라는 뜻이다. 읽기 외에는 하지 않는다.
+- `scripts/sermon_script_to_docx.py`는 PowerPoint가 켜져 있으면 실행을 멈춘다. 대신 `--slides-dir`로 미리 뽑아 둔 그림을 쓸 수 있다.
+
 ## 1. 저장소 정체성 및 격리 (Repository Architecture)
 - 이 리포지토리는 **학술적 성경 주해(Bible Exegesis)**, **3대지 구조의 설교 아웃라인(Sermon Outlines)**, **신학 자산(Assets)**, 그리고 **목장 나눔(Group Sharing)** 관리를 위한 전용 LLM Wiki입니다.
 - 개발 관련 불필요한 파일이나 스크립트를 섞지 마십시오. (단, `scripts/` 내 자동화 스크립트는 허용)
