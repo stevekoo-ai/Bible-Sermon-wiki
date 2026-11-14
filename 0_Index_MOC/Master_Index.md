@@ -142,6 +142,7 @@ Automated index of all research, sermons, and shared assets.
 ## Reference Research
 
 - [[2026-11-07_페르시아시대_귀환사_역사자료]]
+- [[2026-11-14_에스라4장_협력제안거절_해석들]]
 - [[고린도후서_숲과나무]]
 - [[고린도후서_숲과나무_오드리브리핑]]
 - [[고린도후서_숲과나무_오드리영어설명]]
