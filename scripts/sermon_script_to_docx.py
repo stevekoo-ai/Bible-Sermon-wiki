@@ -95,7 +95,9 @@ def main():
 
     if "--slides-dir" in sys.argv:
         d = Path(sys.argv[sys.argv.index("--slides-dir") + 1])
-        slides = {int(re.search(r"\d+", f.stem).group()): f for f in d.glob("slide*.png")}
+        # PowerPoint '내보내기 → PNG'는 "슬라이드1.PNG" 이름으로 만든다 — slide1.png 와 둘 다 받는다
+        slides = {int(re.search(r"\d+", f.stem).group()): f for f in d.iterdir()
+                  if f.suffix.lower() == ".png" and re.match(r"(slide|슬라이드)\d+", f.stem, re.I)}
     else:
         slides = export_slides(pptx, Path(tempfile.mkdtemp(prefix="slides_")))
 
