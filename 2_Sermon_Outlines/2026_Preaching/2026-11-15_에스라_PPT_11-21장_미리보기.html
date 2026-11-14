@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>에스라 7장 · 슬라이드 11–21</title>
+<style>
+:root{--bar:#5c5c5c;--y:#ffe14d;--r:#ff3b30;--g:#9a9a9a;--w:#fff;--sky:#8fd3ff}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#111;overflow:hidden;font-family:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo",sans-serif;color:var(--w)}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center;}
+.slide{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,#1d1d1d,#000 75%);opacity:0;pointer-events:none;transition:opacity .6s;padding:44px 56px;overflow:hidden}
+.slide.on{opacity:1;pointer-events:auto}
+.no{position:absolute;right:18px;bottom:12px;font-size:16px;color:#666}
+.hd{font-size:40px;font-weight:800;margin:0 0 22px;color:var(--y);text-shadow:0 2px 0 #000}
+.bar{background:var(--bar);padding:12px 22px;margin:12px 0;font-size:30px;font-weight:700;line-height:1.5;box-shadow:0 3px 10px #0008}
+.v{background:#262626;border-left:8px solid var(--y);padding:16px 22px;margin:14px 0;font-size:30px;line-height:1.6;font-weight:600}
+.v .ref{display:block;font-size:20px;color:#bbb;margin-top:6px;font-weight:400}
+.y{color:var(--y)}.r{color:var(--r)}.gr{color:var(--g)}
+.hl{transition:color .6s,text-shadow .6s}.hl.lit{color:var(--y);text-shadow:0 0 18px #ffe14d99}
+.hl.litr{color:var(--r)}
+.f{opacity:0;transform:translateY(24px);transition:opacity .5s,transform .5s}
+.f.show{opacity:1;transform:none}
+.big{font-size:120px;font-weight:900;text-align:center;color:var(--r);text-shadow:0 0 30px #ff3b3088}
+.f.zoom{transform:scale(.3)}.f.zoom.show{transform:scale(1)}
+.cap{font-size:44px;font-weight:900;text-align:center;margin-top:18px}
+.cols{display:flex;gap:28px}.cols>div{flex:1}
+.tag{display:inline-block;background:#333;border:2px solid #777;border-radius:40px;padding:6px 20px;margin:6px;font-size:27px;font-weight:700}
+.tag s{color:var(--r);text-decoration-thickness:4px}
+.cover{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle,#5a1300,#000 70%)}
+.emo{font-size:150px;line-height:1}
+.stamp{position:absolute;font-size:72px;font-weight:900;color:var(--r);border:8px solid var(--r);border-radius:16px;padding:6px 26px;background:#000c;transform:rotate(-10deg) scale(3);opacity:0;transition:transform .35s cubic-bezier(.2,2,.4,1),opacity .2s}
+.stamp.show{transform:rotate(-10deg) scale(1);opacity:1}
+.btns{display:flex;gap:22px;justify-content:center;margin-top:26px}
+.btn3{flex:1;text-align:center;background:linear-gradient(#5b74d6,#2f3f94);border-radius:22px;padding:18px 10px;font-size:34px;font-weight:900;box-shadow:0 6px 0 #1b2560}
+.btn3 small{display:block;font-size:24px;font-weight:600;color:#dfe6ff;margin-top:6px}
+.dark .v{border-left-color:var(--sky)}
+.vs{display:flex;align-items:center;gap:20px;justify-content:center;font-size:36px;font-weight:800}
+.box{background:#262626;border:3px solid #555;border-radius:16px;padding:16px 26px;text-align:center}
+.foot{position:absolute;left:56px;bottom:16px;font-size:16px;color:#777}
+#notes{position:fixed;left:0;right:0;bottom:0;background:#000e;border-top:2px solid #444;color:#ddd;font-size:15px;line-height:1.6;padding:10px 18px;max-height:34vh;overflow:auto;display:none}
+#notes b{color:var(--y)}
+#help{position:fixed;right:10px;top:8px;font-size:12px;color:#777}
+</style></head><body>
+<div id="help">클릭 · → · Space: 다음 / ←: 이전 / N: 발표자 메모 / F: 전체화면</div>
+<div id="stage">
+
+<!-- 11 -->
+<section class="slide" data-n="Steve가 만든 질문 슬라이드 그대로. 답은 주지 않는다. <b>➜ &quot;답을 찾으려면.. 우리 한번 기억해볼까!!!&quot;</b>">
+  <div class="bar f show" style="margin-top:40px">하나님 집도 성전도 다 지었고, 거의 60년동안 각자 살집도 다 지어서</div>
+  <div class="bar f" data-s="1">이제 잘 살고 있는데~ 왜..?? 이 시점에,,</div>
+  <div class="bar f" data-s="2">에스라!! <span class="y">율법 선생님</span>을 이스라엘로 돌아 오게 하셨나요?</div>
+  <div class="big f zoom" data-s="3">왜??</div>
+  <div class="no">11</div>
+</section>
+
+<!-- 12 -->
+<section class="slide" data-n="진심 ① — 애굽에서 꺼내신 이유. 손가락 하나 들고 &quot;같이 살고 싶어서!&quot; ▸ <b>'알리라'는 일부러 회색으로 남겨 둔다 (15장에서 켠다).</b> 5장 '오래된 진심' 회상. <b>➜ &quot;같이 살고 싶어서! 그래서 처음 집을 지으실 때 약속하셨지&quot;</b>">
+  <div class="hd">우리 한번 기억해볼까!!!</div>
+  <div class="bar">하나님은 왜 이스라엘을 애굽에서 꺼내셨을까?</div>
+  <div class="v f" data-s="1">내가 이스라엘 자손 중에 거하여 그들의 하나님이 되리니 그들은 내가 그들의 하나님 여호와로서 그들 중에 <span class="hl" data-lit="2">거하려고</span> 그들을 애굽 땅에서 인도하여 낸 줄을 <span class="gr">알리라</span> 나는 그들의 하나님 여호와니라<span class="ref">출애굽기 29:45-46</span></div>
+  <div class="cap f zoom" data-s="3">☝️ "<span class="y">너희랑 같이 살고 싶어서!</span>"</div>
+  <div class="no">12</div>
+</section>
+
+<!-- 13 -->
+<section class="slide" data-n="첫 성전 봉헌 때 하신 말씀(#1 하늘에서 내려온 불 회상). 읽는 도구: &quot;'그러나'와 '만일'을 찾아봐!&quot; (#1 기둥 모형). 마지막 클릭에 불탄 성전 — 10/18 성심당 설교 회상. <b>➜ &quot;근데.. 첫 집은 처음부터 무너졌을까? 아니야. 멀쩡할 때 일이 생겼어&quot;</b>">
+  <div class="hd">처음 집을 지었을 때 하신 약속</div>
+  <div class="v">내 이름으로 일컫는 내 백성이 그들의 악한 길에서 떠나 스스로 낮추고 기도하여 <span class="y">내 얼굴을 찾으면</span> 내가 하늘에서 듣고 그들의 죄를 사하고 그들의 땅을 고칠지라<span class="ref">역대하 7:14</span></div>
+  <div class="v f" data-s="1" style="border-left-color:var(--r)"><span class="r">그러나</span> 너희가 <span class="r">만일</span> 돌아서서 내가 너희 앞에 둔 내 율례와 명령을 <span class="r">버리고</span> 가서 다른 신들을 섬겨 그들을 경배하면<span class="ref">역대하 7:19</span></div>
+  <div class="cover f" data-s="2"><div class="emo">🔥🏛️🔥</div><div class="cap">말씀을 <span class="r">버렸고</span>.. 성전은 불탔어요</div><div style="font-size:24px;color:#ccc;margin-top:8px">BC 586 · 지난 설교 기억나지?</div></div>
+  <div class="no">13</div>
+</section>
+
+<!-- 14 -->
+<section class="slide" data-n="르호보암 = 솔로몬 바로 다음 왕. 하늘에서 불이 내려온 그 집이 멀쩡할 때. '견고하고'(12:1)·'굳게 하지 아니함'(12:14)·'결심'(스 7:10)은 히브리어로 같은 동사 כּוּן (הֵכִין). 같은 동사인 건 사실, 저자가 의도한 말놀이인지는 해석. 근거: 스 8:22 '군대도 없었는데'. <b>➜ &quot;그래서! 하나님이 에스라를 보내신 거야. 집 말고 마음을 세우려고!&quot;</b>">
+  <div class="hd" style="margin-bottom:10px">첫 집이 멀쩡할 때.. 르호보암 왕</div>
+  <div class="cols">
+    <div>
+      <div class="v" style="font-size:23px;padding:12px 18px;margin:8px 0">르호보암의 나라가 <span class="y">견고하고</span> 세력이 강해지매 그가 여호와의 율법을 <span class="r">버리니</span> 온 이스라엘이 본받은지라<span class="ref">역대하 12:1</span></div>
+      <div class="v f" data-s="1" style="font-size:23px;padding:12px 18px;margin:8px 0">르호보암이 악을 행하였으니 이는 그가 여호와를 구하는 <span class="r">마음을 굳게 하지 아니함</span>이었더라<span class="ref">역대하 12:14</span></div>
+    </div>
+    <div class="f" data-s="2">
+      <div class="v" style="font-size:23px;padding:12px 18px;margin:8px 0;border-left-color:var(--sky)">에스라가 여호와의 율법을 연구하여 준행하며 율례와 규례를 이스라엘에게 가르치기로 <span class="y">결심하였었더라</span><span class="ref">에스라 7:10</span></div>
+    </div>
+  </div>
+  <div class="vs f" data-s="3" style="margin-top:4px;font-size:27px">
+    <div class="box">르호보암<br>나라는 굳게 ⭕ · 마음은 <span class="r">✕</span></div>
+    <div style="font-size:30px">vs</div>
+    <div class="box">에스라<br>나라도 군대도 없는데 · 마음은 <span class="y">⭕</span></div>
+  </div>
+  <div class="cap f" data-s="4" style="font-size:30px;margin-top:10px">그래서! 하나님은 <span class="y">마음</span>을 세우려고 에스라를 보내셨어요</div>
+  <div class="foot f" data-s="3">* '견고하고' · '굳게 하지' · '결심' = 히브리어로 같은 말 הֵכִין (세우다·정하다)</div>
+  <div class="no">14</div>
+</section>
+
+<!-- 15 -->
+<section class="slide" data-n="12장 구절 재등장 → 회색 '알리라'에 불이 켜진다(아이들 '아까 그거다!'). 호 2:19-20 결혼 언어: '알다'는 정보가 아니라 부부처럼 아는 것. Steve A: &quot;율법은 꼭 필요해 하나님과 화목하게 지내기 위한 최소한이 서로간의 약속이야. 성혼선언문이지!! 결혼하고 다른 여자를 만나면 되냐? 안되지? 젠슨황 봤지?&quot; <b>➜ &quot;그럼 이스라엘은 이 말씀을 듣고 어떻게 했을까?&quot;</b>">
+  <div class="hd">하나님의 두 번째 진심</div>
+  <div class="v">… 그들 중에 <span class="y">거하려고</span> 그들을 애굽 땅에서 인도하여 낸 줄을 <span class="hl gr" data-lit="1" style="font-size:38px;font-weight:900">알리라</span><span class="ref">출애굽기 29:46</span></div>
+  <div class="cap f zoom" data-s="1">"<span class="y">나를 알아라!</span>"</div>
+  <div class="v f" data-s="2">진실함으로 네게 장가 들리니 <span class="y">네가 여호와를 알리라</span><span class="ref">호세아 2:20</span></div>
+  <div class="cols f" data-s="3" style="align-items:center;margin-top:10px">
+    <div style="flex:0 0 160px" class="emo">💍</div>
+    <div class="bar" style="flex:1">율법은 <span class="y">성혼선언문</span>이지!!<br>결혼하고 다른 여자를 만나면 되냐? <span class="r">안되지?</span></div>
+  </div>
+  <div class="no">15</div>
+</section>
+
+<!-- 16 -->
+<section class="slide" data-n="느 8: 백성이 먼저 율법책을 청함(8:1). 새벽~정오 = 대여섯 시간 ㅋ. 레위 사람들이 뜻을 풀어 줌(8:8). 울음 → 기쁨. ▸ 소품: 이불 텐트·캠핑 의자 실제로 꺼내기 — &quot;온 동네가 다 같이 캠핑했어!&quot; 8:2 '알아들을 만한 모든 사람' = 어린이도. <b>➜ &quot;와.. 이제 진짜 잘 살았겠지? … 근데..&quot;</b>">
+  <div class="hd">말씀을 "들은" 이스라엘 · 느헤미야 8장</div>
+  <div class="bar f show">📜 수문 앞 광장에서 <span class="y">새벽부터 정오까지</span> … 읽으매 뭇 백성이 그 율법책에 귀를 기울였는데 <small style="font-size:20px;color:#ccc">(8:3)</small></div>
+  <div class="bar f" data-s="1">😭 백성이 율법의 말씀을 듣고 <span class="y">다 우는지라</span> <small style="font-size:20px;color:#ccc">(8:9)</small></div>
+  <div class="bar f" data-s="2">😊 <span class="y">여호와로 인하여 기뻐하는 것이 너희의 힘이니라</span> <small style="font-size:20px;color:#ccc">(8:10)</small></div>
+  <div class="cols f" data-s="3" style="align-items:center">
+    <div style="flex:0 0 170px" class="emo">⛺</div>
+    <div class="v" style="flex:1;font-size:27px">사로잡혔다가 돌아온 회중이 다 초막을 짓고 그 안에서 거하니 눈의 아들 여호수아 때로부터 그 날까지 이스라엘 자손이 <span class="y">이같이 행한 일이 없었으므로 이에 크게 기뻐하며</span><span class="ref">느헤미야 8:17</span></div>
+  </div>
+  <div class="no">16</div>
+</section>
+
+<!-- 17 -->
+<section class="slide" data-n="느 13:6 느헤미야가 왕에게 다녀온 사이 다시 무너짐(1문장). Steve C: &quot;우리는 이미 죄인들이라 이 선하신 하나님의 제안에도 내가 복받고 내가 구원 받을 것을 생각하다. 그것도 하나님이 없어도 그렇게 된다고 생각한다.&quot; 613 = 탈무드 막코트 23b(모세 계명 수). 엘리베이터 = 유대교 정통파 안식일 관습. <b>➜ &quot;봐봐. 다 '안 하기'야. 근데 하나님이 바라신 게 안 하기였을까?&quot;</b>">
+  <div class="hd">근데.. 그 뒤로 잘 살았을까?</div>
+  <div class="bar">하나님의 전이 어찌하여 <span class="r">버린 바 되었느냐</span> <small style="font-size:20px;color:#ccc">(느헤미야 13:11)</small></div>
+  <div style="text-align:center;margin:10px 0">
+    <span class="tag f" data-s="1">주일에 <s>짜장면</s></span>
+    <span class="tag f" data-s="1">엘레베이터 버튼 <s>누르기</s></span>
+    <span class="tag f" data-s="2">집에서 걸어다니기</span>
+    <span class="tag f" data-s="2">계명 <span class="y">613</span>개</span>
+    <span class="tag f" data-s="2">규칙 위에 또 규칙…</span>
+  </div>
+  <div class="bar f" data-s="3">이렇게 하면 <span class="y">복받을 것이고 구원 받을 것</span>이라고 생각하는거지!!</div>
+  <div class="v f" data-s="4" style="border-left-color:var(--r)">하나님의 의를 <span class="r" style="font-size:36px;font-weight:900">모르고</span> 자기 의를 세우려고 힘써 하나님의 의에 복종하지 아니하였느니라<span class="ref">로마서 10:3</span></div>
+  <div class="cap f" data-s="4" style="font-size:30px">규칙은 아는데 하나님은 <span class="r">모르는</span> 것 = 율법주의 · 기복주의</div>
+  <div class="no">17</div>
+</section>
+
+<!-- 18 -->
+<section class="slide" data-n="Steve ④: &quot;죄를 짓지 않는것은 아무것도 안하고 있는것이 아니라!! 율법을 적극적으로 지키면서 사는 삶이다.&quot; 손들기 두 번 — 첫 질문에 많이 들면 웃으며 두 번째로. 예수님은 안식일에 선을 '하셨다'(막 3:4, 눅 13:16 — 예전 설교 등 굽은 여인·손 마른 사람 회상). <b>➜ &quot;근데 솔직히.. 우리는 이걸 끝까지 못 해. 그래서 하나님이 어떻게 하셨냐면..&quot;</b>">
+  <div class="hd" style="font-size:36px">죄를 짓지 않는것은 아무것도 안하고 있는것이 아니라!!</div>
+  <div class="cap f" data-s="1">✋ 이번 주에 <span class="y">죄 안 지은</span> 사람 손!!</div>
+  <div class="cap f" data-s="2">🙋 그럼 이번 주에 <span class="y">친구를 먼저 도와준</span> 사람 손!!</div>
+  <div class="v f" data-s="3" style="margin-top:30px">그러므로 사람이 <span class="y">선을 행할 줄 알고도 행하지 아니하면</span> 죄니라<span class="ref">야고보서 4:17</span></div>
+  <div class="no">18</div>
+</section>
+
+<!-- 19 -->
+<section class="slide dark" data-n="절정 — 조명 낮추고 천천히. 요 1:14 '거하시매' 헬라어 ἐσκήνωσεν = '장막을 치다'(성막·초막과 같은 말). ▸ <b>하나님의 1인칭 독백은 Steve가 직접, 화면은 구절만.</b> 요일 4:19 '그가 먼저 우리를 사랑하셨음이라'로 짝사랑 연결 가능. <b>➜ &quot;같이 살고 싶어서, 하나님이 직접 오셨어. 그럼 율법의 진짜 마음은 뭘까?&quot;</b>">
+  <div class="cap" style="margin-top:60px;color:#aaa;font-size:36px">아무리 다시 성전을 세우고 성벽을 세워도.. 하나님의 짝사랑</div>
+  <div class="v f" data-s="1" style="margin-top:40px">말씀이 육신이 되어 우리 가운데 <span class="y">거하시매</span> 우리가 그의 영광을 보니 아버지의 독생자의 영광이요 은혜와 진리가 충만하더라<span class="ref">요한복음 1:14 · 진심 ① 같이 살고 싶어서 → 직접 오셨다</span></div>
+  <div class="v f" data-s="2">본래 하나님을 본 사람이 없으되 아버지 품 속에 있는 독생하신 하나님이 <span class="y">나타내셨느니라</span><span class="ref">요한복음 1:18 · 진심 ② 나를 알아라 → 직접 보여 주셨다</span></div>
+  <div class="no">19</div>
+</section>
+
+<!-- 20 -->
+<section class="slide" data-n="Steve ⑦ &quot;예수님은 이 율법의 완성을 뭐라고 했는지 알아? 하나님을 사랑하고! 이웃을 사랑하는 거라고 하셨어!!&quot; 요 14:23은 순서가 핵심: 사랑 → 지킴 → 함께 사심. ▸ 도입의 집 모형 다시 들기. <b>➜ &quot;그럼 우리가 할일이 뭐지???&quot;</b>">
+  <div class="hd">율법의 진짜 마음 = 사랑</div>
+  <div class="cols">
+    <div class="v f show" style="font-size:26px">네 마음을 다하고 목숨을 다하고 뜻을 다하여 <span class="y">주 너의 하나님을 사랑하라</span><span class="ref">마태복음 22:37</span></div>
+    <div class="v f" data-s="1" style="font-size:26px">둘째도 그와 같으니 <span class="y">네 이웃을 네 자신 같이 사랑하라</span><span class="ref">마태복음 22:39</span></div>
+  </div>
+  <div class="bar f" data-s="1" style="text-align:center">이 두 계명이 <span class="y">온 율법과 선지자의 강령</span>이니라 <small style="font-size:20px;color:#ccc">(22:40)</small></div>
+  <div class="v f" data-s="2">사람이 나를 사랑하면 내 말을 지키리니 내 아버지께서 그를 사랑하실 것이요 우리가 그에게 가서 <span class="y">거처를 그와 함께</span> 하리라<span class="ref">요한복음 14:23</span></div>
+  <div class="vs f" data-s="3"><span class="gr"><s>지켜서 복 받기</s></span> <span>→</span> <span>❤️ 사랑해서 지키기</span> <span>→</span> <span class="y">🏠 하나님이 같이 사신다</span></div>
+  <div class="no">20</div>
+</section>
+
+<!-- 21 -->
+<section class="slide" data-n="7:10으로 되돌아감. 세 동사 중 Steve가 1~2개 골라 강조. 예화: 자전거 설명서(알기 → 하기) / 다친 친구 옆에서 혼자 놀지 않기. 축복은 Steve ④ 끝 문장 그대로. 기도(함께 살고 싶다 · 나를 알아라 · 사랑으로) → 고정 마무리 → 주기도문.">
+  <div class="hd">그럼 우리가 할일이 뭐지???</div>
+  <div class="v" style="position:relative">에스라가 여호와의 율법을 <span class="y">연구하여</span> <span class="y">준행하며</span> 율례와 규례를 이스라엘에게 <span class="y">가르치기로</span> 결심하였었더라<span class="ref">에스라 7:10</span>
+    <div class="stamp f" data-s="2" style="right:30px;bottom:-46px;font-size:54px">마음을 정하자!</div></div>
+  <div class="btns f" data-s="1">
+    <div class="btn3">📖 연구<small>하나님을 알기</small></div>
+    <div class="btn3">❤️ 준행<small>사랑하며 살기</small></div>
+    <div class="btn3">🗣️ 가르치기<small>친구에게 전하기</small></div>
+  </div>
+  <div class="cols f" data-s="3" style="align-items:center;margin-top:6px"><div style="flex:0 0 110px;font-size:80px">🚲</div><div class="bar" style="flex:1">설명서만 읽어서는 자전거 못 타요!</div></div>
+  <div class="bar f" data-s="4" style="font-size:23px;margin-bottom:0">우리 어린이지구 목자님과 어린이 친구들 모두 나는 죄를 안지었는데요? 에서 그치는 것이 아니라 <span class="y">율법을 적극적으로 살아내는 사람들</span>이 되기를 축복합니다!</div>
+  <div class="foot">성경 본문: 성경전서 개역개정판 © 대한성서공회</div>
+  <div class="no">21</div>
+</section>
+
+</div>
+<div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0,k=0;
+const steps=s=>Math.max(0,...[...s.querySelectorAll('[data-s],[data-lit]')].map(e=>+(e.dataset.s||e.dataset.lit)));
+function render(){S.forEach((s,j)=>s.classList.toggle('on',j===i));const s=S[i];
+ s.querySelectorAll('[data-s]').forEach(e=>e.classList.toggle('show',+e.dataset.s<=k));
+ s.querySelectorAll('[data-lit]').forEach(e=>{const on=+e.dataset.lit<=k;e.classList.toggle('lit',on);if(on)e.classList.remove('gr');else if(e.closest('section')===S[4])e.classList.add('gr')});
+ document.getElementById('notes').innerHTML='<b>'+(11+i)+'장 ('+k+'/'+steps(s)+')</b> · '+s.dataset.n;}
+function next(){if(k<steps(S[i]))k++;else if(i<S.length-1){i++;k=0}render()}
+function prev(){if(k>0)k--;else if(i>0){i--;k=steps(S[i])}render()}
+function fit(){const st=document.getElementById('stage');st.style.transform=`translate(-50%,-50%) scale(${Math.min(innerWidth/1280,innerHeight/720)})`}
+addEventListener('resize',fit);fit();
+addEventListener('keydown',e=>{if(['ArrowRight',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}});
+document.getElementById('stage').addEventListener('click',next);
+const m=location.hash.match(/s=(\d+)(?:&k=(\d+))?/);if(m){i=Math.min(S.length-1,Math.max(0,+m[1]-11));k=+(m[2]||0)}
+render();
+</script></body></html>
