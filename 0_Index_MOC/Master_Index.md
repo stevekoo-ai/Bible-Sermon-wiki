@@ -213,6 +213,7 @@ Automated index of all research, sermons, and shared assets.
 ### 심화반_6기
 
 - [[2025-12-20_로마서3장_내가쌓은바벨탑과연필깎이]]
+- [[2026-11-14_감사캠페인_소감문]]
 
 
 ### 히엘_1-4목장
