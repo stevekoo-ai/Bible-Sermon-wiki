@@ -25,6 +25,7 @@ EZRA_FILES = [
     "2_Sermon_Outlines/2026_Preaching/2026-11-15_에스라_말씀을준비하고가르치는사람_script.md",
     "2_Sermon_Outlines/2026_Preaching/2026-11-15_에스라_말씀을준비하고가르치는사람_script_R2.md",
     "2_Sermon_Outlines/2026_Preaching/2026-11-15_에스라_R3흐름_하나님의두진심.md",
+    "2_Sermon_Outlines/2026_Preaching/2026-11-15_에스라_말씀을준비하고가르치는사람_script_R3.md",
     # 정식 주해
     "1_Bible_Exegesis/1_Old_Testament/에스라1_3-6장_성전재건과칠십년예언.md",
     "1_Bible_Exegesis/1_Old_Testament/에스라7장6-10절_에스라의결심과선한손.md",

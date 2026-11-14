@@ -199,6 +199,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-11-15_에스라_말씀을준비하고가르치는사람]]
 - [[2026-11-15_에스라_말씀을준비하고가르치는사람_script]]
 - [[2026-11-15_에스라_말씀을준비하고가르치는사람_script_R2]]
+- [[2026-11-15_에스라_말씀을준비하고가르치는사람_script_R3]]
 - [[TBD_Steve_설교_시글락회복과나의무대]]
 - [[TBD_Steve_설교_시글락회복과나의무대_script]]
 - [[TBD_Steve_설교_애쓰지않아도돼요이미다왔어요]]
