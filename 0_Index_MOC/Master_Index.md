@@ -71,6 +71,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-11-14_율법주의란_하나님없이복과구원을얻으려는것]]
 - [[2026-11-14_하나님이먼저정하신규칙_성령으로즐거이따름]]
 - [[2026-11-21_성경속대표기도_공동체를대신한기도]]
+- [[2026-11-21_성경속대표기도_공동체를대신한기도_R2]]
 
 
 ## Old Testament Exegesis
