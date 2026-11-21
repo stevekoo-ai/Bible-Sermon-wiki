@@ -77,6 +77,7 @@ Automated index of all research, sermons, and shared assets.
 - [[2026-11-21_성경속대표기도_공동체를대신한기도_R5]]
 - [[2026-11-21_성경속대표기도_공동체를대신한기도_R6]]
 - [[2026-11-21_성경속대표기도_공동체를대신한기도_R7]]
+- [[2026-11-21_성경속대표기도_공동체를대신한기도_R8]]
 
 
 ## Old Testament Exegesis
